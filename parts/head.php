@@ -982,11 +982,12 @@ nav { display: flex; align-items: center; gap: 4px; }
 .item-card-text { font-size: 13px; color: var(--gray-500); line-height: 1.7; }
 
 /* ─── ACCESS ─── */
-.access-grid {
+.access-block {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
   margin-bottom: 48px;
+  align-items: start;
 }
 .access-card {
   padding: 28px;
@@ -1008,7 +1009,7 @@ nav { display: flex; align-items: center; gap: 4px; }
 .access-card address strong { color: var(--navy); }
 .map-container {
   width: 100%;
-  height: 400px;
+  height: 300px;
   border-radius: 2px;
   overflow: hidden;
 }
@@ -1881,6 +1882,10 @@ body.inner-page .page.active .content-area {
   }
   .parallax-content { padding: 56px 20px; }
   .parallax-nums { gap: 16px; flex-direction: column; align-items: center; }
+  .officers-table td { padding: 14px 10px; font-size: 14px; }
+  .officers-table td:first-child { width: 140px; }
+  .access-block { grid-template-columns: 1fr; }
+  .map-container { height: 250px; }
 }
 
 /* ─── CONTACT FORM ─── */
