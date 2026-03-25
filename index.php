@@ -39,7 +39,7 @@ include 'parts/head.php';
         <a class="hero-news-text" href="https://narita-kizai.com/2026/03/01/benkan/" target="_blank">
           現在、正社員を募集中です
         </a>
-        <a class="hero-news-more" href="#" onclick="document.querySelector('.news-section').scrollIntoView({behavior:'smooth'});return false;">MORE</a>
+        <a class="hero-news-more" href="/news.php">MORE</a>
       </div>
     </div>
   </div>
@@ -156,28 +156,31 @@ include 'parts/head.php';
         <span class="section-title-ja">新着情報</span>
       </div>
       <div class="news-grid">
+        <a class="news-card" href="https://www.baitoru.com/cjlist500896/" target="_blank" rel="noopener">
+          <img class="news-card-img" src="/bitle.jpg" alt="バイトル" style="object-fit:contain;background:#f5f5f5;">
+          <div class="news-card-body">
+            <div class="news-meta">
+              <span class="news-date">2026年3月25日</span>
+              <span class="news-cat">採用情報</span>
+            </div>
+            <div class="news-title">バイトルにてアルバイトを募集しています</div>
+            <div class="news-excerpt">本店・富里営業部でアルバイトスタッフを募集中です。バイトルからご応募ください。</div>
+          </div>
+        </a>
         <a class="news-card" href="/recruit.php">
           <img class="news-card-img" src="/office3.jpg" alt="">
           <div class="news-card-body">
             <div class="news-meta">
-              <span class="news-date">2026年3月1日</span>
+              <span class="news-date">2026年2月19日</span>
               <span class="news-cat">ご案内</span>
             </div>
             <div class="news-title">現在、正社員を募集中です</div>
             <div class="news-excerpt">ただいま本店・富里営業部で正社員（営業職・配送職）を募集しております。</div>
           </div>
         </a>
-        <a class="news-card" href="https://narita-kizai.com/2026/03/01/benkan/" target="_blank">
-          <img class="news-card-img" src="/boss_benkan.jpg" alt="">
-          <div class="news-card-body">
-            <div class="news-meta">
-              <span class="news-date">2026年3月1日</span>
-              <span class="news-cat">ご案内</span>
-            </div>
-            <div class="news-title">ステンレス配管のベンカン様に紹介していただきました</div>
-            <div class="news-excerpt">ベンカン様のホームページの「皆様の声」で当社を紹介していただきました。</div>
-          </div>
-        </a>
+      </div>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="/news.php" style="display:inline-block; padding:14px 48px; border:1px solid var(--accent); color:var(--accent); font-family:var(--display); font-size:13px; letter-spacing:0.2em; text-decoration:none; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--accent)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--accent)'">ニュース一覧を見る</a>
       </div>
     </div>
   </div>
@@ -189,7 +192,7 @@ include 'parts/head.php';
         <div class="followus-label">SNS</div>
         <div class="followus-title">FOLLOW<br>US</div>
         <p class="followus-desc">
-          代表・中嶋が毎日、現場の声や商品情報、業界トピックスを発信しています。日々の活動をぜひフォローしてご覧ください。
+          現場の声や商品情報、業界トピックスを不定期で発信しています。日々の活動をぜひフォローしてご覧ください。
         </p>
         <a class="followus-btn" href="https://twitter.com/narita_kizai" target="_blank" rel="noopener">
           @narita_kizai をフォロー

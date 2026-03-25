@@ -31,6 +31,7 @@
         <h4>MENU</h4>
         <ul>
           <li><a href="/products.php">取扱い商品</a></li>
+          <li><a href="/news.php">ニュース</a></li>
           <li><a href="/recruit.php">採用情報</a></li>
           <li><a href="https://www.youtube.com/channel/UCmmnGI7cfG_4hMycCaGSMmw" target="_blank">YouTube</a></li>
           <li><a href="https://twitter.com/narita_kizai" target="_blank">Twitter / X</a></li>
