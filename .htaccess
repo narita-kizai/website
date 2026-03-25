@@ -1,6 +1,7 @@
 # HTTPS強制リダイレクト
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteCond %{HTTP_HOST} !^localhost [NC]
     RewriteCond %{HTTPS} off
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>

@@ -24,7 +24,7 @@ include 'parts/head.php';
       <!-- 左: 既存コンテンツ -->
       <div>
         <div class="president-block">
-          <img class="president-img" src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/boss.jpg" alt="代表取締役社長 中嶋哲寛">
+          <img class="president-img" src="/boss.jpg" alt="代表取締役社長 中嶋哲寛">
           <div>
             <p class="president-text">
               このたびは成田機材株式会社ホームページをご覧いただき、誠にありがとうございます。<br><br>
