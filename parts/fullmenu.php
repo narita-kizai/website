@@ -57,10 +57,15 @@
       <div class="fullmenu-info">
         <div class="fullmenu-info-label">CONTACT</div>
         <address>
+          <strong>本店・富里営業部</strong><br>
           〒286-0201 千葉県富里市七栄676-1<br>
-          本店・富里営業部 <a href="tel:0476930635">0476-93-0635</a><br>
-          茂原営業所 <a href="tel:0475250812">0475-25-0812</a><br>
-          FAX: 0476-93-2862
+          TEL: <a href="tel:0476930635">0476-93-0635</a><br>
+          FAX: 0476-93-7460<br>
+          <br>
+          <strong>茂原営業所</strong><br>
+          〒297-0017 千葉県茂原市東郷１０１１－１<br>
+          TEL: <a href="tel:0475250812">0475-25-0812</a><br>
+          FAX: 0475-24-1315
         </address>
         <div class="fullmenu-sns">
           <a href="https://twitter.com/narita_kizai" target="_blank" rel="noopener" title="X (Twitter)">𝕏</a>
