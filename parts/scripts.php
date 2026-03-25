@@ -11,8 +11,17 @@
     done = true;
     var wait = Math.max(0, MIN_SHOW - (Date.now() - START));
     setTimeout(function() {
-      loader.classList.add('fade-out');
-      setTimeout(function() { loader.style.display = 'none'; }, 850);
+      // バーを素早く100%まで完成させてからフェードアウト
+      var bar = loader.querySelector('.loader-bar');
+      if (bar) {
+        bar.style.animation = 'none';
+        bar.style.transition = 'width 0.3s ease';
+        bar.style.width = '100%';
+      }
+      setTimeout(function() {
+        loader.classList.add('fade-out');
+        setTimeout(function() { loader.style.display = 'none'; }, 850);
+      }, 350);
     }, wait);
   }
   // PC: window.load（動画含む全リソース読込後）
