@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- 左耳（大きな丸耳） -->
+  <circle cx="8.5" cy="8" r="7.5" fill="#b07838"/>
+  <circle cx="8.5" cy="8" r="5" fill="#e8b090"/>
+  <!-- 右耳 -->
+  <circle cx="23.5" cy="8" r="7.5" fill="#b07838"/>
+  <circle cx="23.5" cy="8" r="5" fill="#e8b090"/>
+  <!-- 頭 -->
+  <ellipse cx="16" cy="21" rx="12" ry="10.5" fill="#c08040"/>
+  <ellipse cx="16" cy="21" rx="12" ry="10.5" fill="none" stroke="#986030" stroke-width="0.5"/>
+  <!-- 左目 -->
+  <circle cx="11.5" cy="19" r="2.5" fill="#1a1008"/>
+  <circle cx="12.4" cy="17.8" r="0.8" fill="#fff"/>
+  <!-- 右目 -->
+  <circle cx="20.5" cy="19" r="2.5" fill="#1a1008"/>
+  <circle cx="21.4" cy="17.8" r="0.8" fill="#fff"/>
+  <!-- 鼻 -->
+  <ellipse cx="16" cy="23" rx="1.5" ry="1.1" fill="#c04060"/>
+  <!-- 口 -->
+  <path d="M14.2,24.1 Q16,26 17.8,24.1" fill="none" stroke="#902040" stroke-width="0.9" stroke-linecap="round"/>
+  <!-- ひげ 左 -->
+  <line x1="1"  y1="21.5" x2="11" y2="22.5" stroke="#906028" stroke-width="0.65" opacity="0.7"/>
+  <line x1="1"  y1="24"   x2="11" y2="23.5" stroke="#906028" stroke-width="0.65" opacity="0.7"/>
+  <!-- ひげ 右 -->
+  <line x1="21" y1="22.5" x2="31" y2="21.5" stroke="#906028" stroke-width="0.65" opacity="0.7"/>
+  <line x1="21" y1="23.5" x2="31" y2="24"   stroke="#906028" stroke-width="0.65" opacity="0.7"/>
+</svg>

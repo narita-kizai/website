@@ -1,0 +1,2903 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成田機材株式会社 – Piping & Housing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a2744;
+  --navy-light: #243460;
+  --accent: #c8a95a;
+  --accent-light: #e8c97a;
+  --gray-100: #f7f7f5;
+  --gray-200: #eeede9;
+  --gray-500: #888880;
+  --gray-700: #444440;
+  --white: #ffffff;
+  --text: #2a2a28;
+  --serif: 'Noto Serif JP', serif;
+  --sans: 'Noto Sans JP', sans-serif;
+  --display: 'Bebas Neue', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.8;
+  font-size: 15px;
+  cursor: url('mouse-follower.svg') 16 21, auto;
+}
+
+/* ─── TOPBAR ─── */
+.topbar {
+  display: none;
+}
+.topbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  align-items: center;
+}
+.topbar a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.topbar a:hover { color: var(--accent); }
+
+/* ─── HEADER ─── */
+header {
+  background: transparent;
+  border-bottom: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background 0.4s, box-shadow 0.4s, border-bottom 0.4s;
+}
+header.scrolled {
+  background: var(--white);
+  border-bottom: 3px solid var(--navy);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* ヘッダーが透明の時はロゴ・ナビを白色に */
+header:not(.scrolled) .logo-main { color: var(--white); }
+header:not(.scrolled) .logo-sub { color: var(--accent-light); }
+header:not(.scrolled) .nav-link { color: rgba(255,255,255,0.88); }
+header:not(.scrolled) .nav-link:hover,
+header:not(.scrolled) .nav-link.active {
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+}
+header:not(.scrolled) .hamburger span { background: var(--white); }
+/* コンテンツページではヘッダーを常にsolid */
+body.inner-page header {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(26,39,68,0.12);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+body.inner-page header .logo-main { color: var(--navy); }
+body.inner-page header .logo-sub { color: var(--accent); }
+body.inner-page header .nav-link { color: var(--navy); }
+body.inner-page header .nav-link:hover,
+body.inner-page header .nav-link.active { color: var(--white); }
+body.inner-page header .hamburger span { background: var(--navy); }
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 88px;
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+}
+.logo-img {
+  height: 64px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+.logo-main {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+.logo-sub {
+  font-family: var(--display);
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+}
+
+/* ─── NAV ─── */
+nav { display: flex; align-items: center; gap: 4px; }
+.nav-item {
+  position: relative;
+}
+.nav-link {
+  display: block;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  border-radius: 3px;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-link:hover, .nav-link.active {
+  background: var(--navy);
+  color: var(--white);
+}
+.nav-link.has-dropdown::after {
+  content: ' ▾';
+  font-size: 10px;
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--navy);
+  min-width: 160px;
+  border-top: 2px solid var(--accent);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+.nav-item:hover .dropdown { display: block; }
+.dropdown a {
+  display: block;
+  padding: 10px 16px;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.15s, color 0.15s;
+}
+.dropdown a:hover { background: var(--navy-light); color: var(--accent-light); }
+
+/* ─── HAMBURGER ─── */
+.hamburger { display: flex; flex-direction: column; gap: 6px; cursor: pointer; padding: 8px; z-index: 2100; position: relative; }
+.hamburger span { display: block; width: 26px; height: 1.5px; background: var(--navy); transition: transform 0.45s cubic-bezier(0.77,0,0.175,1), opacity 0.3s, background 0.3s; }
+.hamburger.menu-open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); background: var(--white); }
+.hamburger.menu-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.menu-open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); background: var(--white); }
+.mobile-nav { display: none; }
+
+/* ─── FULL SCREEN MENU ─── */
+.fullmenu {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: #0b1220;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.75s cubic-bezier(0.77, 0, 0.175, 1);
+  overflow-y: auto;
+  pointer-events: none;
+}
+.fullmenu.open {
+  clip-path: inset(0 0 0% 0);
+  pointer-events: auto;
+}
+.fullmenu-inner {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 56px;
+}
+.fullmenu-header {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.fullmenu-logo .logo-main { color: var(--white); font-family: var(--serif); }
+.fullmenu-logo .logo-sub { color: var(--accent-light); }
+.fullmenu-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 64px;
+  align-items: center;
+  padding: 48px 0;
+}
+.fullmenu-nav ul { list-style: none; }
+.fullmenu-nav li {
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
+}
+.fullmenu.open .fullmenu-nav li { opacity: 1; transform: none; }
+.fullmenu.open .fullmenu-nav li:nth-child(1) { transition-delay: 0.20s; }
+.fullmenu.open .fullmenu-nav li:nth-child(2) { transition-delay: 0.30s; }
+.fullmenu.open .fullmenu-nav li:nth-child(3) { transition-delay: 0.40s; }
+.fullmenu.open .fullmenu-nav li:nth-child(4) { transition-delay: 0.50s; }
+.fullmenu-nav a {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  text-decoration: none;
+  color: var(--white);
+  transition: color 0.2s, padding-left 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.fullmenu-nav a:hover { color: var(--accent); padding-left: 14px; }
+.fn-num {
+  font-family: var(--display);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  opacity: 0.8;
+  min-width: 28px;
+}
+.fn-en {
+  font-family: var(--display);
+  font-size: clamp(44px, 6vw, 76px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.fn-ja {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: rgba(255,255,255,0.40);
+  letter-spacing: 0.15em;
+}
+.fullmenu-info {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s, transform 0.6s;
+  transition-delay: 0.55s;
+}
+.fullmenu.open .fullmenu-info { opacity: 1; transform: none; }
+.fullmenu-info-label {
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.fullmenu-info-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+.fullmenu-info address {
+  font-style: normal;
+  color: rgba(255,255,255,0.45);
+  font-size: 12px;
+  line-height: 2.1;
+  margin-bottom: 28px;
+}
+.fullmenu-info address a {
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.fullmenu-info address a:hover { color: var(--accent-light); }
+.fullmenu-sns {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.fullmenu-sns a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-size: 14px;
+  font-family: var(--display);
+  letter-spacing: 0;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.fullmenu-sns a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(200,169,90,0.08);
+}
+.fullmenu-close {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.20);
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: border-color 0.25s, background 0.25s;
+}
+.fullmenu-close::before,
+.fullmenu-close::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 20px; height: 1.5px;
+  background: rgba(255,255,255,0.75);
+  transition: background 0.25s;
+}
+.fullmenu-close::before { transform: translate(-50%,-50%) rotate(45deg); }
+.fullmenu-close::after  { transform: translate(-50%,-50%) rotate(-45deg); }
+.fullmenu-close:hover {
+  border-color: var(--accent);
+  background: rgba(200,169,90,0.10);
+}
+.fullmenu-close:hover::before,
+.fullmenu-close:hover::after { background: var(--accent); }
+.fullmenu-footer {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 24px;
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.2);
+}
+@media (max-width: 768px) {
+  .fullmenu-inner { padding: 0 24px 48px; }
+  .fullmenu-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 16px 0;
+  }
+  .fullmenu-nav { width: 100%; }
+  .fn-en { font-size: 38px; }
+  .fullmenu-nav a { padding: 13px 0; gap: 12px; }
+  .fullmenu-info { width: 100%; padding-bottom: 16px; }
+}
+
+/* ─── PAGE SECTIONS ─── */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ─── FULLSCREEN VIDEO HERO ─── */
+.hero-video {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 560px;
+  overflow: hidden;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-video video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(10,20,50,0.72) 0%,
+    rgba(10,20,50,0.38) 60%,
+    rgba(10,20,50,0.55) 100%
+  );
+}
+.hero-video-content {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+  text-align: left;
+  max-width: 1100px;
+  width: 100%;
+  padding: 0 48px;
+  padding-top: 80px; /* ヘッダー透明分 */
+}
+.hero-video-catch {
+  font-family: var(--display);
+  font-size: clamp(13px, 1.5vw, 15px);
+  letter-spacing: 0.45em;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-video-catch::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero-video-title {
+  font-family: var(--serif);
+  font-size: clamp(44px, 7.5vw, 100px);
+  font-weight: 700;
+  line-height: 1.15;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+.hero-video-sub {
+  font-size: clamp(14px, 1.5vw, 16px);
+  color: rgba(255,255,255,0.75);
+  line-height: 1.9;
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+.hero-video-scroll {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.5);
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  z-index: 2;
+  animation: scrollBounce 2s infinite;
+}
+.hero-video-scroll::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ─── HERO (旧スライダー非表示) ─── */
+.hero { display: none; }
+
+/* ─── FEATURES ─── */
+.features {
+  background: var(--navy);
+  padding: 40px 24px;
+}
+.features-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2px;
+}
+.feature-card {
+  background: var(--navy-light);
+  padding: 32px 28px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.feature-card:hover { background: #2d4080; }
+.feature-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+.feature-card h3 {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--accent-light);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+.feature-card p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+}
+
+/* ─── NEWS ─── */
+.news-section {
+  padding: 72px 24px 80px;
+  background: #0d1528;
+}
+/* ダーク背景上のセクションヘッダー */
+.news-section .section-header {
+  border-bottom-color: rgba(255,255,255,0.10);
+}
+.news-section .section-title-en {
+  color: var(--white);
+}
+.news-section .section-title-ja {
+  color: rgba(255,255,255,0.45);
+}
+.news-section .section-title-ja::before {
+  background: var(--accent);
+}
+.news-section .section-bg-text {
+  color: rgba(255,255,255,0.04);
+}
+/* ダーク背景上のカード */
+.news-card {
+  background: var(--white);
+  border-color: rgba(255,255,255,0.08);
+  transition: background 0.3s, transform 0.35s ease, box-shadow 0.35s ease;
+}
+.news-card:hover {
+  background: var(--navy);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.40);
+  transform: translateY(-6px);
+}
+.news-card .news-title {
+  color: var(--text);
+  transition: color 0.3s;
+}
+.news-card:hover .news-title {
+  color: var(--white);
+}
+.news-card .news-excerpt {
+  color: var(--gray-500);
+  transition: color 0.3s;
+}
+.news-card:hover .news-excerpt {
+  color: rgba(255,255,255,0.60);
+}
+.news-card .news-date {
+  color: var(--gray-500);
+  transition: color 0.3s;
+}
+.news-card:hover .news-date {
+  color: rgba(255,255,255,0.50);
+}
+.news-card .news-cat {
+  background: var(--navy);
+  color: var(--white);
+  transition: background 0.3s, color 0.3s;
+}
+.news-card:hover .news-cat {
+  background: var(--accent);
+  color: var(--navy);
+}
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid var(--navy);
+  padding-bottom: 16px;
+}
+.section-title-en {
+  font-family: var(--display);
+  font-size: clamp(52px, 8vw, 96px);
+  color: var(--navy);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  display: block;
+}
+.section-title-ja {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--gray-500);
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+.section-title-ja::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.news-list { display: flex; flex-direction: column; gap: 0; }
+.news-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--gray-200);
+  text-decoration: none;
+  color: var(--text);
+  transition: background 0.2s;
+}
+.news-item:hover { background: var(--gray-200); margin: 0 -16px; padding-left: 16px; padding-right: 16px; }
+.news-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.news-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
+.news-date { font-size: 12px; color: var(--gray-500); }
+.news-cat {
+  font-size: 11px;
+  background: var(--navy);
+  color: var(--white);
+  padding: 2px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+.news-title {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.news-excerpt { font-size: 13px; color: var(--gray-500); margin-top: 6px; }
+
+/* ─── CONTENT PAGES ─── */
+.page-hero {
+  background: var(--navy);
+  padding: 56px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  width: 320px;
+  height: 320px;
+  border: 40px solid rgba(200,169,90,0.12);
+  border-radius: 50%;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  right: 40px;
+  bottom: -40px;
+  width: 160px;
+  height: 160px;
+  border: 24px solid rgba(200,169,90,0.08);
+  border-radius: 50%;
+}
+.page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+.breadcrumb {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 16px;
+}
+.breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent-light); }
+.breadcrumb span { color: rgba(255,255,255,0.3); }
+.page-title {
+  font-family: var(--serif);
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.05em;
+}
+.page-title-en {
+  font-family: var(--display);
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.3em;
+  margin-top: 8px;
+}
+
+.content-area {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+/* ─── DATA TABLE ─── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+.data-table th, .data-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--gray-200);
+  vertical-align: top;
+  line-height: 1.8;
+  font-size: 14px;
+}
+.data-table th {
+  width: 200px;
+  font-weight: 700;
+  color: var(--navy);
+  font-family: var(--serif);
+  background: var(--gray-100);
+  white-space: nowrap;
+}
+.data-table td { color: var(--gray-700); }
+.data-table tr:hover td { background: var(--gray-100); }
+
+/* ─── SECTION BLOCK ─── */
+.content-block {
+  margin-bottom: 56px;
+}
+.content-block-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  border-left: 4px solid var(--accent);
+  padding-left: 16px;
+  margin-bottom: 24px;
+}
+
+/* ─── PHILOSOPHY ─── */
+.philosophy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.philosophy-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px 24px;
+  background: var(--gray-100);
+  border-left: 3px solid var(--accent);
+}
+.philosophy-num {
+  font-family: var(--display);
+  font-size: 28px;
+  color: var(--accent);
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.philosophy-text {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.9;
+}
+
+/* ─── PRESIDENT ─── */
+.president-block {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.president-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 8px 8px 0 var(--gray-200);
+}
+.president-text {
+  font-size: 15px;
+  line-height: 2;
+  color: var(--gray-700);
+}
+.president-name {
+  margin-top: 32px;
+  text-align: right;
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--navy);
+  font-weight: 700;
+}
+.president-name span {
+  display: block;
+  font-size: 12px;
+  color: var(--gray-500);
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+/* ─── HISTORY ─── */
+.history-img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  margin-bottom: 40px;
+  border-radius: 2px;
+}
+.timeline {
+  position: relative;
+  padding-left: 120px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 88px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gray-200);
+}
+.timeline-item {
+  position: relative;
+  padding-bottom: 32px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.timeline-year {
+  position: absolute;
+  left: -120px;
+  top: 4px;
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: right;
+  width: 80px;
+  line-height: 1.4;
+}
+.timeline-content {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.8;
+}
+
+/* ─── OFFICERS ─── */
+.officers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.officers-table tr {
+  border-bottom: 1px solid var(--gray-200);
+  transition: background 0.15s;
+}
+.officers-table tr:hover { background: var(--gray-100); }
+.officers-table td {
+  padding: 20px 24px;
+  font-size: 15px;
+}
+.officers-table td:first-child {
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--navy);
+  width: 220px;
+  white-space: nowrap;
+}
+.officers-table td:last-child {
+  color: var(--gray-700);
+  letter-spacing: 0.05em;
+}
+
+/* ─── ASSOCIATE ─── */
+.associate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.associate-card {
+  padding: 24px;
+  border: 1px solid var(--gray-200);
+  border-top: 3px solid var(--navy);
+  border-radius: 2px;
+}
+.associate-card h4 {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.associate-card a {
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+}
+.associate-card a:hover { color: var(--accent); }
+.associate-card table { width: 100%; }
+.associate-card table td {
+  padding: 4px 0;
+  font-size: 13px;
+  color: var(--gray-700);
+  vertical-align: top;
+}
+.associate-card table td:first-child {
+  font-weight: 700;
+  color: var(--navy);
+  width: 80px;
+  white-space: nowrap;
+}
+
+.related-table { width: 100%; border-collapse: collapse; }
+.related-table tr { border-bottom: 1px solid var(--gray-200); }
+.related-table td { padding: 14px 16px; font-size: 14px; color: var(--gray-700); }
+.related-table td a { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--accent); }
+.related-table td a:hover { color: var(--accent); }
+
+/* ─── ITEMS ─── */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+.item-card {
+  border: 1px solid var(--gray-200);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.item-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.item-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.item-card-body { padding: 20px; }
+.item-card-title {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+}
+.item-card-text { font-size: 13px; color: var(--gray-500); line-height: 1.7; }
+
+/* ─── ACCESS ─── */
+.access-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-bottom: 48px;
+}
+.access-card {
+  padding: 28px;
+  background: var(--gray-100);
+  border-top: 3px solid var(--navy);
+}
+.access-card h3 {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.access-card address {
+  font-style: normal;
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 2;
+}
+.access-card address strong { color: var(--navy); }
+.map-container {
+  width: 100%;
+  height: 400px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.map-container iframe { width: 100%; height: 100%; border: 0; }
+
+/* ─── RECRUIT ─── */
+.recruit-hero-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 40px;
+  border-radius: 2px;
+}
+.recruit-block {
+  padding: 40px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 2px;
+  margin-bottom: 32px;
+}
+.recruit-block h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--accent-light);
+  margin-bottom: 20px;
+}
+.recruit-block p {
+  font-size: 14px;
+  line-height: 2;
+  color: rgba(255,255,255,0.85);
+}
+.recruit-nums {
+  display: flex;
+  gap: 24px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.recruit-num-item {
+  background: rgba(255,255,255,0.08);
+  padding: 14px 20px;
+  border-radius: 2px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+}
+.recruit-num-item strong {
+  display: block;
+  font-size: 11px;
+  color: var(--accent);
+  margin-bottom: 4px;
+  letter-spacing: 0.1em;
+}
+.hw-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: var(--accent);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s;
+  letter-spacing: 0.05em;
+}
+.hw-link:hover { background: var(--accent-light); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  padding: 56px 24px 24px;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 24px;
+}
+.footer-brand .logo-main { color: var(--white); font-size: 20px; }
+.footer-brand p { font-size: 13px; margin-top: 12px; line-height: 1.9; }
+.footer-brand address {
+  font-style: normal;
+  font-size: 13px;
+  margin-top: 16px;
+  line-height: 2;
+}
+.footer-brand a { color: var(--accent-light); text-decoration: none; }
+.footer-nav h4 {
+  font-family: var(--display);
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  margin-bottom: 16px;
+}
+.footer-nav ul { list-style: none; }
+.footer-nav li { margin-bottom: 8px; }
+.footer-nav a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+.footer-nav a:hover { color: var(--accent-light); }
+.footer-copy {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ─── PARALLAX ─── */
+.parallax-section {
+  position: relative;
+  height: 420px;
+  background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.parallax-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(10,20,50,0.72) 0%, rgba(10,20,50,0.48) 100%);
+}
+.parallax-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--white);
+  padding: 0 24px;
+}
+.parallax-catch {
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.5em;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.parallax-catch::before,
+.parallax-catch::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+.parallax-title {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3.5vw, 40px);
+  font-weight: 700;
+  line-height: 1.7;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  margin-bottom: 32px;
+}
+.parallax-nums {
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.parallax-num {
+  text-align: center;
+}
+.parallax-num-value {
+  font-family: var(--display);
+  font-size: clamp(40px, 5vw, 64px);
+  color: var(--accent-light);
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+.parallax-num-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.15em;
+  margin-top: 8px;
+}
+
+/* ─── HERO NEWS BAR ─── */
+.hero-news-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.hero-news-bar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 52px;
+}
+.hero-news-label {
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  color: #0d1528;
+  background: var(--accent);
+  padding: 5px 14px;
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+}
+.hero-news-date {
+  font-size: 12px;
+  color: rgba(255,255,255,0.50);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+.hero-news-text {
+  font-size: 14px;
+  color: rgba(255,255,255,0.88);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.hero-news-text:hover { color: var(--accent); }
+.hero-news-more {
+  flex-shrink: 0;
+  margin-left: 20px;
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+}
+.hero-news-more:hover { gap: 10px; }
+.hero-news-more::after {
+  content: '→';
+  font-size: 12px;
+}
+@media (max-width: 768px) {
+  .hero-news-date { display: none; }
+  .hero-news-more { display: none; }
+  .hero-news-bar-inner { gap: 0; }
+}
+
+/* ─── YOUTUBE SECTION ─── */
+.youtube-section {
+  background: #0d1528;
+  padding: 80px 24px;
+}
+.youtube-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.youtube-label {
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: 0.5em;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.youtube-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+}
+.youtube-title {
+  font-family: var(--display);
+  font-size: clamp(48px, 7vw, 80px);
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+.youtube-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.60);
+  line-height: 1.9;
+  margin-bottom: 32px;
+  max-width: 360px;
+}
+.youtube-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ff0000;
+  color: #fff;
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  padding: 13px 28px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+.youtube-btn:hover {
+  background: #cc0000;
+  transform: translateX(4px);
+}
+.youtube-btn::before {
+  content: '▶';
+  font-size: 12px;
+}
+.youtube-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+}
+.youtube-embed img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.youtube-embed:hover img {
+  transform: scale(1.04);
+}
+.youtube-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.25);
+  transition: background 0.3s;
+}
+.youtube-embed:hover .youtube-play {
+  background: rgba(0,0,0,0.45);
+}
+.youtube-play-icon {
+  width: 72px;
+  height: 72px;
+  background: #ff0000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, background 0.3s;
+}
+.youtube-embed:hover .youtube-play-icon {
+  transform: scale(1.12);
+  background: #cc0000;
+}
+.youtube-play-icon::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 0 12px 22px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 5px;
+}
+.youtube-video-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  color: #fff;
+  font-size: 13px;
+  font-family: var(--sans);
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+}
+.youtube-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+@media (max-width: 768px) {
+  .youtube-inner { grid-template-columns: 1fr; gap: 32px; }
+  .youtube-title { font-size: 56px; }
+}
+
+/* ─── FOLLOW US (X TIMELINE) SECTION ─── */
+.followus-section {
+  background: var(--gray-100);
+  padding: 80px 24px;
+}
+.followus-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: start;
+}
+.followus-label {
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: 0.5em;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.followus-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+}
+.followus-title {
+  font-family: var(--display);
+  font-size: clamp(48px, 7vw, 80px);
+  color: var(--navy);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+.followus-desc {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.9;
+  margin-bottom: 32px;
+  max-width: 360px;
+}
+.followus-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #000;
+  color: #fff;
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  padding: 13px 28px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+.followus-btn:hover {
+  background: #1a1a1a;
+  transform: translateX(4px);
+}
+.followus-btn::before {
+  content: '𝕏';
+  font-size: 15px;
+  font-family: serif;
+}
+.followus-timeline {
+  width: 100%;
+}
+/* ─── PRESIDENT PAGE WITH X SIDEBAR ─── */
+.president-with-x {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  align-items: start;
+}
+.president-x-label {
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--gray-500);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.president-x-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--gray-500);
+}
+@media (max-width: 768px) {
+  .followus-inner { grid-template-columns: 1fr; gap: 32px; }
+  .followus-title { font-size: 56px; }
+  .president-with-x { grid-template-columns: 1fr; }
+}
+
+/* ─── HERO CTA BUTTONS ─── */
+.hero-cta {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--accent);
+  color: #0a0f1e;
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  padding: 15px 36px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+.btn-primary:hover {
+  background: var(--accent-light);
+  transform: translateX(5px);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.70);
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(255,255,255,0.30);
+  transition: color 0.3s, border-color 0.3s, gap 0.3s;
+}
+.btn-ghost::after { content: '→'; }
+.btn-ghost:hover {
+  color: var(--white);
+  border-color: var(--white);
+  gap: 12px;
+}
+
+/* ─── HERO BG DECORATION TEXT ─── */
+.hero-bg-text {
+  position: absolute;
+  bottom: 52px;
+  right: -10px;
+  font-family: var(--display);
+  font-size: clamp(100px, 18vw, 220px);
+  line-height: 1;
+  color: rgba(255,255,255,0.04);
+  letter-spacing: -0.02em;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+/* ─── STATEMENT SECTION ─── */
+.statement-section {
+  background: var(--white);
+  padding: 96px 24px;
+}
+.statement-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.statement-label {
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: 0.5em;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.statement-label::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: var(--accent);
+}
+.statement-title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.45;
+}
+.statement-body {
+  font-size: 15px;
+  color: var(--gray-700);
+  line-height: 2.1;
+  margin-bottom: 32px;
+}
+.statement-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--gray-200);
+  margin-bottom: 28px;
+}
+.statement-values {
+  display: flex;
+  gap: 32px;
+}
+.statement-value-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.statement-value-num {
+  font-family: var(--display);
+  font-size: 36px;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.statement-value-num span { font-size: 0.55em; }
+.statement-value-label {
+  font-size: 11px;
+  color: var(--gray-500);
+  letter-spacing: 0.1em;
+}
+@media (max-width: 768px) {
+  .statement-inner { grid-template-columns: 1fr; gap: 32px; }
+  .statement-values { gap: 20px; }
+  .hero-bg-text { display: none; }
+}
+
+/* ─── MARQUEE TICKER ─── */
+.marquee-wrap {
+  background: #0a0f1e;
+  overflow: hidden;
+  border-top: 1px solid rgba(200,169,90,0.3);
+  border-bottom: 1px solid rgba(200,169,90,0.3);
+}
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marqueeTick 30s linear infinite;
+  width: max-content;
+}
+.marquee-track span {
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: 0.5em;
+  color: var(--accent);
+  padding: 13px 36px;
+  display: inline-block;
+  border-right: 1px solid rgba(200,169,90,0.2);
+}
+@keyframes marqueeTick {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ─── FEATURES HEADER ─── */
+.features-header {
+  grid-column: 1 / -1;
+  padding: 48px 0 28px;
+  border-bottom: 1px solid rgba(200,169,90,0.2);
+  margin-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.features-header .section-bg-text {
+  color: rgba(255,255,255,0.025);
+}
+.features-header .section-title-en {
+  color: var(--accent);
+}
+.features-header .section-title-ja {
+  color: rgba(255,255,255,0.5);
+}
+.features-header .section-title-ja::before {
+  background: rgba(200,169,90,0.5);
+}
+
+/* ─── FEATURE CARD NUMBER ─── */
+.feature-num {
+  font-family: var(--display);
+  font-size: 80px;
+  line-height: 0.85;
+  color: rgba(200,169,90,0.25);
+  letter-spacing: -0.02em;
+  margin-bottom: -8px;
+  display: block;
+}
+
+/* ─── NEWS CARD GRID ─── */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.news-card {
+  background: var(--white);
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.news-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.10);
+}
+.news-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.65s ease;
+  display: block;
+}
+.news-card:hover .news-card-img { transform: scale(1.05); }
+.news-card-body {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.news-card .news-title {
+  font-size: 16px;
+  line-height: 1.55;
+  margin-top: 4px;
+}
+.news-card .news-excerpt {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+
+/* ─── CUSTOM CURSOR (Tom & Jerry) ─── */
+/* 猫トム（追跡者）*/
+.cursor-ring {
+  position: fixed;
+  width: 32px; height: 32px;
+  background: url('cat-cursor.svg') no-repeat center/contain;
+  pointer-events: none;
+  z-index: 99999;
+  top: -100px; left: -100px;
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+.cursor-ring-text { display: none; }
+.cursor-dot { display: none; }
+/* トムが追いついたとき：トム大きく、ジェリーやられ顔 */
+body.cat-caught {
+  cursor: url('mouse-defeated.svg') 16 21, auto;
+}
+body.cat-caught .cursor-ring { transform: scale(1.4); }
+@media (hover: none) { .cursor-ring { display: none; } }
+
+/* ─── SCROLL ANIMATIONS ─── */
+.anim {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+.anim.in { opacity: 1; transform: none; }
+.anim-d1 { transition-delay: 0.10s; }
+.anim-d2 { transition-delay: 0.22s; }
+.anim-d3 { transition-delay: 0.34s; }
+.anim-d4 { transition-delay: 0.46s; }
+
+/* ─── PAGE TRANSITION ─── */
+body.inner-page .page.active .page-hero {
+  animation: pageFadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+}
+body.inner-page .page.active .content-area {
+  animation: pageFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.15s both;
+}
+@keyframes pageFadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ─── FEATURE CARD IMAGE HOVER ZOOM ─── */
+.feature-card { overflow: hidden; }
+.feature-card img { transition: transform 0.65s ease; }
+.feature-card:hover img { transform: scale(1.06); }
+
+/* ─── SECTION DECO TEXT ─── */
+.section-deco-wrap { position: relative; }
+.section-bg-text {
+  position: absolute;
+  top: 50%;
+  left: -4px;
+  transform: translateY(-58%);
+  font-family: var(--display);
+  font-size: clamp(72px, 12vw, 150px);
+  line-height: 1;
+  color: rgba(26,39,68,0.05);
+  letter-spacing: 0.10em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+.section-deco-wrap > * { position: relative; z-index: 1; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  header nav { display: none; }
+  .hamburger { display: flex; }
+  .mobile-nav {
+    background: var(--navy);
+    padding: 16px 0;
+  }
+  .mobile-nav.open { display: block; }
+  .mobile-nav a {
+    display: block;
+    padding: 12px 24px;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .mobile-nav .mobile-sub a { padding-left: 40px; font-size: 13px; }
+  .hero { height: 320px; }
+  .president-block { grid-template-columns: 1fr; }
+  .president-img { max-width: 220px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .news-item { grid-template-columns: 1fr; }
+  .news-img { height: 180px; }
+  .timeline { padding-left: 80px; }
+  .timeline-year { left: -80px; width: 60px; font-size: 11px; }
+  .timeline::before { left: 56px; }
+  .timeline-item::before { left: -28px; }
+  .data-table th { width: 120px; }
+  .logo-img { height: 44px; }
+  .logo-main { font-size: 16px; }
+  .logo-sub { display: none; }
+  .news-grid { grid-template-columns: 1fr; }
+  .news-card-img { height: 180px; }
+  .features-header .section-title-en { font-size: 48px; }
+  .feature-num { font-size: 56px; }
+  /* iOS parallax fix */
+  .parallax-section {
+    background-attachment: scroll;
+    height: auto;
+    min-height: 260px;
+  }
+  .parallax-content { padding: 56px 20px; }
+  .parallax-nums { gap: 16px; flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="/cdn-cgi/l/email-protection#c1afa0aaa0aba8aca081afa0b3a8b5a0ecaaa8bba0a8efa2aeac">✉ <span class="__cf_email__" data-cfemail="a4cac5cfc5cecdc9c5e4cac5d6cdd0c589cfcddec5cd8ac7cbc9">[email&#160;protected]</span></a>
+    <a href="tel:0476930635">📞 0476-93-0635</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#" onclick="showPage('home')">
+      <img class="logo-img" src="narita_logo_512x512_2.png" alt="成田機材株式会社">
+      <div class="logo-text">
+        <span class="logo-main">成田機材株式会社</span>
+        <span class="logo-sub">Piping &amp; Housing</span>
+      </div>
+    </a>
+    <nav>
+      <div class="nav-item">
+        <a class="nav-link active" href="#" onclick="showPage('home')">ホーム</a>
+      </div>
+      <div class="nav-item">
+        <span class="nav-link has-dropdown">会社情報</span>
+        <div class="dropdown">
+          <a href="#" onclick="showPage('company')">会社概要</a>
+          <a href="#" onclick="showPage('president')">代表ご挨拶</a>
+          <a href="#" onclick="showPage('history')">会社沿革</a>
+          <a href="#" onclick="showPage('exective')">役員のご紹介</a>
+          <a href="#" onclick="showPage('associate')">関連会社</a>
+          <a href="#" onclick="showPage('access')">アクセス</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="#" onclick="showPage('item')">取扱い商品</a>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="#" onclick="showPage('recruit')">採用情報</a>
+      </div>
+    </nav>
+    <div class="hamburger" id="hamburger" onclick="toggleFullMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#" onclick="showPage('home');toggleMobile()">ホーム</a>
+    <div class="mobile-sub">
+      <a href="#" onclick="showPage('company');toggleMobile()">会社概要</a>
+      <a href="#" onclick="showPage('president');toggleMobile()">代表ご挨拶</a>
+      <a href="#" onclick="showPage('history');toggleMobile()">会社沿革</a>
+      <a href="#" onclick="showPage('exective');toggleMobile()">役員のご紹介</a>
+      <a href="#" onclick="showPage('associate');toggleMobile()">関連会社</a>
+      <a href="#" onclick="showPage('access');toggleMobile()">アクセス</a>
+    </div>
+    <a href="#" onclick="showPage('item');toggleMobile()">取扱い商品</a>
+    <a href="#" onclick="showPage('recruit');toggleMobile()">採用情報</a>
+  </div>
+</header>
+
+<!-- ═══════════════════ HOME ═══════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- VIDEO HERO -->
+  <div class="hero-video">
+    <!-- サンプル動画: Pexels フリー素材（配管・工事イメージ） -->
+    <video autoplay muted loop playsinline>
+      <source src="video.mp4" type="video/mp4">
+      <!-- <source src="4237250-uhd_3840_2160_30fps.mp4" type="video/mp4"> -->
+      <!-- <source src="v2_1773814298768-799095223.mp4" type="video/mp4"> -->
+      <!-- <source src="watermarked.mp4" type="video/mp4"> -->
+    </video>
+    <div class="hero-video-overlay"></div>
+    <div class="hero-video-content">
+      <div class="hero-video-catch">PIPING &amp; HOUSING</div>
+      <h1 class="hero-video-title">
+        地域とともに、<br>
+        半世紀。
+      </h1>
+      <p class="hero-video-sub">
+        千葉県北部から中部にかけて、<br>
+        ガス・水道・住宅設備業のお客様へ。<br>
+        昭和53年の創業以来、信頼とともに歩んでいます。
+      </p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#" onclick="showPage('company');return false;">会社紹介</a>
+        <a class="btn-ghost" href="#" onclick="showPage('item');return false;">取扱商品</a>
+      </div>
+    </div>
+    <div class="hero-bg-text">NARITA</div>
+    <div class="hero-video-scroll">SCROLL</div>
+  </div>
+  <!-- HERO NEWS BAR -->
+  <div class="hero-news-bar">
+    <div class="hero-news-bar-inner">
+      <span class="hero-news-label">NEWS</span>
+      <span class="hero-news-date">2026.03.01</span>
+      <a class="hero-news-text" href="https://narita-kizai.com/2026/03/01/benkan/" target="_blank">
+        現在、正社員を募集中です
+      </a>
+      <a class="hero-news-more" href="#" onclick="document.getElementById('page-home').querySelector('.news-section').scrollIntoView({behavior:'smooth'});return false;">MORE</a>
+    </div>
+  </div>
+
+  <!-- MARQUEE TICKER -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>PIPING &amp; HOUSING</span>
+      <span>地域インフラを支える</span>
+      <span>創業 1978</span>
+      <span>富里 ／ 茂原</span>
+      <span>ガス・水道・住宅設備</span>
+      <span>24名の専門スタッフ</span>
+      <span>PIPING &amp; HOUSING</span>
+      <span>地域インフラを支える</span>
+      <span>創業 1978</span>
+      <span>富里 ／ 茂原</span>
+      <span>ガス・水道・住宅設備</span>
+      <span>24名の専門スタッフ</span>
+    </div>
+  </div>
+
+  <!-- STATEMENT SECTION -->
+  <div class="statement-section">
+    <div class="statement-inner">
+      <div class="statement-left">
+        <div class="statement-label">SINCE 1978</div>
+        <h2 class="statement-title">地域のライフラインを誠実に、力強く。</h2>
+      </div>
+      <div class="statement-right">
+        <p class="statement-body">ガス・水道・住宅設備の専門商社として千葉県北部から中部にかけて、昭和53年の創業以来、地域の工事業者様とともに生活インフラを支え続けてきました。豊富な在庫と迅速な配送体制で、現場の皆様の信頼にお応えしています。</p>
+        <div class="statement-rule"></div>
+        <div class="statement-values">
+          <div class="statement-value-item">
+            <div class="statement-value-num">48<span>年</span></div>
+            <div class="statement-value-label">創業からの歴史</div>
+          </div>
+          <div class="statement-value-item">
+            <div class="statement-value-num">2<span>拠点</span></div>
+            <div class="statement-value-label">富里・茂原</div>
+          </div>
+          <div class="statement-value-item">
+            <div class="statement-value-num">24<span>名</span></div>
+            <div class="statement-value-label">専門スタッフ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="features-inner">
+      <div class="features-header section-deco-wrap">
+        <span class="section-bg-text">SERVICE</span>
+        <span class="section-title-en">OUR SERVICES</span>
+        <span class="section-title-ja">事業・サービス</span>
+      </div>
+      <div class="feature-card">
+        <span class="feature-num">01</span>
+        <img src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/truck_tomisato2_new.jpg" alt="配送体制">
+        <h3>充実した配送体制</h3>
+        <p>トラック12台、乗用車2台、ライトバン2台、フォークリフト3台。準備万全でお届けいたします。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-num">02</span>
+        <img src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/mop2.jpg" alt="店頭お引取り">
+        <h3>早朝からの店頭お引取り</h3>
+        <p>早朝より準備いたしております。現場の前にぜひお立ち寄りください。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-num">03</span>
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="豊富な在庫">
+        <h3>豊富な在庫と即日対応</h3>
+        <p>管・継手・弁・住宅設備など多品種の商品を常時在庫。お急ぎのご注文にも柔軟にお応えします。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-num">04</span>
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80" alt="技術サポート">
+        <h3>専門スタッフによるサポート</h3>
+        <p>経験豊富なスタッフが商品選定から技術的なご相談まで、現場目線で丁寧にサポートいたします。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARALLAX -->
+  <div class="parallax-section">
+    <div class="parallax-content">
+      <div class="parallax-catch">NARITA KIZAI</div>
+      <h2 class="parallax-title">
+        地域のライフラインを、<br>半世紀にわたり支えてきた実績。
+      </h2>
+      <div class="parallax-nums">
+        <div class="parallax-num">
+          <div class="parallax-num-value" data-count="48" data-suffix="年"><span class="count-num">0</span><span style="font-size:0.5em">年</span></div>
+          <div class="parallax-num-label">創業からの歴史</div>
+        </div>
+        <div class="parallax-num">
+          <div class="parallax-num-value" data-count="2" data-suffix="拠点"><span class="count-num">0</span><span style="font-size:0.5em">拠点</span></div>
+          <div class="parallax-num-label">富里・茂原</div>
+        </div>
+        <div class="parallax-num">
+          <div class="parallax-num-value" data-count="24" data-suffix="名"><span class="count-num">0</span><span style="font-size:0.5em">名</span></div>
+          <div class="parallax-num-label">従業員数</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="news-section">
+    <div class="section-inner">
+      <div class="section-header section-deco-wrap">
+        <span class="section-bg-text">NEWS</span>
+        <span class="section-title-en">NEWS</span>
+        <span class="section-title-ja">新着情報</span>
+      </div>
+      <div class="news-grid">
+        <a class="news-card" href="#" onclick="showPage('recruit')">
+          <img class="news-card-img" src="https://narita-kizai.com/wp-content/uploads/2023/07/office3.jpg" alt="">
+          <div class="news-card-body">
+            <div class="news-meta">
+              <span class="news-date">2026年3月1日</span>
+              <span class="news-cat">ご案内</span>
+            </div>
+            <div class="news-title">現在、正社員を募集中です</div>
+            <div class="news-excerpt">ただいま本店・富里営業部で正社員（営業職・配送職）を募集しております。</div>
+          </div>
+        </a>
+        <a class="news-card" href="https://narita-kizai.com/2026/03/01/benkan/" target="_blank">
+          <img class="news-card-img" src="https://narita-kizai.com/wp-content/uploads/2023/07/f6f77a1616e27fc34eb1a81aa7dc6262-1-800x600.jpg" alt="">
+          <div class="news-card-body">
+            <div class="news-meta">
+              <span class="news-date">2026年3月1日</span>
+              <span class="news-cat">ご案内</span>
+            </div>
+            <div class="news-title">ステンレス配管のベンカン様に紹介していただきました</div>
+            <div class="news-excerpt">ベンカン様のホームページの「皆様の声」で当社を紹介していただきました。</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOLLOW US -->
+  <div class="followus-section">
+    <div class="followus-inner">
+      <div class="followus-left">
+        <div class="followus-label">SNS</div>
+        <div class="followus-title">FOLLOW<br>US</div>
+        <p class="followus-desc">
+          代表・中嶋が毎日、現場の声や商品情報、業界トピックスを発信しています。日々の活動をぜひフォローしてご覧ください。
+        </p>
+        <a class="followus-btn" href="https://twitter.com/narita_kizai" target="_blank" rel="noopener">
+          @narita_kizai をフォロー
+        </a>
+      </div>
+      <div class="followus-timeline">
+        <a class="twitter-timeline"
+           data-height="480"
+           data-theme="light"
+           data-chrome="noheader nofooter noborders"
+           href="https://twitter.com/narita_kizai">
+          Tweets by narita_kizai
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- YOUTUBE -->
+  <div class="youtube-section">
+    <div class="youtube-inner">
+      <div class="youtube-left">
+        <div class="youtube-label">YouTube</div>
+        <div class="youtube-title">WATCH<br>OUR<br>CHANNEL</div>
+        <p class="youtube-desc">
+          配管・住宅設備の現場や商品紹介など、業界の"いま"を動画でお届けしています。チャンネル登録もぜひ。
+        </p>
+        <a class="youtube-btn"
+           href="https://www.youtube.com/channel/UCmmnGI7cfG_4hMycCaGSMmw"
+           target="_blank" rel="noopener">
+          チャンネルを見る
+        </a>
+      </div>
+      <a class="youtube-embed"
+         href="https://www.youtube.com/watch?v=-dz9ND5nlng"
+         target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/-dz9ND5nlng/hqdefault.jpg"
+             alt="モルコ締付工具 ＢＰＮ-１６Ｒのご紹介♪">
+        <div class="youtube-play">
+          <div class="youtube-play-icon"></div>
+        </div>
+        <div class="youtube-video-title">モルコ締付工具 ＢＰＮ-１６Ｒのご紹介♪</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- PARALLAX 2 -->
+  <div class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80');">
+    <div class="parallax-content">
+      <div class="parallax-catch">CONTACT US</div>
+      <h2 class="parallax-title">
+        お気軽にご相談ください。
+      </h2>
+      <p style="font-size:15px; color:rgba(255,255,255,0.8); margin-bottom:32px; line-height:1.9;">
+        配管機材・住宅資材のことなら、<br>お電話・メールにてお問い合わせください。
+      </p>
+      <div class="parallax-nums" style="gap:32px;">
+        <a href="tel:0476930635" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; background:rgba(200,169,90,0.2); border:1px solid var(--accent); padding:20px 36px; border-radius:3px; transition:background 0.2s;" onmouseover="this.style.background='rgba(200,169,90,0.4)'" onmouseout="this.style.background='rgba(200,169,90,0.2)'">
+          <span style="font-family:var(--display); font-size:11px; letter-spacing:0.3em; color:var(--accent); margin-bottom:8px;">本店・富里営業部</span>
+          <span style="font-family:var(--display); font-size:clamp(24px,3vw,36px); color:var(--white); letter-spacing:0.08em;">0476-93-0635</span>
+        </a>
+        <a href="tel:0475250812" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; background:rgba(200,169,90,0.2); border:1px solid var(--accent); padding:20px 36px; border-radius:3px; transition:background 0.2s;" onmouseover="this.style.background='rgba(200,169,90,0.4)'" onmouseout="this.style.background='rgba(200,169,90,0.2)'">
+          <span style="font-family:var(--display); font-size:11px; letter-spacing:0.3em; color:var(--accent); margin-bottom:8px;">茂原営業所</span>
+          <span style="font-family:var(--display); font-size:clamp(24px,3vw,36px); color:var(--white); letter-spacing:0.08em;">0475-25-0812</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /home -->
+
+<!-- ═══════════════════ COMPANY ═══════════════════ -->
+<div id="page-company" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="#" onclick="showPage('home')">HOME</a>
+        <span>›</span>
+        <span>会社概要</span>
+      </div>
+      <div class="page-title">会社概要</div>
+      <div class="page-title-en">COMPANY PROFILE</div>
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="content-block">
+      <div class="content-block-title">基本情報</div>
+      <table class="data-table">
+        <tr><th>商号</th><td>成田機材株式会社</td></tr>
+        <tr><th>代表取締役社長</th><td>中嶋　哲寛</td></tr>
+        <tr><th>本店・富里営業部</th><td>〒286-0221 千葉県富里市七栄１９９番地<br>TEL 0476-93-0635　／　FAX 0476-93-7460</td></tr>
+        <tr><th>茂原営業所</th><td>〒297-0017 千葉県茂原市東郷１０１１－１<br>TEL 0475-25-0812　／　FAX 0475-24-1315</td></tr>
+        <tr><th>設立</th><td>昭和５３年６月６日</td></tr>
+        <tr><th>資本金</th><td>１０，０００千円</td></tr>
+        <tr><th>従業員</th><td>２４名（富里店１４名・茂原店１０名）</td></tr>
+        <tr><th>決算期</th><td>３月３１日</td></tr>
+      </table>
+    </div>
+    <div class="content-block">
+      <div class="content-block-title">企業理念</div>
+      <div class="philosophy-list">
+        <div class="philosophy-item">
+          <span class="philosophy-num">1</span>
+          <p class="philosophy-text">ガス・水道・管工事・住宅機器の卸売業として地域社会の発展に貢献する会社を目指します。</p>
+        </div>
+        <div class="philosophy-item">
+          <span class="philosophy-num">2</span>
+          <p class="philosophy-text">会社経営の原動力となる社員とその家族の生活の向上を目指します。</p>
+        </div>
+        <div class="philosophy-item">
+          <span class="philosophy-num">3</span>
+          <p class="philosophy-text">企業コンプライアンスを重視し、社会に貢献する健全な会社を目指します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRESIDENT ═══════════════════ -->
+<div id="page-president" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="#" onclick="showPage('home')">HOME</a>
+        <span>›</span>
+        <span>代表ご挨拶</span>
+      </div>
+      <div class="page-title">代表ご挨拶</div>
+      <div class="page-title-en">MESSAGE FROM PRESIDENT</div>
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="president-with-x">
+      <!-- 左: 既存コンテンツ -->
+      <div>
+        <div class="president-block">
+          <img class="president-img" src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/boss.jpg" alt="代表取締役社長 中嶋哲寛">
+          <div>
+            <p class="president-text">
+              このたびは成田機材株式会社ホームページにアクセス下さり誠にありがとうございます。<br><br>
+              成田機材では千葉県北部から中部にかけて営業活動を行い、地域のガス、水道設備業のお客様に可愛がられ今日に至っております。当社では代々大切にしてきた「お客様満足度の向上」「社員の生活の向上」「社会貢献」という企業理念を守り続けています。<br><br>
+              初めてのお客様も成田機材を一度利用していただき、便利さを感じて頂ければ幸いです。
+            </p>
+            <div class="president-name">
+              <span>代表取締役社長</span>
+              中嶋　哲寛
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 右: X タイムライン -->
+      <div>
+        <div class="president-x-label">DAILY POST</div>
+        <a class="twitter-timeline"
+           data-height="520"
+           data-theme="light"
+           data-chrome="noheader nofooter noborders"
+           href="https://twitter.com/narita_kizai">
+          Tweets by narita_kizai
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ HISTORY ═══════════════════ -->
+<div id="page-history" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="#" onclick="showPage('home')">HOME</a>
+        <span>›</span>
+        <span>会社沿革</span>
+      </div>
+      <div class="page-title">会社沿革</div>
+      <div class="page-title-en">COMPANY HISTORY</div>
+    </div>
+  </div>
+  <div class="content-area">
+    <img class="history-img" src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/old_gaikan.jpg" alt="創業当時の外観">
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">昭和53年<br>6月</div>
+        <div class="timeline-content">親会社である株式会社古島成田営業所から分離独立し、資本金1,000万円で開設。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">昭和58年<br>6月</div>
+        <div class="timeline-content">初代代表取締役 関謙蔵氏が退任し、吉松尚氏が就任。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">平成5年<br>7月</div>
+        <div class="timeline-content">富里市七栄の敷地１，２００坪に事務所、倉庫を新築。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">平成10年<br>7月</div>
+        <div class="timeline-content">茂原市にあった㈱斉勝の管材部門を買収し茂原営業所を開設。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">平成19年<br>6月</div>
+        <div class="timeline-content">代表取締役 吉松尚氏が退任し、吉井稔氏が就任。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">平成25年<br>6月</div>
+        <div class="timeline-content">代表取締役 吉井稔氏が退任し、緒方昭夫氏が就任。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">平成27年<br>3月</div>
+        <div class="timeline-content">茂原営業所を茂原市小林から茂原市東郷へ移転。（敷地が２５０坪から４６０坪に拡張）</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">平成28年<br>10月</div>
+        <div class="timeline-content">代表取締役 緒方昭夫氏が退任し、中嶋哲寛が就任。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ EXECTIVE ═══════════════════ -->
+<div id="page-exective" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="#" onclick="showPage('home')">HOME</a>
+        <span>›</span>
+        <span>役員のご紹介</span>
+      </div>
+      <div class="page-title">役員のご紹介</div>
+      <div class="page-title-en">BOARD OF DIRECTORS</div>
+    </div>
+  </div>
+  <div class="content-area">
+    <table class="officers-table">
+      <tr><td>代表取締役社長</td><td>中嶋　哲寛</td></tr>
+      <tr><td>取　締　役</td><td>早坂　克浩</td></tr>
+      <tr><td>取　締　役</td><td>桃井　理</td></tr>
+      <tr><td>取　締　役</td><td>奥山　研一</td></tr>
+      <tr><td>監　査　役</td><td>春日　秀文</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════ ASSOCIATE ═══════════════════ -->
+<div id="page-associate" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="#" onclick="showPage('home')">HOME</a>
+        <span>›</span>
+        <span>関連会社</span>
+      </div>
+      <div class="page-title">関連会社</div>
+      <div class="page-title-en">GROUP COMPANIES</div>
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="content-block">
+      <div class="content-block-title">親会社</div>
+      <div class="associate-grid">
+        <div class="associate-card">
+          <h4><a href="http://www.kk-kojima.co.jp" target="_blank">株式会社古島</a></h4>
+          <table>
+            <tr><td>資本金</td><td>２億５千万円</td></tr>
+            <tr><td>設立</td><td>大正６年３月２３日</td></tr>
+            <tr><td>代表</td><td>北垣　信義</td></tr>
+            <tr><td>本社</td><td>東京都中央区日本橋茅場町２－１７－７</td></tr>
+            <tr><td>支店</td><td>東京・大阪・北海道・九州・中国・東海・東北</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="content-block-title">関連会社一覧</div>
+      <table class="related-table">
+        <tr>
+          <td><a href="https://www.settsu-kizai.co.jp/" target="_blank">摂津機材株式会社</a></td>
+          <td>大阪府吹田市</td>
+        </tr>
+        <tr>
+          <td><a href="http://www.nwatertec.co.jp/" target="_blank">株式会社ウォーターテック</a></td>
+          <td>東京都港区</td>
+        </tr>
+        <tr>
+          <td>恵庭管材株式会社</td>
+          <td>北海道恵庭市</td>
+        </tr>
+        <tr>
+          <td>帯広管材株式会社</td>
+          <td>北海道河東郡音更町</td>
+        </tr>
+        <tr>
+          <td>関西倉庫株式会社</td>
+          <td>大阪府大阪市</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ ACCESS ═══════════════════ -->
+<div id="page-access" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="#" onclick="showPage('home')">HOME</a>
+        <span>›</span>
+        <span>アクセス</span>
+      </div>
+      <div class="page-title">アクセス</div>
+      <div class="page-title-en">ACCESS</div>
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="access-grid">
+      <div class="access-card">
+        <h3>本店・富里営業部</h3>
+        <address>
+          <strong>〒286-0221</strong><br>
+          千葉県富里市七栄１９９番地<br>
+          <strong>TEL</strong> 0476-93-0635<br>
+          <strong>FAX</strong> 0476-93-7460<br>
+        </address>
+      </div>
+      <div class="access-card">
+        <h3>茂原営業所</h3>
+        <address>
+          <strong>〒297-0017</strong><br>
+          千葉県茂原市東郷１０１１－１<br>
+          <strong>TEL</strong> 0475-25-0812<br>
+          <strong>FAX</strong> 0475-24-1315
+        </address>
+      </div>
+    </div>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.2!2d140.3167!3d35.7167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60228a1234567890%3A0x1234567890abcdef!2z5Y+M55Sw5qmL5p2x5qCh5byP5Lya5pyJ5qCh5ZyS!5e0!3m2!1sja!2sjp!4v1234567890"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ ITEM ═══════════════════ -->
+<div id="page-item" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="#" onclick="showPage('home')">HOME</a>
+        <span>›</span>
+        <span>取扱い商品</span>
+      </div>
+      <div class="page-title">取扱い商品</div>
+      <div class="page-title-en">PRODUCTS</div>
+    </div>
+  </div>
+  <div class="content-area">
+    <p style="margin-bottom:40px; font-size:15px; color:var(--gray-500); line-height:2;">
+      配管機材・住宅資材はなんでも取り扱っております。在庫が無いものもお気軽にお問い合わせください。
+    </p>
+    <div class="items-grid">
+      <div class="item-card">
+        <img src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/metal_pipe2.jpg" alt="鋼管類">
+        <div class="item-card-body">
+          <div class="item-card-title">鋼管類</div>
+          <p class="item-card-text">白ガス管、ＬＰ－ＶＡ・ＶＢ・ＶＤ、ＨＴＬＰ、ＤＶＬＰ、ＰＬＶ　他</p>
+        </div>
+      </div>
+      <div class="item-card">
+        <img src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/vinyl_pipe1.jpg" alt="塩ビ管類">
+        <div class="item-card-body">
+          <div class="item-card-title">塩ビ管類</div>
+          <p class="item-card-text">ＶＰ、ＶＵ、片受け管、有孔管、ＨＩ、ＨＴ、ＡＣドレン　他</p>
+        </div>
+      </div>
+      <div class="item-card">
+        <img src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/pipe_jyushi.jpg" alt="ポリ管">
+        <div class="item-card-body">
+          <div class="item-card-title">ポリ管</div>
+          <p class="item-card-text">架橋ポリエチレン管、ＰＥ管（直管・巻物）、１種２層管　他</p>
+        </div>
+      </div>
+      <div class="item-card">
+        <img src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/boid.jpg" alt="その他管類">
+        <div class="item-card-body">
+          <div class="item-card-title">その他管類</div>
+          <p class="item-card-text">ステンレス管、銅管、ボイド管、耐火二層管、アルミダクト管　他</p>
+        </div>
+      </div>
+      <div class="item-card">
+        <img src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/soukonai5.jpg" alt="継手類">
+        <div class="item-card-body">
+          <div class="item-card-title">継手類</div>
+          <p class="item-card-text">白・黒継手、コア継手、ＭＤ継手、ガス用ＰＣ継手、ＥＦ継手、砲金継手、架橋ポリ継手、ステンレス継手、銅管継手、溶接継手、塩ビ継手各種　他</p>
+        </div>
+      </div>
+      <div class="item-card">
+        <img src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/valve.jpg" alt="弁類">
+        <div class="item-card-body">
+          <div class="item-card-title">弁類</div>
+          <p class="item-card-text">青銅製、鋳鉄製、ダクタイル鋳鉄製、ステンレス製、塩ビ製、バタ弁、減圧弁、安全弁　他</p>
+        </div>
+      </div>
+      <div class="item-card">
+        <img src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/toilet.jpg" alt="その他">
+        <div class="item-card-body">
+          <div class="item-card-title">その他</div>
+          <p class="item-card-text">衛生陶器、空調機、圧力タンク、ポンプ類、水栓類、吊金具類、アングル、アンカー・ドリル類、タオルウエス、モルタル、土嚢袋、軍手、工事用部材　他</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ RECRUIT ═══════════════════ -->
+<div id="page-recruit" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="#" onclick="showPage('home')">HOME</a>
+        <span>›</span>
+        <span>採用情報</span>
+      </div>
+      <div class="page-title">採用情報</div>
+      <div class="page-title-en">RECRUITMENT</div>
+    </div>
+  </div>
+  <div class="content-area">
+    <img class="recruit-hero-img" src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/kanban_mejirushi.jpg" alt="採用情報">
+    <div class="recruit-block">
+      <h3>現在、正社員を募集中です</h3>
+      <p>
+        弊社にご関心をお寄せいただき、誠にありがとうございます。<br>
+        ただいま本店・富里営業部で正社員（営業職・配送職）を募集しております。<br>
+        詳細はハローワーク掲載ページから求人番号や事業所番号で検索してください。
+      </p>
+      <div class="recruit-nums">
+        <div class="recruit-num-item">
+          <strong>求人番号</strong>
+          12100-11036251
+        </div>
+        <div class="recruit-num-item">
+          <strong>事業所番号</strong>
+          1210-103602-3
+        </div>
+      </div>
+      <a class="hw-link" href="https://www.hellowork.mhlw.go.jp/kensaku/GECA110010.do?action=initDisp&screenId=GECA110010" target="_blank">
+        ハローワーク掲載ページを見る →
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#" onclick="showPage('home')">
+          <img class="logo-img" src="narita_logo_512x512_2.png" alt="成田機材株式会社">
+          <div class="logo-text">
+            <span class="logo-main">成田機材株式会社</span>
+            <span class="logo-sub">Piping &amp; Housing</span>
+          </div>
+        </a>
+        <p>千葉県北部から中部にかけて、地域のガス・水道設備業のお客様に配管機材・住宅資材をお届けしています。</p>
+        <address>
+          〒286-0221 千葉県富里市七栄１９９番地<br>
+          Tel: <a href="tel:0476930635">0476-93-0635</a><br>
+          Fax: 0476-93-7460
+        </address>
+      </div>
+      <div class="footer-nav">
+        <h4>COMPANY</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('company')">会社概要</a></li>
+          <li><a href="#" onclick="showPage('president')">代表ご挨拶</a></li>
+          <li><a href="#" onclick="showPage('history')">会社沿革</a></li>
+          <li><a href="#" onclick="showPage('exective')">役員のご紹介</a></li>
+          <li><a href="#" onclick="showPage('associate')">関連会社</a></li>
+          <li><a href="#" onclick="showPage('access')">アクセス</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>MENU</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('item')">取扱い商品</a></li>
+          <li><a href="#" onclick="showPage('recruit')">採用情報</a></li>
+          <li><a href="https://www.youtube.com/channel/UCmmnGI7cfG_4hMycCaGSMmw" target="_blank">YouTube</a></li>
+          <li><a href="https://twitter.com/narita_kizai" target="_blank">Twitter / X</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copy">
+      Copyright © 成田機材株式会社 All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ─── PAGE SWITCHER ───
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  const links = document.querySelectorAll('.nav-link');
+  links.forEach(l => {
+    if (l.getAttribute('onclick') && l.getAttribute('onclick').includes("'" + id + "'")) {
+      l.classList.add('active');
+    }
+  });
+  // ホーム以外はinner-pageクラスでヘッダーをソリッドに
+  if (id === 'home') {
+    document.body.classList.remove('inner-page');
+    checkScroll();
+  } else {
+    document.body.classList.add('inner-page');
+    document.querySelector('header').classList.add('scrolled');
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  return false;
+}
+
+// ─── SCROLL HEADER ───
+function checkScroll() {
+  if (!document.body.classList.contains('inner-page')) {
+    const header = document.querySelector('header');
+    if (window.scrollY > 60) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+}
+window.addEventListener('scroll', checkScroll);
+checkScroll();
+
+// ─── MOBILE NAV (legacy) ───
+function toggleMobile() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+// ─── FULL SCREEN MENU ───
+function openFullMenu() {
+  document.getElementById('fullMenu').classList.add('open');
+  document.getElementById('hamburger').classList.add('menu-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeFullMenu() {
+  document.getElementById('fullMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('menu-open');
+  document.body.style.overflow = '';
+}
+function toggleFullMenu() {
+  if (document.getElementById('fullMenu').classList.contains('open')) {
+    closeFullMenu();
+  } else {
+    openFullMenu();
+  }
+}
+// ESCキーで閉じる
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeFullMenu();
+});
+
+// ─── COUNT-UP ANIMATION ───
+(function() {
+  const countObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.querySelectorAll('.parallax-num-value[data-count]').forEach(el => {
+        const target = parseInt(el.dataset.count);
+        const numEl = el.querySelector('.count-num');
+        if (!numEl) return;
+        let current = 0;
+        const duration = 1800;
+        const interval = 24;
+        const steps = duration / interval;
+        const inc = target / steps;
+        const timer = setInterval(() => {
+          current += inc;
+          if (current >= target) { current = target; clearInterval(timer); }
+          numEl.textContent = Math.floor(current);
+        }, interval);
+      });
+      countObserver.unobserve(e.target);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.parallax-nums').forEach(el => countObserver.observe(el));
+})();
+
+// ─── CUSTOM CURSOR ───
+(function initCursor() {
+  var ring     = document.getElementById('cursorRing');
+  var dot      = document.getElementById('cursorDot');
+  var ringText = document.getElementById('cursorRingText');
+  if (!ring || !dot) {
+    // 要素がまだなければ DOMContentLoaded 後に再試行
+    document.addEventListener('DOMContentLoaded', initCursor);
+    return;
+  }
+
+  var mx = -300, my = -300, rx = -300, ry = -300;
+  var rSize = 16; // ネズミ画像の半径 (32px / 2)
+
+  document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; });
+
+  (function lerp() {
+    rx += (mx - rx) * 0.07;
+    ry += (my - ry) * 0.07;
+    ring.style.left = (rx - rSize) + 'px';
+    ring.style.top  = (ry - rSize) + 'px';
+    // トムとジェリーの距離を計算 → 近づいたらやられ顔
+    var dist = Math.sqrt((rx - mx) * (rx - mx) + (ry - my) * (ry - my));
+    if (dist < 14) {
+      document.body.classList.add('cat-caught');
+    } else {
+      document.body.classList.remove('cat-caught');
+    }
+    requestAnimationFrame(lerp);
+  })();
+
+  // リンク・ボタン: VIEW
+  document.querySelectorAll('a, button').forEach(function(el) {
+    el.addEventListener('mouseenter', function() {
+      if (ringText) ringText.textContent = 'VIEW';
+      document.body.classList.add('cursor-hover');
+      document.body.classList.remove('cursor-hover-card');
+    });
+    el.addEventListener('mouseleave', function() {
+      document.body.classList.remove('cursor-hover');
+    });
+  });
+
+  // カード: MORE
+  document.querySelectorAll('.feature-card, .news-item').forEach(function(el) {
+    el.addEventListener('mouseenter', function() {
+      if (ringText) ringText.textContent = 'MORE';
+      document.body.classList.add('cursor-hover-card');
+      document.body.classList.remove('cursor-hover');
+    });
+    el.addEventListener('mouseleave', function() {
+      document.body.classList.remove('cursor-hover-card');
+    });
+  });
+})();
+
+// ─── SCROLL ANIMATIONS ───
+const _animObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); _animObserver.unobserve(e.target); } });
+}, { threshold: 0.12 });
+
+function _applyAnim(scope) {
+  scope = scope || document;
+  scope.querySelectorAll('.feature-card, .news-item, .parallax-catch, .parallax-title, .parallax-num, .section-header').forEach((el, i) => {
+    if (!el.classList.contains('anim')) {
+      el.classList.add('anim');
+      if (i % 3 === 1) el.classList.add('anim-d1');
+      if (i % 3 === 2) el.classList.add('anim-d2');
+    }
+    _animObserver.observe(el);
+  });
+}
+_applyAnim(document);
+
+// ─── SHOW PAGE WRAPPER (page transitions + re-observe inner page) ───
+(function() {
+  const _orig = window.showPage;
+  window.showPage = function(id) {
+    const result = _orig(id);
+    // re-observe elements in newly active inner page
+    if (id !== 'home') {
+      setTimeout(() => {
+        const activePage = document.getElementById(id);
+        if (activePage) {
+          activePage.querySelectorAll('.content-area > *, .page-hero').forEach((el, i) => {
+            if (!el.classList.contains('anim')) {
+              el.classList.add('anim');
+              if (i === 1) el.classList.add('anim-d1');
+              if (i === 2) el.classList.add('anim-d2');
+            }
+            _animObserver.observe(el);
+          });
+        }
+      }, 50);
+    }
+    return result;
+  };
+})();
+
+</script>
+
+
+<!-- ═══════════════════ FULL SCREEN MENU ═══════════════════ -->
+<div class="fullmenu" id="fullMenu">
+  <div class="fullmenu-inner">
+
+    <div class="fullmenu-header">
+      <a class="logo fullmenu-logo" href="#" onclick="closeFullMenu(); showPage('home')">
+        <img class="logo-img" src="narita_logo_512x512_2.png" alt="成田機材株式会社">
+        <div class="logo-text">
+          <span class="logo-main">成田機材株式会社</span>
+          <span class="logo-sub">Piping &amp; Housing</span>
+        </div>
+      </a>
+      <button class="fullmenu-close" onclick="closeFullMenu()" aria-label="メニューを閉じる"></button>
+    </div>
+
+    <div class="fullmenu-body">
+      <nav class="fullmenu-nav">
+        <ul>
+          <li>
+            <a href="#" onclick="closeFullMenu(); showPage('home')">
+              <span class="fn-num">01</span>
+              <span class="fn-en">HOME</span>
+              <span class="fn-ja">ホーム</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="closeFullMenu(); showPage('company')">
+              <span class="fn-num">02</span>
+              <span class="fn-en">COMPANY</span>
+              <span class="fn-ja">会社情報</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="closeFullMenu(); showPage('item')">
+              <span class="fn-num">03</span>
+              <span class="fn-en">PRODUCTS</span>
+              <span class="fn-ja">取扱い商品</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="closeFullMenu(); showPage('recruit')">
+              <span class="fn-num">04</span>
+              <span class="fn-en">RECRUIT</span>
+              <span class="fn-ja">採用情報</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="fullmenu-info">
+        <div class="fullmenu-info-label">CONTACT</div>
+        <address>
+          〒286-0201 千葉県富里市七栄676-1<br>
+          本店・富里営業部 <a href="tel:0476930635">0476-93-0635</a><br>
+          茂原営業所 <a href="tel:0475250812">0475-25-0812</a><br>
+          FAX: 0476-93-2862
+        </address>
+        <div class="fullmenu-sns">
+          <a href="https://twitter.com/narita_kizai" target="_blank" rel="noopener" title="X (Twitter)">𝕏</a>
+          <a href="https://www.youtube.com/channel/UCmmnGI7cfG_4hMycCaGSMmw" target="_blank" rel="noopener" title="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="fullmenu-footer">© 2024 NARITA KIZAI CO., LTD.</div>
+  </div>
+</div>
+
+<div class="cursor-ring" id="cursorRing"><span class="cursor-ring-text" id="cursorRingText">VIEW</span></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</body>
+</html>

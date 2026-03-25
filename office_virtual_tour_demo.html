@@ -1,0 +1,178 @@
+
+<style>
+  :root { --tour-bg: var(--color-background-secondary); }
+  #tour { font-family: var(--font-sans); max-width: 680px; }
+  #scene { position: relative; width: 100%; aspect-ratio: 16/9; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); overflow: hidden; border: 1px solid var(--color-border-tertiary); }
+  #scene-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.4s; }
+  #scene-overlay { position: absolute; inset: 0; }
+  .nav-arrow { position: absolute; cursor: pointer; background: rgba(0,0,0,0.45); border: 1.5px solid rgba(255,255,255,0.3); border-radius: 50%; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; transition: background 0.2s, transform 0.15s; user-select: none; }
+  .nav-arrow:hover { background: rgba(0,0,0,0.7); transform: scale(1.1); }
+  .nav-arrow svg { width: 22px; height: 22px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .nav-arrow.up    { top: 18%; left: 50%; transform: translateX(-50%); }
+  .nav-arrow.up:hover { transform: translateX(-50%) scale(1.1); }
+  .nav-arrow.down  { bottom: 22%; left: 50%; transform: translateX(-50%); }
+  .nav-arrow.down:hover  { transform: translateX(-50%) scale(1.1); }
+  .nav-arrow.left  { top: 50%; left: 10%; transform: translateY(-50%); }
+  .nav-arrow.left:hover  { transform: translateY(-50%) scale(1.1); }
+  .nav-arrow.right { top: 50%; right: 10%; transform: translateY(-50%); }
+  .nav-arrow.right:hover { transform: translateY(-50%) scale(1.1); }
+  #room-label { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); color: #fff; font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 20px; white-space: nowrap; pointer-events: none; }
+  #info-panel { margin-top: 12px; padding: 14px 18px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); }
+  #info-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+  #info-desc  { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+  #minimap { margin-top: 12px; }
+  #minimap svg text { font-size: 10px; fill: var(--color-text-secondary); font-family: var(--font-sans); }
+  .mm-room { cursor: pointer; transition: opacity 0.2s; }
+  .mm-room:hover { opacity: 0.8; }
+  .mm-room.active rect { stroke-width: 2; }
+  #toast { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); color: #fff; font-size: 12px; padding: 4px 12px; border-radius: 12px; pointer-events: none; opacity: 0; transition: opacity 0.3s; white-space: nowrap; }
+  #toast.show { opacity: 1; }
+</style>
+
+<div id="tour">
+  <div id="scene">
+    <img id="scene-img" src="" alt="">
+    <div id="scene-overlay">
+      <div id="toast"></div>
+    </div>
+    <div id="room-label"></div>
+  </div>
+  <div id="info-panel">
+    <div id="info-title"></div>
+    <div id="info-desc"></div>
+  </div>
+  <div id="minimap">
+    <svg width="100%" viewBox="0 0 500 160" id="mm-svg"></svg>
+  </div>
+</div>
+
+<script>
+const rooms = {
+  entrance: {
+    label: "エントランス",
+    image: "office3.jpg",
+    desc: "明るい木目調のエントランス。来客を温かく迎える受付カウンターがあります。",
+    exits: { forward: "lobby", right: "meeting" }
+  },
+  lobby: {
+    label: "オープンオフィス",
+    image: "office3.jpg",
+    desc: "チームが集まるオープンスペース。フリーアドレスのデスクが並び、活気ある日常業務が行われます。",
+    exits: { back: "entrance", forward: "lounge", left: "meeting", right: "server" }
+  },
+  meeting: {
+    label: "会議室",
+    image: "soukonai1.jpg",
+    desc: "最大8名が使用できる会議室。大型モニターとホワイトボードを完備し、オンライン会議にも対応しています。",
+    exits: { left: "lobby", back: "entrance" }
+  },
+  lounge: {
+    label: "ラウンジ",
+    image: "vinyl_pipe1.jpg",
+    desc: "リラックスできる休憩スペース。コーヒーマシンや冷蔵庫があり、チームメンバーのコミュニケーションの場になっています。",
+    exits: { back: "lobby" }
+  },
+  server: {
+    label: "サーバー室",
+    image: "metal_pipe2.jpg",
+    desc: "IBM iを含むサーバー機器が整然と並ぶ機械室。温度管理が徹底されており、会社のITインフラの心臓部です。",
+    exits: { left: "lobby" }
+  }
+};
+
+const miniRooms = [
+  { id:"entrance", label:"入口",  x:200, y:110, w:100, h:40 },
+  { id:"meeting",  label:"会議室", x:60,  y:60,  w:100, h:40 },
+  { id:"lobby",    label:"オフィス",x:200, y:60,  w:100, h:40 },
+  { id:"server",   label:"サーバ", x:340, y:60,  w:100, h:40 },
+  { id:"lounge",   label:"ラウンジ",x:200, y:10,  w:100, h:40 },
+];
+
+let current = "entrance";
+let toastTimer;
+
+function renderMinimap() {
+  const svg = document.getElementById("mm-svg");
+  svg.innerHTML = "";
+  miniRooms.forEach(r => {
+    const g = document.createElementNS("http://www.w3.org/2000/svg","g");
+    g.classList.add("mm-room");
+    if (r.id === current) g.classList.add("active");
+    g.setAttribute("onclick", `goto('${r.id}')`);
+    const rect = document.createElementNS("http://www.w3.org/2000/svg","rect");
+    rect.setAttribute("x", r.x); rect.setAttribute("y", r.y);
+    rect.setAttribute("width", r.w); rect.setAttribute("height", r.h);
+    rect.setAttribute("rx", 6);
+    rect.setAttribute("fill", r.id === current ? "#3B8BD4" : "var(--color-background-primary)");
+    rect.setAttribute("stroke", r.id === current ? "#3B8BD4" : "var(--color-border-secondary)");
+    rect.setAttribute("stroke-width", r.id === current ? "2" : "1");
+    g.appendChild(rect);
+    const txt = document.createElementNS("http://www.w3.org/2000/svg","text");
+    txt.setAttribute("x", r.x + r.w/2);
+    txt.setAttribute("y", r.y + r.h/2 + 4);
+    txt.setAttribute("text-anchor","middle");
+    txt.setAttribute("fill", r.id === current ? "#fff" : "var(--color-text-secondary)");
+    txt.setAttribute("font-size","11");
+    txt.textContent = r.label;
+    g.appendChild(txt);
+    svg.appendChild(g);
+  });
+  const lines = [
+    [200,130,200,100],[150,80,200,80],[300,80,340,80],[250,100,250,60]
+  ];
+  lines.forEach(([x1,y1,x2,y2])=>{
+    const line = document.createElementNS("http://www.w3.org/2000/svg","line");
+    line.setAttribute("x1",x1);line.setAttribute("y1",y1);
+    line.setAttribute("x2",x2);line.setAttribute("y2",y2);
+    line.setAttribute("stroke","var(--color-border-secondary)");
+    line.setAttribute("stroke-width","2");
+    line.setAttribute("stroke-dasharray","4 3");
+    svg.insertBefore(line, svg.firstChild);
+  });
+}
+
+function renderArrows(room) {
+  const overlay = document.getElementById("scene-overlay");
+  overlay.querySelectorAll(".nav-arrow").forEach(e=>e.remove());
+  const exits = room.exits || {};
+  const dirs = {
+    forward: {cls:"up",   svg:'<polyline points="11,17 11,3"/><polyline points="5,9 11,3 17,9"/>'},
+    back:    {cls:"down", svg:'<polyline points="11,7 11,21"/><polyline points="17,15 11,21 5,15"/>'},
+    left:    {cls:"left", svg:'<polyline points="17,11 3,11"/><polyline points="9,5 3,11 9,17"/>'},
+    right:   {cls:"right",svg:'<polyline points="7,11 21,11"/><polyline points="15,5 21,11 15,17"/>'},
+  };
+  Object.entries(exits).forEach(([dir, dest]) => {
+    const d = dirs[dir];
+    if (!d) return;
+    const btn = document.createElement("div");
+    btn.className = `nav-arrow ${d.cls}`;
+    btn.innerHTML = `<svg viewBox="0 0 24 24">${d.svg}</svg>`;
+    btn.title = rooms[dest]?.label || dest;
+    btn.onclick = () => goto(dest);
+    overlay.appendChild(btn);
+  });
+}
+
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove("show"), 1400);
+}
+
+function goto(id) {
+  if (!rooms[id]) return;
+  current = id;
+  const room = rooms[id];
+  document.getElementById("scene-img").src = room.image;
+  document.getElementById("room-label").textContent = room.label;
+  document.getElementById("info-title").textContent = room.label;
+  document.getElementById("info-desc").textContent = room.desc;
+  renderArrows(room);
+  renderMinimap();
+  showToast(room.label + " に移動しました");
+}
+
+goto("entrance");
+</script>

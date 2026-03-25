@@ -1,0 +1,268 @@
+<?php
+$currentPage = 'home';
+include 'parts/head.php';
+?>
+<body>
+<?php include 'parts/header.php'; ?>
+<?php include 'parts/fullmenu.php'; ?>
+
+
+  <!-- VIDEO HERO -->
+  <div class="hero-video">
+    <!-- サンプル動画: Pexels フリー素材（配管・工事イメージ） -->
+    <video autoplay muted loop playsinline>
+      <source src="video.mp4" type="video/mp4">
+      <!-- <source src="4237250-uhd_3840_2160_30fps.mp4" type="video/mp4"> -->
+      <!-- <source src="v2_1773814298768-799095223.mp4" type="video/mp4"> -->
+      <!-- <source src="watermarked.mp4" type="video/mp4"> -->
+    </video>
+    <div class="hero-video-overlay"></div>
+    <div class="hero-video-content">
+      <div class="hero-video-catch">PIPING &amp; HOUSING</div>
+      <h1 class="hero-video-title">
+        地域とともに、<br>
+        半世紀。
+      </h1>
+      <p class="hero-video-sub">
+        千葉県北部から中部にかけて、<br>
+        ガス・水道・住宅設備業のお客様へ。<br>
+        昭和53年の創業以来、信頼とともに歩んでいます。
+      </p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#" onclick="showPage('company');return false;">会社紹介</a>
+        <a class="btn-ghost" href="/products.php">取扱商品</a>
+      </div>
+    </div>
+    <div class="hero-bg-text">NARITA</div>
+    <div class="hero-video-scroll">SCROLL</div>
+  </div>
+  <!-- HERO NEWS BAR -->
+  <div class="hero-news-bar">
+    <div class="hero-news-bar-inner">
+      <span class="hero-news-label">NEWS</span>
+      <span class="hero-news-date">2026.03.01</span>
+      <a class="hero-news-text" href="https://narita-kizai.com/2026/03/01/benkan/" target="_blank">
+        現在、正社員を募集中です
+      </a>
+      <a class="hero-news-more" href="#" onclick="document.getElementById('page-home').querySelector('.news-section').scrollIntoView({behavior:'smooth'});return false;">MORE</a>
+    </div>
+  </div>
+
+  <!-- MARQUEE TICKER -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>PIPING &amp; HOUSING</span>
+      <span>地域インフラを支える</span>
+      <span>創業 1978</span>
+      <span>富里 ／ 茂原</span>
+      <span>ガス・水道・住宅設備</span>
+      <span>24名の専門スタッフ</span>
+      <span>PIPING &amp; HOUSING</span>
+      <span>地域インフラを支える</span>
+      <span>創業 1978</span>
+      <span>富里 ／ 茂原</span>
+      <span>ガス・水道・住宅設備</span>
+      <span>24名の専門スタッフ</span>
+    </div>
+  </div>
+
+  <!-- STATEMENT SECTION -->
+  <div class="statement-section">
+    <div class="statement-inner">
+      <div class="statement-left">
+        <div class="statement-label">SINCE 1978</div>
+        <h2 class="statement-title">地域のライフラインを誠実に、力強く。</h2>
+      </div>
+      <div class="statement-right">
+        <p class="statement-body">ガス・水道・住宅設備の専門商社として千葉県北部から中部にかけて、昭和53年の創業以来、地域の工事業者様とともに生活インフラを支え続けてきました。豊富な在庫と迅速な配送体制で、現場の皆様の信頼にお応えしています。</p>
+        <div class="statement-rule"></div>
+        <div class="statement-values">
+          <div class="statement-value-item">
+            <div class="statement-value-num">48<span>年</span></div>
+            <div class="statement-value-label">創業からの歴史</div>
+          </div>
+          <div class="statement-value-item">
+            <div class="statement-value-num">2<span>拠点</span></div>
+            <div class="statement-value-label">富里・茂原</div>
+          </div>
+          <div class="statement-value-item">
+            <div class="statement-value-num">24<span>名</span></div>
+            <div class="statement-value-label">専門スタッフ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="features-inner">
+      <div class="features-header section-deco-wrap">
+        <span class="section-bg-text">SERVICE</span>
+        <span class="section-title-en">OUR SERVICES</span>
+        <span class="section-title-ja">事業・サービス</span>
+      </div>
+      <div class="feature-card">
+        <span class="feature-num">01</span>
+        <img src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/truck_tomisato2_new.jpg" alt="配送体制">
+        <h3>充実した配送体制</h3>
+        <p>トラック12台、乗用車2台、ライトバン2台、フォークリフト3台。準備万全でお届けいたします。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-num">02</span>
+        <img src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/mop2.jpg" alt="店頭お引取り">
+        <h3>早朝からの店頭お引取り</h3>
+        <p>早朝より準備いたしております。現場の前にぜひお立ち寄りください。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-num">03</span>
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="豊富な在庫">
+        <h3>豊富な在庫と即日対応</h3>
+        <p>管・継手・弁・住宅設備など多品種の商品を常時在庫。お急ぎのご注文にも柔軟にお応えします。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-num">04</span>
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80" alt="技術サポート">
+        <h3>専門スタッフによるサポート</h3>
+        <p>経験豊富なスタッフが商品選定から技術的なご相談まで、現場目線で丁寧にサポートいたします。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARALLAX -->
+  <div class="parallax-section">
+    <div class="parallax-content">
+      <div class="parallax-catch">NARITA KIZAI</div>
+      <h2 class="parallax-title">
+        地域のライフラインを、<br>半世紀にわたり支えてきた実績。
+      </h2>
+      <div class="parallax-nums">
+        <div class="parallax-num">
+          <div class="parallax-num-value" data-count="48" data-suffix="年"><span class="count-num">0</span><span style="font-size:0.5em">年</span></div>
+          <div class="parallax-num-label">創業からの歴史</div>
+        </div>
+        <div class="parallax-num">
+          <div class="parallax-num-value" data-count="2" data-suffix="拠点"><span class="count-num">0</span><span style="font-size:0.5em">拠点</span></div>
+          <div class="parallax-num-label">富里・茂原</div>
+        </div>
+        <div class="parallax-num">
+          <div class="parallax-num-value" data-count="24" data-suffix="名"><span class="count-num">0</span><span style="font-size:0.5em">名</span></div>
+          <div class="parallax-num-label">従業員数</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="news-section">
+    <div class="section-inner">
+      <div class="section-header section-deco-wrap">
+        <span class="section-bg-text">NEWS</span>
+        <span class="section-title-en">NEWS</span>
+        <span class="section-title-ja">新着情報</span>
+      </div>
+      <div class="news-grid">
+        <a class="news-card" href="/recruit.php">
+          <img class="news-card-img" src="https://narita-kizai.com/wp-content/uploads/2023/07/office3.jpg" alt="">
+          <div class="news-card-body">
+            <div class="news-meta">
+              <span class="news-date">2026年3月1日</span>
+              <span class="news-cat">ご案内</span>
+            </div>
+            <div class="news-title">現在、正社員を募集中です</div>
+            <div class="news-excerpt">ただいま本店・富里営業部で正社員（営業職・配送職）を募集しております。</div>
+          </div>
+        </a>
+        <a class="news-card" href="https://narita-kizai.com/2026/03/01/benkan/" target="_blank">
+          <img class="news-card-img" src="https://narita-kizai.com/wp-content/uploads/2023/07/f6f77a1616e27fc34eb1a81aa7dc6262-1-800x600.jpg" alt="">
+          <div class="news-card-body">
+            <div class="news-meta">
+              <span class="news-date">2026年3月1日</span>
+              <span class="news-cat">ご案内</span>
+            </div>
+            <div class="news-title">ステンレス配管のベンカン様に紹介していただきました</div>
+            <div class="news-excerpt">ベンカン様のホームページの「皆様の声」で当社を紹介していただきました。</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOLLOW US -->
+  <div class="followus-section">
+    <div class="followus-inner">
+      <div class="followus-left">
+        <div class="followus-label">SNS</div>
+        <div class="followus-title">FOLLOW<br>US</div>
+        <p class="followus-desc">
+          代表・中嶋が毎日、現場の声や商品情報、業界トピックスを発信しています。日々の活動をぜひフォローしてご覧ください。
+        </p>
+        <a class="followus-btn" href="https://twitter.com/narita_kizai" target="_blank" rel="noopener">
+          @narita_kizai をフォロー
+        </a>
+      </div>
+      <div class="followus-timeline">
+        <a class="twitter-timeline"
+           data-height="480"
+           data-theme="light"
+           data-chrome="noheader nofooter noborders"
+           href="https://twitter.com/narita_kizai">
+          Tweets by narita_kizai
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- YOUTUBE -->
+  <div class="youtube-section">
+    <div class="youtube-inner">
+      <div class="youtube-left">
+        <div class="youtube-label">YouTube</div>
+        <div class="youtube-title">WATCH<br>OUR<br>CHANNEL</div>
+        <p class="youtube-desc">
+          配管・住宅設備の現場や商品紹介など、業界の"いま"を動画でお届けしています。チャンネル登録もぜひ。
+        </p>
+        <a class="youtube-btn"
+           href="https://www.youtube.com/channel/UCmmnGI7cfG_4hMycCaGSMmw"
+           target="_blank" rel="noopener">
+          チャンネルを見る
+        </a>
+      </div>
+      <a class="youtube-embed"
+         href="https://www.youtube.com/watch?v=-dz9ND5nlng"
+         target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/-dz9ND5nlng/hqdefault.jpg"
+             alt="モルコ締付工具 ＢＰＮ-１６Ｒのご紹介♪">
+        <div class="youtube-play">
+          <div class="youtube-play-icon"></div>
+        </div>
+        <div class="youtube-video-title">モルコ締付工具 ＢＰＮ-１６Ｒのご紹介♪</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- PARALLAX 2 -->
+  <div class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80');">
+    <div class="parallax-content">
+      <div class="parallax-catch">CONTACT US</div>
+      <h2 class="parallax-title">
+        お気軽にご相談ください。
+      </h2>
+      <p style="font-size:15px; color:rgba(255,255,255,0.8); margin-bottom:32px; line-height:1.9;">
+        配管機材・住宅資材のことなら、<br>お電話・メールにてお問い合わせください。
+      </p>
+      <div class="parallax-nums" style="gap:32px;">
+        <a href="tel:0476930635" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; background:rgba(200,169,90,0.2); border:1px solid var(--accent); padding:20px 36px; border-radius:3px; transition:background 0.2s;" onmouseover="this.style.background='rgba(200,169,90,0.4)'" onmouseout="this.style.background='rgba(200,169,90,0.2)'">
+          <span style="font-family:var(--display); font-size:11px; letter-spacing:0.3em; color:var(--accent); margin-bottom:8px;">本店・富里営業部</span>
+          <span style="font-family:var(--display); font-size:clamp(24px,3vw,36px); color:var(--white); letter-spacing:0.08em;">0476-93-0635</span>
+        </a>
+        <a href="tel:0475250812" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; background:rgba(200,169,90,0.2); border:1px solid var(--accent); padding:20px 36px; border-radius:3px; transition:background 0.2s;" onmouseover="this.style.background='rgba(200,169,90,0.4)'" onmouseout="this.style.background='rgba(200,169,90,0.2)'">
+          <span style="font-family:var(--display); font-size:11px; letter-spacing:0.3em; color:var(--accent); margin-bottom:8px;">茂原営業所</span>
+          <span style="font-family:var(--display); font-size:clamp(24px,3vw,36px); color:var(--white); letter-spacing:0.08em;">0475-25-0812</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+<?php include 'parts/footer.php'; ?>
+<?php include 'parts/scripts.php'; ?>
+</body>
+</html>
