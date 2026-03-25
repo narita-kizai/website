@@ -1787,6 +1787,21 @@ body.cat-caught {
   cursor: url('mouse-defeated.svg') 16 21, auto;
 }
 body.cat-caught .cursor-ring { transform: scale(1.4); }
+/* 蹴っ飛ばし時：ネズミが蹴り顔に */
+body.cat-kick {
+  cursor: url('mouse-kick.svg') 16 21, auto;
+}
+/* ネコが蹴り飛ばされるアニメーション */
+@keyframes catFlyOff {
+  0%   { transform: scale(1.4) rotate(0deg);   opacity: 1; }
+  25%  { transform: scale(2.2) rotate(-25deg);  opacity: 1; }
+  60%  { transform: scale(1.2) rotate(-180deg); opacity: 0.6; }
+  100% { transform: scale(0.4) rotate(-600deg) translateX(-280vw) translateY(-200vh); opacity: 0; }
+}
+.cursor-ring.cat-kicked {
+  animation: catFlyOff 0.65s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+  transition: none !important;
+}
 @media (hover: none) { .cursor-ring { display: none; } }
 
 /* ─── SCROLL ANIMATIONS ─── */
@@ -2725,29 +2740,65 @@ document.addEventListener('keydown', function(e) {
 })();
 
 // ─── CUSTOM CURSOR ───
+// グローバル変数（mousedown ハンドラとlerpが共有）
+var _catDist = Infinity;
+var _catKickedUntil = 0;
+var _catRing = null;
+var _catRx = -300, _catRy = -300;
+
+// mousedown はスクリプト最上位で登録（initCursor のDOMContentLoaded問題を回避）
+window.addEventListener('mousedown', function() {
+  console.log('[kick] mousedown _catDist=' + _catDist.toFixed(1) + ' ring=' + !!_catRing);
+  if (_catDist > 40) return;
+  if (Date.now() < _catKickedUntil) return;
+  if (!_catRing) return;
+
+  var KICK_DURATION = 3300;
+  _catKickedUntil = Date.now() + KICK_DURATION;
+
+  document.body.classList.remove('cat-caught');
+  document.body.classList.add('cat-kick');
+  _catRing.classList.add('cat-kicked');
+
+  setTimeout(function() { _catRing.style.opacity = '0'; }, 650);
+
+  setTimeout(function() {
+    _catRing.classList.remove('cat-kicked');
+    document.body.classList.remove('cat-kick');
+    _catRing.style.opacity = '';
+    _catRx = -300; _catRy = -300;
+    _catRing.style.left = '-300px';
+    _catRing.style.top  = '-300px';
+  }, KICK_DURATION);
+});
+
 (function initCursor() {
   var ring     = document.getElementById('cursorRing');
   var dot      = document.getElementById('cursorDot');
   var ringText = document.getElementById('cursorRingText');
   if (!ring || !dot) {
-    // 要素がまだなければ DOMContentLoaded 後に再試行
     document.addEventListener('DOMContentLoaded', initCursor);
     return;
   }
 
-  var mx = -300, my = -300, rx = -300, ry = -300;
-  var rSize = 16; // ネズミ画像の半径 (32px / 2)
+  _catRing = ring; // グローバルに公開
+
+  var mx = -300, my = -300;
+  var rSize = 16;
 
   document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; });
 
   (function lerp() {
-    rx += (mx - rx) * 0.07;
-    ry += (my - ry) * 0.07;
-    ring.style.left = (rx - rSize) + 'px';
-    ring.style.top  = (ry - rSize) + 'px';
-    // トムとジェリーの距離を計算 → 近づいたらやられ顔
-    var dist = Math.sqrt((rx - mx) * (rx - mx) + (ry - my) * (ry - my));
-    if (dist < 14) {
+    if (Date.now() < _catKickedUntil) {
+      requestAnimationFrame(lerp);
+      return;
+    }
+    _catRx += (mx - _catRx) * 0.07;
+    _catRy += (my - _catRy) * 0.07;
+    ring.style.left = (_catRx - rSize) + 'px';
+    ring.style.top  = (_catRy - rSize) + 'px';
+    _catDist = Math.sqrt((_catRx - mx) * (_catRx - mx) + (_catRy - my) * (_catRy - my));
+    if (_catDist < 14) {
       document.body.classList.add('cat-caught');
     } else {
       document.body.classList.remove('cat-caught');

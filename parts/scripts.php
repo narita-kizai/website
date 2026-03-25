@@ -1,4 +1,30 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ─── PAGE LOADER ───
+(function() {
+  var loader = document.getElementById('page-loader');
+  if (!loader) return;
+  var START = Date.now();
+  var MIN_SHOW = 1800; // 最低表示時間(ms)
+  var done = false;
+  function hideLoader() {
+    if (done) return;
+    done = true;
+    var wait = Math.max(0, MIN_SHOW - (Date.now() - START));
+    setTimeout(function() {
+      loader.classList.add('fade-out');
+      setTimeout(function() { loader.style.display = 'none'; }, 850);
+    }, wait);
+  }
+  // PC: window.load（動画含む全リソース読込後）
+  window.addEventListener('load', hideLoader);
+  // モバイル: DOMContentLoaded + 少し余裕を持たせて確実に非表示
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(hideLoader, MIN_SHOW + 300);
+  });
+  // 最大フォールバック
+  setTimeout(hideLoader, 6000);
+})();
+
 // ─── SCROLL HEADER ───
 function checkScroll() {
   if (!document.body.classList.contains('inner-page')) {
@@ -59,29 +85,64 @@ document.addEventListener('keydown', function(e) {
 })();
 
 // ─── CUSTOM CURSOR ───
+// グローバル変数（mousedown ハンドラと lerp が共有）
+var _catDist = Infinity;
+var _catKickedUntil = 0;
+var _catRing = null;
+var _catRx = -300, _catRy = -300;
+
+// mousedown はスクリプト最上位で登録
+window.addEventListener('mousedown', function() {
+  if (_catDist > 40) return;
+  if (Date.now() < _catKickedUntil) return;
+  if (!_catRing) return;
+
+  var KICK_DURATION = 3300;
+  _catKickedUntil = Date.now() + KICK_DURATION;
+
+  document.body.classList.remove('cat-caught');
+  document.body.classList.add('cat-kick');
+  _catRing.classList.add('cat-kicked');
+
+  // ネコが飛んでいったらすぐカーソルを通常に戻す
+  setTimeout(function() { document.body.classList.remove('cat-kick'); }, 650);
+  setTimeout(function() { _catRing.style.opacity = '0'; }, 650);
+
+  setTimeout(function() {
+    _catRing.classList.remove('cat-kicked');
+    _catRing.style.opacity = '';
+    _catRx = -300; _catRy = -300;
+    _catRing.style.left = '-300px';
+    _catRing.style.top  = '-300px';
+  }, KICK_DURATION);
+});
+
 (function initCursor() {
   var ring     = document.getElementById('cursorRing');
   var dot      = document.getElementById('cursorDot');
   var ringText = document.getElementById('cursorRingText');
   if (!ring || !dot) {
-    // 要素がまだなければ DOMContentLoaded 後に再試行
     document.addEventListener('DOMContentLoaded', initCursor);
     return;
   }
 
-  var mx = -300, my = -300, rx = -300, ry = -300;
-  var rSize = 16; // ネズミ画像の半径 (32px / 2)
+  _catRing = ring;
+  var mx = -300, my = -300;
+  var rSize = 16;
 
   document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; });
 
   (function lerp() {
-    rx += (mx - rx) * 0.07;
-    ry += (my - ry) * 0.07;
-    ring.style.left = (rx - rSize) + 'px';
-    ring.style.top  = (ry - rSize) + 'px';
-    // トムとジェリーの距離を計算 → 近づいたらやられ顔
-    var dist = Math.sqrt((rx - mx) * (rx - mx) + (ry - my) * (ry - my));
-    if (dist < 14) {
+    if (Date.now() < _catKickedUntil) {
+      requestAnimationFrame(lerp);
+      return;
+    }
+    _catRx += (mx - _catRx) * 0.07;
+    _catRy += (my - _catRy) * 0.07;
+    ring.style.left = (_catRx - rSize) + 'px';
+    ring.style.top  = (_catRy - rSize) + 'px';
+    _catDist = Math.sqrt((_catRx - mx) * (_catRx - mx) + (_catRy - my) * (_catRy - my));
+    if (_catDist < 14) {
       document.body.classList.add('cat-caught');
     } else {
       document.body.classList.remove('cat-caught');

@@ -3,6 +3,14 @@ $currentPage = 'home';
 include 'parts/head.php';
 ?>
 <body>
+
+<!-- ローディング画面 -->
+<div id="page-loader">
+  <img class="loader-logo" src="narita_logo_512x512_2.png" alt="成田機材">
+  <div class="loader-name">NARITA KIZAI</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
 <?php include 'parts/header.php'; ?>
 <?php include 'parts/fullmenu.php'; ?>
 

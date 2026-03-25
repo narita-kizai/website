@@ -1847,7 +1847,84 @@ body.cat-caught {
   cursor: url('mouse-defeated.svg') 16 21, auto;
 }
 body.cat-caught .cursor-ring { transform: scale(1.4); }
+/* 蹴っ飛ばし時：ネズミが蹴り顔に */
+body.cat-kick {
+  cursor: url('mouse-kick-xl.svg') 32 42, auto;
+}
+/* ネコが蹴り飛ばされるアニメーション */
+@keyframes catFlyOff {
+  0%   { transform: scale(1.4); opacity: 1; }
+  25%  { transform: scale(2.2) rotate(-25deg); opacity: 1; }
+  60%  { transform: scale(1.2) rotate(-180deg); opacity: 0.6; }
+  100% { transform: scale(0.4) rotate(-600deg) translateX(-280vw) translateY(-200vh); opacity: 0; }
+}
+.cursor-ring.cat-kicked {
+  animation: catFlyOff 0.65s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+  transition: none !important;
+}
 @media (hover: none) { .cursor-ring { display: none; } }
+
+/* ─── PAGE LOADER ─── */
+#page-loader {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  z-index: 99998;
+  background: #1a2744;
+  background: var(--navy);
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  gap: 28px;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+#page-loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+.loader-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  animation: loaderIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s both;
+}
+.loader-name {
+  font-family: var(--display);
+  font-size: 20px;
+  letter-spacing: 0.35em;
+  color: rgba(255,255,255,0.75);
+  animation: loaderIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.35s both;
+}
+.loader-bar-wrap {
+  width: 180px;
+  height: 2px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px;
+  overflow: hidden;
+  animation: loaderIn 0.5s ease 0.6s both;
+}
+.loader-bar {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  border-radius: 2px;
+  animation: loaderBarGrow 2.4s cubic-bezier(0.4,0,0.2,1) 0.8s forwards;
+}
+@keyframes loaderIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes loaderBarGrow {
+  0%   { width: 0%; }
+  65%  { width: 80%; }
+  100% { width: 100%; }
+}
 
 /* ─── SCROLL ANIMATIONS ─── */
 .anim {
