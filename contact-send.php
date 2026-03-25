@@ -1,6 +1,6 @@
 <?php
 // 送信先メールアドレス（テスト用）
-define('MAIL_TO', 'hamada@kk-kojima.co.jp');
+define('MAIL_TO', 'nakajima@narita-kizai.com');
 define('MAIL_FROM', 'noreply@narita-kizai.com');
 
 // POSTメソッド以外はリダイレクト
