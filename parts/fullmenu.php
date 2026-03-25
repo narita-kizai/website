@@ -75,8 +75,8 @@
           FAX: 0475-24-1315
         </address>
         <div class="fullmenu-sns">
-          <a href="https://twitter.com/narita_kizai" target="_blank" rel="noopener" title="X (Twitter)">𝕏</a>
-          <a href="https://www.youtube.com/channel/UCmmnGI7cfG_4hMycCaGSMmw" target="_blank" rel="noopener" title="YouTube">▶</a>
+          <a class="sns-x" href="https://twitter.com/narita_kizai" target="_blank" rel="noopener" title="X (Twitter)">𝕏</a>
+          <a class="sns-yt" href="https://www.youtube.com/channel/UCmmnGI7cfG_4hMycCaGSMmw" target="_blank" rel="noopener" title="YouTube">▶</a>
         </div>
       </div>
     </div>

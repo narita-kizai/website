@@ -35,10 +35,10 @@ include 'parts/head.php';
     <div class="hero-news-bar">
       <div class="hero-news-bar-inner">
         <span class="hero-news-label">NEWS</span>
-        <span class="hero-news-date">2026.03.01</span>
-        <a class="hero-news-text" href="https://narita-kizai.com/2026/03/01/benkan/" target="_blank">
-          現在、正社員を募集中です
-        </a>
+        <div class="hero-news-ticker">
+          <span class="hero-news-date">2026.03.25</span>
+          <a class="hero-news-text" href="https://www.baitoru.com/cjlist500896/" target="_blank" rel="noopener">バイトルにてアルバイトを募集しています</a>
+        </div>
         <a class="hero-news-more" href="/news.php">MORE</a>
       </div>
     </div>
@@ -263,5 +263,37 @@ include 'parts/head.php';
 
 <?php include 'parts/footer.php'; ?>
 <?php include 'parts/scripts.php'; ?>
+<script>
+(function() {
+  var items = [
+    { date: '2026.03.25', text: 'バイトルにてアルバイトを募集しています',          url: 'https://www.baitoru.com/cjlist500896/', external: true },
+    { date: '2026.02.19', text: '現在、正社員を募集中です',                         url: '/recruit.php',                           external: false },
+    { date: '2018.05.10', text: 'ステンレス配管のベンカン様に紹介していただきました', url: 'https://www.benkan.co.jp/voice/10451.html', external: true }
+  ];
+  var idx = 0;
+  var ticker = document.querySelector('.hero-news-ticker');
+  var dateEl = document.querySelector('.hero-news-date');
+  var textEl = document.querySelector('.hero-news-text');
+  if (!ticker) return;
+  setInterval(function() {
+    ticker.style.opacity = '0';
+    setTimeout(function() {
+      idx = (idx + 1) % items.length;
+      var item = items[idx];
+      dateEl.textContent = item.date;
+      textEl.textContent = item.text;
+      textEl.href = item.url;
+      if (item.external) {
+        textEl.setAttribute('target', '_blank');
+        textEl.setAttribute('rel', 'noopener');
+      } else {
+        textEl.removeAttribute('target');
+        textEl.removeAttribute('rel');
+      }
+      ticker.style.opacity = '1';
+    }, 400);
+  }, 5000);
+})();
+</script>
 </body>
 </html>
