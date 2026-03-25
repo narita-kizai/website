@@ -28,23 +28,19 @@ include 'parts/head.php';
         ガス・水道・住宅設備業のお客様へ。<br>
         昭和53年の創業以来、信頼とともに歩んでいます。
       </p>
-      <div class="hero-cta">
-        <a class="btn-primary" href="#" onclick="showPage('company');return false;">会社紹介</a>
-        <a class="btn-ghost" href="/products.php">取扱商品</a>
-      </div>
     </div>
     <div class="hero-bg-text">NARITA</div>
     <div class="hero-video-scroll">SCROLL</div>
-  </div>
-  <!-- HERO NEWS BAR -->
-  <div class="hero-news-bar">
-    <div class="hero-news-bar-inner">
-      <span class="hero-news-label">NEWS</span>
-      <span class="hero-news-date">2026.03.01</span>
-      <a class="hero-news-text" href="https://narita-kizai.com/2026/03/01/benkan/" target="_blank">
-        現在、正社員を募集中です
-      </a>
-      <a class="hero-news-more" href="#" onclick="document.getElementById('page-home').querySelector('.news-section').scrollIntoView({behavior:'smooth'});return false;">MORE</a>
+    <!-- HERO NEWS BAR -->
+    <div class="hero-news-bar">
+      <div class="hero-news-bar-inner">
+        <span class="hero-news-label">NEWS</span>
+        <span class="hero-news-date">2026.03.01</span>
+        <a class="hero-news-text" href="https://narita-kizai.com/2026/03/01/benkan/" target="_blank">
+          現在、正社員を募集中です
+        </a>
+        <a class="hero-news-more" href="#" onclick="document.querySelector('.news-section').scrollIntoView({behavior:'smooth'});return false;">MORE</a>
+      </div>
     </div>
   </div>
 
