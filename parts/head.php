@@ -1283,6 +1283,8 @@ footer {
   .hero-news-date { display: none; }
   .hero-news-more { display: none; }
   .hero-news-bar-inner { gap: 0; }
+  .hero-video-content { padding-left: 24px; padding-right: 24px; }
+  .hero-video-title { font-size: clamp(36px, 9vw, 44px); }
 }
 
 /* ─── YOUTUBE SECTION ─── */
