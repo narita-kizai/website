@@ -20,7 +20,7 @@ include 'parts/head.php';
     </div>
   </div>
   <div class="content-area">
-    <img class="recruit-hero-img" src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/kanban_mejirushi.jpg" alt="採用情報">
+    <img class="recruit-hero-img" src="/kanban_mejirushi.jpg" alt="採用情報">
     <div class="recruit-block">
       <h3>現在、正社員を募集中です</h3>
       <p>

@@ -103,13 +103,13 @@ include 'parts/head.php';
       </div>
       <div class="feature-card">
         <span class="feature-num">01</span>
-        <img src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/truck_tomisato2_new.jpg" alt="配送体制">
+        <img src="/truck_tomisato2_new.jpg" alt="配送体制">
         <h3>充実した配送体制</h3>
         <p>トラック12台、乗用車2台、ライトバン2台、フォークリフト3台。準備万全でお届けいたします。</p>
       </div>
       <div class="feature-card">
         <span class="feature-num">02</span>
-        <img src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/mop2.jpg" alt="店頭お引取り">
+        <img src="/mop2.jpg" alt="店頭お引取り">
         <h3>早朝からの店頭お引取り</h3>
         <p>早朝より準備いたしております。現場の前にぜひお立ち寄りください。</p>
       </div>
@@ -161,7 +161,7 @@ include 'parts/head.php';
       </div>
       <div class="news-grid">
         <a class="news-card" href="/recruit.php">
-          <img class="news-card-img" src="https://narita-kizai.com/wp-content/uploads/2023/07/office3.jpg" alt="">
+          <img class="news-card-img" src="/office3.jpg" alt="">
           <div class="news-card-body">
             <div class="news-meta">
               <span class="news-date">2026年3月1日</span>
@@ -172,7 +172,7 @@ include 'parts/head.php';
           </div>
         </a>
         <a class="news-card" href="https://narita-kizai.com/2026/03/01/benkan/" target="_blank">
-          <img class="news-card-img" src="https://narita-kizai.com/wp-content/uploads/2023/07/f6f77a1616e27fc34eb1a81aa7dc6262-1-800x600.jpg" alt="">
+          <img class="news-card-img" src="/boss_benkan.jpg" alt="">
           <div class="news-card-body">
             <div class="news-meta">
               <span class="news-date">2026年3月1日</span>

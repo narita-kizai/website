@@ -829,8 +829,7 @@ nav { display: flex; align-items: center; gap: 4px; }
 /* ─── HISTORY ─── */
 .history-img {
   width: 100%;
-  max-height: 280px;
-  object-fit: cover;
+  height: auto;
   margin-bottom: 40px;
   border-radius: 2px;
 }
@@ -1018,8 +1017,9 @@ nav { display: flex; align-items: center; gap: 4px; }
 /* ─── RECRUIT ─── */
 .recruit-hero-img {
   width: 100%;
-  max-height: 300px;
+  height: 800px;
   object-fit: cover;
+  object-position: top;
   margin-bottom: 40px;
   border-radius: 2px;
 }

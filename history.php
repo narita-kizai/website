@@ -20,7 +20,7 @@ include 'parts/head.php';
     </div>
   </div>
   <div class="content-area">
-    <img class="history-img" src="https://narita-kizai.sakura.ne.jp/wp/wp-content/uploads/2023/07/old_gaikan.jpg" alt="創業当時の外観">
+    <img class="history-img" src="/old_gaikan.jpg" alt="創業当時の外観">
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-year">昭和53年<br>6月</div>
