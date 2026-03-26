@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script>window._pageStart=Date.now();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?php echo isset($pageTitle) ? htmlspecialchars($pageTitle).' | 成田機材株式会社' : '成田機材株式会社 – Piping &amp; Housing'; ?></title>
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -1914,7 +1915,7 @@ body.cat-kick {
   width: 0;
   background: var(--accent);
   border-radius: 2px;
-  animation: loaderBarGrow 2.4s cubic-bezier(0.4,0,0.2,1) 0.8s forwards;
+  animation: loaderBarGrow 1.3s cubic-bezier(0.4,0,0.2,1) 0.3s forwards;
 }
 @keyframes loaderIn {
   from { opacity: 0; transform: translateY(18px); }

@@ -3,8 +3,8 @@
 (function() {
   var loader = document.getElementById('page-loader');
   if (!loader) return;
-  var START = Date.now();
-  var MIN_SHOW = 1800; // 最低表示時間(ms)
+  var START = window._pageStart || Date.now(); // head で記録したページ開始時刻
+  var MIN_SHOW = 1900; // 最低表示時間(ms) ※バーが1.6秒で完了するので余裕を持たせる
   var done = false;
   function hideLoader() {
     if (done) return;
