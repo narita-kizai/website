@@ -27,7 +27,7 @@ include 'parts/head.php';
           <div class="president-flip">
             <div class="president-flip-inner">
               <div class="president-flip-front">
-                <img class="president-img" src="/boss.jpg" alt="代表取締役社長 中嶋哲寛">
+                <img class="president-img" src="/boss3.png" alt="代表取締役社長 中嶋哲寛">
               </div>
               <div class="president-flip-back">
                 <img class="president-img" src="/boss2.png" alt="代表取締役社長 中嶋哲寛">
