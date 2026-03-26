@@ -34,14 +34,14 @@
             <a href="/products.php">
               <span class="fn-num">03</span>
               <span class="fn-en">PRODUCTS</span>
-              <span class="fn-ja">取扱い商品</span>
+              <span class="fn-ja">取扱商品</span>
             </a>
           </li>
           <li>
             <a href="/news.php">
               <span class="fn-num">04</span>
               <span class="fn-en">NEWS</span>
-              <span class="fn-ja">ニュース</span>
+              <span class="fn-ja">NEWS</span>
             </a>
           </li>
           <li>

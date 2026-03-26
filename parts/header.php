@@ -40,10 +40,10 @@ function _nav_active($pages, $current) {
         </div>
       </div>
       <div class="nav-item">
-        <a class="nav-link<?= _nav_active('products', $_cp) ?>" href="/products.php">取扱い商品</a>
+        <a class="nav-link<?= _nav_active('products', $_cp) ?>" href="/products.php">取扱商品</a>
       </div>
       <div class="nav-item">
-        <a class="nav-link<?= _nav_active('news', $_cp) ?>" href="/news.php">ニュース</a>
+        <a class="nav-link<?= _nav_active('news', $_cp) ?>" href="/news.php">NEWS</a>
       </div>
       <div class="nav-item">
         <a class="nav-link<?= _nav_active('recruit', $_cp) ?>" href="/recruit.php">採用情報</a>

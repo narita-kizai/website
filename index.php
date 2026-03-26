@@ -32,9 +32,8 @@ include 'parts/head.php';
         半世紀。
       </h1>
       <p class="hero-video-sub">
-        千葉県北部から中部にかけて、<br>
-        ガス・水道・住宅設備業のお客様へ。<br>
-        昭和53年の創業以来、信頼とともに歩んでいます。
+        千葉県北部〜中部のガス・水道・住宅設備業者様を<br>
+        即納対応 × 在庫力 × 現場対応力で支えます
       </p>
     </div>
     <div class="hero-bg-text">NARITA</div>
