@@ -33,7 +33,7 @@ include 'parts/head.php';
       </h1>
       <p class="hero-video-sub">
         千葉県北部〜中部のガス・水道・住宅設備業者様を<br>
-        即納対応 × 在庫力 × 現場対応力で支えます
+        即納対応 × 在庫力 × 現場対応力で支えています
       </p>
     </div>
     <div class="hero-bg-text">NARITA</div>
