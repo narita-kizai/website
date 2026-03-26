@@ -813,9 +813,35 @@ nav { display: flex; align-items: center; gap: 4px; }
   gap: 48px;
   align-items: start;
 }
-.president-img {
+.president-flip {
   width: 100%;
   aspect-ratio: 3/4;
+  perspective: 1200px;
+  cursor: pointer;
+}
+.president-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.president-flip:hover .president-flip-inner {
+  transform: rotateY(180deg);
+}
+.president-flip-front,
+.president-flip-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.president-flip-back {
+  transform: rotateY(180deg);
+}
+.president-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 2px;
   box-shadow: 8px 8px 0 var(--gray-200);

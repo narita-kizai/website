@@ -24,7 +24,16 @@ include 'parts/head.php';
       <!-- 左: 既存コンテンツ -->
       <div>
         <div class="president-block">
-          <img class="president-img" src="/boss.jpg" alt="代表取締役社長 中嶋哲寛">
+          <div class="president-flip">
+            <div class="president-flip-inner">
+              <div class="president-flip-front">
+                <img class="president-img" src="/boss.jpg" alt="代表取締役社長 中嶋哲寛">
+              </div>
+              <div class="president-flip-back">
+                <img class="president-img" src="/boss2.png" alt="代表取締役社長 中嶋哲寛">
+              </div>
+            </div>
+          </div>
           <div>
             <p class="president-text">
               このたびは成田機材株式会社ホームページをご覧いただき、誠にありがとうございます。<br><br>

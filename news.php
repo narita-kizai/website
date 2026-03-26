@@ -28,7 +28,7 @@ include 'parts/head.php';
     </div>
     <div class="news-grid" id="newsGrid">
       <a class="news-card" data-cat="採用情報" href="https://www.baitoru.com/cjlist500896/" target="_blank" rel="noopener">
-        <img class="news-card-img" src="/bitle.jpg" alt="バイトル" style="object-fit:contain;background:#f5f5f5;">
+        <img class="news-card-img" src="/bitle2.jpg" alt="バイトル">
         <div class="news-card-body">
           <div class="news-meta">
             <span class="news-date">2026年3月25日</span>
@@ -39,7 +39,7 @@ include 'parts/head.php';
         </div>
       </a>
       <a class="news-card" data-cat="採用情報" href="/recruit.php">
-        <img class="news-card-img" src="/office3.jpg" alt="">
+        <img class="news-card-img" src="/mens.jpg" alt="">
         <div class="news-card-body">
           <div class="news-meta">
             <span class="news-date">2026年2月19日</span>
