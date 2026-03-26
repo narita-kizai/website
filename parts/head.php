@@ -1908,14 +1908,13 @@ body.cat-kick {
   background: rgba(255,255,255,0.12);
   border-radius: 2px;
   overflow: hidden;
-  animation: loaderIn 0.5s ease 0.6s both;
 }
 .loader-bar {
   height: 100%;
   width: 0;
   background: var(--accent);
   border-radius: 2px;
-  animation: loaderBarGrow 1.3s cubic-bezier(0.4,0,0.2,1) 0.3s forwards;
+  animation: loaderBarGrow 1.8s cubic-bezier(0.4,0,0.2,1) 0s forwards;
 }
 @keyframes loaderIn {
   from { opacity: 0; transform: translateY(18px); }

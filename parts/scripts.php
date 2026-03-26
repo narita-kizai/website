@@ -3,15 +3,14 @@
 (function() {
   var loader = document.getElementById('page-loader');
   if (!loader) return;
-  var START = window._pageStart || Date.now(); // head で記録したページ開始時刻
-  var MIN_SHOW = 1900; // 最低表示時間(ms) ※バーが1.6秒で完了するので余裕を持たせる
+  var START = window._pageStart || Date.now();
+  var MIN_SHOW = 2200; // バーアニメーション(1.8s)が完了するまで待つ
   var done = false;
   function hideLoader() {
     if (done) return;
     done = true;
     var wait = Math.max(0, MIN_SHOW - (Date.now() - START));
     setTimeout(function() {
-      // バーを素早く100%まで完成させてからフェードアウト
       var bar = loader.querySelector('.loader-bar');
       if (bar) {
         bar.style.animation = 'none';
@@ -20,18 +19,23 @@
       }
       setTimeout(function() {
         loader.classList.add('fade-out');
-        setTimeout(function() { loader.style.display = 'none'; }, 850);
+        // display:none ではなく visibility:hidden にすることで
+        // 動画レイヤーの再描画を防ぎ、動画フリーズを回避する
+        setTimeout(function() {
+          loader.style.visibility = 'hidden';
+          loader.style.pointerEvents = 'none';
+        }, 850);
       }, 350);
     }, wait);
   }
-  // PC: window.load（動画含む全リソース読込後）
-  window.addEventListener('load', hideLoader);
-  // モバイル: DOMContentLoaded + 少し余裕を持たせて確実に非表示
+  // DOMContentLoaded + 500ms: 動画のロード完了を待たない（20秒以上かかる場合あり）
   document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(hideLoader, MIN_SHOW + 300);
+    setTimeout(hideLoader, 500);
   });
+  // window.load が先に来た場合（高速回線）にも対応
+  window.addEventListener('load', hideLoader);
   // 最大フォールバック
-  setTimeout(hideLoader, 6000);
+  setTimeout(hideLoader, 8000);
 })();
 
 // ─── SCROLL HEADER ───
