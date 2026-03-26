@@ -119,13 +119,13 @@ include 'parts/head.php';
       </div>
       <div class="feature-card">
         <span class="feature-num">03</span>
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="豊富な在庫">
+        <img src="/houfu.png" alt="豊富な在庫">
         <h3>豊富な在庫と即日対応</h3>
         <p>管・継手・弁・住宅設備など多品種の商品を常時在庫。お急ぎのご注文にも柔軟にお応えします。</p>
       </div>
       <div class="feature-card">
         <span class="feature-num">04</span>
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80" alt="技術サポート">
+        <img src="/senmon.png" alt="技術サポート">
         <h3>専門スタッフによるサポート</h3>
         <p>経験豊富なスタッフが商品選定から技術的なご相談まで、現場目線で丁寧にサポートいたします。</p>
       </div>

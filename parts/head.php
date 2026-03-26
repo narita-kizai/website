@@ -874,10 +874,13 @@ nav { display: flex; align-items: center; gap: 4px; }
 
 /* ─── HISTORY ─── */
 .history-img {
+  display: block;
+  max-width: 560px;
   width: 100%;
   height: auto;
-  margin-bottom: 40px;
-  border-radius: 2px;
+  margin: 0 auto 40px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 var(--gray-200);
 }
 .timeline {
   position: relative;
