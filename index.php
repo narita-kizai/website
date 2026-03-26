@@ -120,7 +120,7 @@ include 'parts/head.php';
         <span class="feature-num">03</span>
         <img src="/houfu.png" alt="豊富な在庫">
         <h3>豊富な在庫と即日対応</h3>
-        <p>管・継手・弁・住宅設備など多品種の商品を常時在庫。お急ぎのご注文にも柔軟にお応えします。</p>
+        <p>管・継手・弁・住宅設備など多品種の商品を常時在庫。在庫品は当日対応を基本に、迅速に手配</p>
       </div>
       <div class="feature-card">
         <span class="feature-num">04</span>

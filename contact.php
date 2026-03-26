@@ -72,6 +72,7 @@ include 'parts/head.php';
           <option value="お見積りについて">お見積りについて</option>
           <option value="在庫確認">在庫確認</option>
           <option value="採用について">採用について</option>
+          <option value="資料請求">資料請求</option>
           <option value="その他">その他</option>
         </select>
       </div>
