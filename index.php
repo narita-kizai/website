@@ -45,7 +45,7 @@ include 'parts/head.php';
         <span class="hero-news-label">NEWS</span>
         <div class="hero-news-ticker">
           <span class="hero-news-date">2026.03.25</span>
-          <a class="hero-news-text" href="https://www.baitoru.com/cjlist500896/" target="_blank" rel="noopener">バイトルにてアルバイトを募集しています</a>
+          <a class="hero-news-text" href="https://www.baitoru.com/cjlist500896/" target="_blank" rel="noopener">バイトルにて正社員を募集しています</a>
         </div>
         <a class="hero-news-more" href="/news.php">MORE</a>
       </div>
@@ -171,7 +171,7 @@ include 'parts/head.php';
               <span class="news-date">2026年3月25日</span>
               <span class="news-cat">採用情報</span>
             </div>
-            <div class="news-title">バイトルにてアルバイトを募集しています</div>
+            <div class="news-title">バイトルにて正社員を募集しています</div>
             <div class="news-excerpt">本店・富里営業部でアルバイトスタッフを募集中です。バイトルからご応募ください。</div>
           </div>
         </a>
@@ -180,7 +180,7 @@ include 'parts/head.php';
           <div class="news-card-body">
             <div class="news-meta">
               <span class="news-date">2026年2月19日</span>
-              <span class="news-cat">ご案内</span>
+              <span class="news-cat">採用情報</span>
             </div>
             <div class="news-title">現在、正社員を募集中です</div>
             <div class="news-excerpt">ただいま本店・富里営業部で正社員（営業職・配送職）を募集しております。</div>
@@ -274,7 +274,7 @@ include 'parts/head.php';
 <script>
 (function() {
   var items = [
-    { date: '2026.03.25', text: 'バイトルにてアルバイトを募集しています',          url: 'https://www.baitoru.com/cjlist500896/', external: true },
+    { date: '2026.03.25', text: 'バイトルにて正社員を募集しています',          url: 'https://www.baitoru.com/cjlist500896/', external: true },
     { date: '2026.02.19', text: '現在、正社員を募集中です',                         url: '/recruit.php',                           external: false },
     { date: '2018.05.10', text: 'ステンレス配管のベンカン様に紹介していただきました', url: 'https://www.benkan.co.jp/voice/10451.html', external: true }
   ];

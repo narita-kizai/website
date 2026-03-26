@@ -34,16 +34,16 @@ include 'parts/head.php';
             <span class="news-date">2026年3月25日</span>
             <span class="news-cat">採用情報</span>
           </div>
-          <div class="news-title">バイトルにてアルバイトを募集しています</div>
+          <div class="news-title">バイトルにて正社員を募集しています</div>
           <div class="news-excerpt">本店・富里営業部でアルバイトスタッフを募集中です。バイトルからご応募ください。</div>
         </div>
       </a>
-      <a class="news-card" data-cat="ご案内" href="/recruit.php">
+      <a class="news-card" data-cat="採用情報" href="/recruit.php">
         <img class="news-card-img" src="/office3.jpg" alt="">
         <div class="news-card-body">
           <div class="news-meta">
             <span class="news-date">2026年2月19日</span>
-            <span class="news-cat">ご案内</span>
+            <span class="news-cat">採用情報</span>
           </div>
           <div class="news-title">現在、正社員を募集中です</div>
           <div class="news-excerpt">ただいま本店・富里営業部で正社員（営業職・配送職）を募集しております。</div>
