@@ -1,3 +1,6 @@
+# カスタムエラーページ
+ErrorDocument 404 /404.php
+
 # HTTPS強制リダイレクト
 <IfModule mod_rewrite.c>
     RewriteEngine On
