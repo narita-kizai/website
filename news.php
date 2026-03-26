@@ -35,7 +35,7 @@ include 'parts/head.php';
             <span class="news-cat">採用情報</span>
           </div>
           <div class="news-title">バイトルにて正社員を募集しています</div>
-          <div class="news-excerpt">本店・富里営業部でアルバイトスタッフを募集中です。バイトルからご応募ください。</div>
+          <div class="news-excerpt">本店・富里営業部で正社員を募集中です。バイトルからご応募ください。</div>
         </div>
       </a>
       <a class="news-card" data-cat="採用情報" href="/recruit.php">
