@@ -306,7 +306,7 @@ nav { display: flex; align-items: center; gap: 4px; }
 .fullmenu-info address {
   font-style: normal;
   color: rgba(255,255,255,0.72);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 2.1;
   margin-bottom: 28px;
 }
