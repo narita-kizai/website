@@ -345,12 +345,12 @@ nav { display: flex; align-items: center; gap: 4px; }
 }
 .fullmenu-sns .sns-x {
   background: #000;
-  border-color: #000;
+  border-color: rgba(255,255,255,0.4);
   color: #fff;
 }
 .fullmenu-sns .sns-x:hover {
   background: #333;
-  border-color: #333;
+  border-color: rgba(255,255,255,0.7);
   color: #fff;
 }
 .fullmenu-sns .sns-yt {
