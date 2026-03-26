@@ -1686,7 +1686,6 @@ footer {
   font-size: 15px;
   color: var(--gray-700);
   line-height: 2.1;
-  margin-bottom: 32px;
 }
 .statement-rule {
   width: 100%;

@@ -77,22 +77,7 @@ include 'parts/head.php';
         <h2 class="statement-title">地域のライフラインを誠実に、力強く。</h2>
       </div>
       <div class="statement-right">
-        <p class="statement-body">ガス・水道・住宅設備の専門商社として千葉県北部から中部にかけて、昭和53年の創業以来、地域の工事業者様とともに生活インフラを支え続けてきました。豊富な在庫と迅速な配送体制で、現場の皆様の信頼にお応えしています。</p>
-        <div class="statement-rule"></div>
-        <div class="statement-values">
-          <div class="statement-value-item">
-            <div class="statement-value-num">48<span>年</span></div>
-            <div class="statement-value-label">創業からの歴史</div>
-          </div>
-          <div class="statement-value-item">
-            <div class="statement-value-num">2<span>拠点</span></div>
-            <div class="statement-value-label">富里・茂原</div>
-          </div>
-          <div class="statement-value-item">
-            <div class="statement-value-num">24<span>名</span></div>
-            <div class="statement-value-label">専門スタッフ</div>
-          </div>
-        </div>
+        <p class="statement-body">ガス・水道・住宅設備の専門商社として千葉県北部から中部にかけて、昭和53年創業以来、地域の工事業者様とともに生活インフラを支え続けてきました。豊富な在庫と迅速な配送体制で、現場の皆様の信頼にお応えしています。</p>
       </div>
     </div>
   </div>
