@@ -4,7 +4,24 @@
 <meta charset="UTF-8">
 <script>window._pageStart=Date.now();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?php echo isset($pageTitle) ? htmlspecialchars($pageTitle).' | 成田機材株式会社' : '成田機材株式会社 – Piping &amp; Housing'; ?></title>
+<?php
+$_ogTitle = isset($pageTitle) ? htmlspecialchars($pageTitle).' | 成田機材株式会社' : '成田機材株式会社 – Piping & Housing';
+$_ogDesc  = isset($pageDesc)  ? htmlspecialchars($pageDesc)  : '千葉県富里市・茂原市に拠点を置く配管機材・住宅資材の専門商社。豊富な在庫と迅速な配送で地域の工事業者様を支えています。';
+$_ogImg   = isset($pageOgImg) ? $pageOgImg : 'https://narita-kizai.com/narita_logo_512x512_2.png';
+$_ogUrl   = 'https://narita-kizai.com' . $_SERVER['REQUEST_URI'];
+?>
+<title><?= $_ogTitle ?></title>
+<meta name="description" content="<?= $_ogDesc ?>">
+<!-- OGP -->
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="成田機材株式会社">
+<meta property="og:title"       content="<?= $_ogTitle ?>">
+<meta property="og:description" content="<?= $_ogDesc ?>">
+<meta property="og:image"       content="<?= htmlspecialchars($_ogImg) ?>">
+<meta property="og:url"         content="<?= htmlspecialchars($_ogUrl) ?>">
+<meta property="og:locale"      content="ja_JP">
+<meta name="twitter:card"       content="summary_large_image">
+<meta name="twitter:site"       content="@narita_kizai">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
@@ -1037,6 +1054,13 @@ nav { display: flex; align-items: center; gap: 4px; }
   gap: 24px;
   margin-bottom: 48px;
   align-items: start;
+}
+.access-photo {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 2px;
 }
 .access-card {
   padding: 28px;
