@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64">
+  <!-- ネズミの耳・頭（こぶしより先に描画して後ろに来る） -->
+  <!-- 左耳（画面左） -->
+  <circle cx="6"  cy="19" r="5.5" fill="#b07838"/>
+  <circle cx="6"  cy="19" r="3.5" fill="#e8b090"/>
+  <!-- 右耳＝ネズミの左耳（こぶしで隠す） -->
+  <circle cx="19" cy="19" r="5.5" fill="#b07838"/>
+  <circle cx="19" cy="19" r="3.5" fill="#e8b090"/>
+  <!-- 頭 -->
+  <ellipse cx="12.5" cy="27" rx="10" ry="7.5" fill="#c08040"/>
+
+  <!-- こぶし（ネズミの左耳を覆う位置） -->
+  <!-- 拳本体 -->
+  <rect x="12" y="13" width="18" height="10" rx="2.5" ry="2.5" fill="#f2c88a" stroke="#c09060" stroke-width="0.7"/>
+  <!-- 指の関節凸（上部4つ） -->
+  <ellipse cx="15.5" cy="13"   rx="2"   ry="1.3" fill="#f2c88a" stroke="#c09060" stroke-width="0.5"/>
+  <ellipse cx="19.5" cy="12.5" rx="2"   ry="1.3" fill="#f2c88a" stroke="#c09060" stroke-width="0.5"/>
+  <ellipse cx="23.5" cy="12.5" rx="2"   ry="1.3" fill="#f2c88a" stroke="#c09060" stroke-width="0.5"/>
+  <ellipse cx="27.5" cy="13"   rx="1.8" ry="1.2" fill="#f2c88a" stroke="#c09060" stroke-width="0.5"/>
+  <!-- 指の境界線 -->
+  <line x1="17.5" y1="13.5" x2="17.5" y2="20" stroke="#d0a070" stroke-width="0.5" opacity="0.8"/>
+  <line x1="21.5" y1="13.5" x2="21.5" y2="20" stroke="#d0a070" stroke-width="0.5" opacity="0.8"/>
+  <line x1="25.5" y1="13.5" x2="25.5" y2="20" stroke="#d0a070" stroke-width="0.5" opacity="0.8"/>
+  <!-- 打撃面（左端）のナックル3つ -->
+  <circle cx="13" cy="15.5" r="1.2" fill="#dfa060" stroke="#b08040" stroke-width="0.4"/>
+  <circle cx="13" cy="18"   r="1.2" fill="#dfa060" stroke="#b08040" stroke-width="0.4"/>
+  <circle cx="13" cy="20.5" r="1.1" fill="#dfa060" stroke="#b08040" stroke-width="0.4"/>
+  <!-- 親指（下部） -->
+  <ellipse cx="20" cy="23.5" rx="6"  ry="1.9" fill="#f2c88a" stroke="#c09060" stroke-width="0.5"/>
+  <ellipse cx="13" cy="23"   rx="2"  ry="1.5" fill="#f2c88a" stroke="#c09060" stroke-width="0.5"/>
+
+  <!-- 顔のパーツ（こぶしの上に描画） -->
+  <!-- 怒り眉 左 -->
+  <line x1="6.5"  y1="22.5" x2="11"  y2="23.8" stroke="#3a1a04" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- 怒り眉 右 -->
+  <line x1="18.5" y1="22.5" x2="14"  y2="23.8" stroke="#3a1a04" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- 目 左 -->
+  <circle cx="9"   cy="25"   r="2"    fill="#1a1008"/>
+  <circle cx="9.6" cy="24.1" r="0.65" fill="#fff"/>
+  <!-- 目 右 -->
+  <circle cx="16"   cy="25"   r="2"    fill="#1a1008"/>
+  <circle cx="16.6" cy="24.1" r="0.65" fill="#fff"/>
+  <!-- 鼻 -->
+  <ellipse cx="12.5" cy="27" rx="1.4" ry="1" fill="#c04060"/>
+  <!-- 口 -->
+  <path d="M10,28.2 Q12.5,30.2 15,28.2" fill="none" stroke="#902040" stroke-width="1" stroke-linecap="round"/>
+  <!-- ひげ -->
+  <line x1="1"    y1="24.5" x2="7.5" y2="25.5" stroke="#906028" stroke-width="0.6" opacity="0.7"/>
+  <line x1="1"    y1="27"   x2="7.5" y2="26.5" stroke="#906028" stroke-width="0.6" opacity="0.7"/>
+  <line x1="17.5" y1="25.5" x2="24"  y2="24.5" stroke="#906028" stroke-width="0.6" opacity="0.7"/>
+  <line x1="17.5" y1="26.5" x2="24"  y2="27"   stroke="#906028" stroke-width="0.6" opacity="0.7"/>
+</svg>

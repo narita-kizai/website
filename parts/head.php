@@ -1840,7 +1840,7 @@ body.cat-caught {
 body.cat-caught .cursor-ring { transform: scale(1.4); }
 /* 蹴っ飛ばし時：ネズミが蹴り顔に */
 body.cat-kick {
-  cursor: url('mouse-kick-xl.svg') 32 42, auto;
+  cursor: url('mouse-punch-xl.svg') 26 36, auto;
 }
 /* ネコが蹴り飛ばされるアニメーション */
 @keyframes catFlyOff {
