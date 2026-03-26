@@ -100,10 +100,10 @@ include 'parts/head.php';
 
   <div class="features">
     <div class="features-inner">
-      <div class="features-header section-deco-wrap">
-        <span class="section-bg-text">SERVICE</span>
-        <span class="section-title-en">OUR SERVICES</span>
-        <span class="section-title-ja">事業・サービス</span>
+      <div class="features-header section-header section-deco-wrap">
+        <span class="section-bg-text">FEATURES</span>
+        <span class="section-title-en">OUR FEATURES</span>
+        <span class="section-title-ja">私たちの強み</span>
       </div>
       <div class="feature-card">
         <span class="feature-num">01</span>
@@ -126,7 +126,7 @@ include 'parts/head.php';
       <div class="feature-card">
         <span class="feature-num">04</span>
         <img src="/senmon.png" alt="技術サポート">
-        <h3>専門スタッフによるサポート</h3>
+        <h3>専門スタッフのサポート</h3>
         <p>経験豊富なスタッフが商品選定から技術的なご相談まで、現場目線で丁寧にサポートいたします。</p>
       </div>
     </div>
