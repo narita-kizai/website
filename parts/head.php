@@ -96,7 +96,7 @@ body.inner-page header .logo-main { color: var(--navy); }
 body.inner-page header .logo-sub { color: var(--accent); }
 body.inner-page header .nav-link { color: var(--navy); }
 body.inner-page header .nav-link:hover,
-body.inner-page header .nav-link.active { color: var(--white); }
+body.inner-page header .nav-link.active { background: var(--navy); color: var(--white); }
 body.inner-page header .hamburger span { background: var(--navy); }
 .header-inner {
   max-width: 1100px;
@@ -683,7 +683,7 @@ nav { display: flex; align-items: center; gap: 4px; }
 /* ─── CONTENT PAGES ─── */
 .page-hero {
   background: var(--navy);
-  padding: 56px 24px;
+  padding: 120px 24px 56px;
   position: relative;
   overflow: hidden;
 }
