@@ -65,5 +65,23 @@ include 'parts/head.php';
 
 <?php include 'parts/footer.php'; ?>
 <?php include 'parts/scripts.php'; ?>
+<script>
+(function() {
+  var flip = document.querySelector('.president-flip');
+  if (!flip) return;
+  var startX, startY;
+  flip.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+  flip.addEventListener('touchend', function(e) {
+    var dx = Math.abs(e.changedTouches[0].clientX - startX);
+    var dy = Math.abs(e.changedTouches[0].clientY - startY);
+    if (dx < 10 && dy < 10) {
+      flip.classList.toggle('flipped');
+    }
+  });
+})();
+</script>
 </body>
 </html>

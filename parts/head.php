@@ -826,7 +826,12 @@ nav { display: flex; align-items: center; gap: 4px; }
   transform-style: preserve-3d;
   transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.president-flip:hover .president-flip-inner {
+@media (hover: hover) {
+  .president-flip:hover .president-flip-inner {
+    transform: rotateY(180deg);
+  }
+}
+.president-flip.flipped .president-flip-inner {
   transform: rotateY(180deg);
 }
 .president-flip-front,
