@@ -156,7 +156,7 @@ include 'parts/head.php';
     </div>
   </div>
 
-  <div class="news-section">
+  <div class="news-section news-dark">
     <div class="section-inner">
       <div class="section-header section-deco-wrap">
         <span class="section-bg-text">NEWS</span>

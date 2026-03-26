@@ -580,46 +580,33 @@ nav { display: flex; align-items: center; gap: 4px; }
 .news-section .section-bg-text {
   color: rgba(255,255,255,0.04);
 }
-/* ダーク背景上のカード */
-.news-card {
-  background: var(--white);
+/* ネイビーカード（トップページNEWSセクション・ニュース一覧ページ共通） */
+.news-dark .news-card,
+#newsGrid .news-card {
+  background: var(--navy-light);
   border-color: rgba(255,255,255,0.08);
-  transition: background 0.3s, transform 0.35s ease, box-shadow 0.35s ease;
 }
-.news-card:hover {
-  background: var(--navy);
-  box-shadow: 0 20px 48px rgba(0,0,0,0.40);
+.news-dark .news-card:hover,
+#newsGrid .news-card:hover {
+  box-shadow: 0 20px 48px rgba(0,0,0,0.25);
   transform: translateY(-6px);
 }
-.news-card .news-title {
-  color: var(--text);
-  transition: color 0.3s;
-}
-.news-card:hover .news-title {
+.news-dark .news-card .news-title,
+#newsGrid .news-card .news-title {
   color: var(--white);
 }
-.news-card .news-excerpt {
-  color: var(--gray-500);
-  transition: color 0.3s;
+.news-dark .news-card .news-excerpt,
+#newsGrid .news-card .news-excerpt {
+  color: rgba(255,255,255,0.55);
 }
-.news-card:hover .news-excerpt {
-  color: rgba(255,255,255,0.60);
+.news-dark .news-card .news-date,
+#newsGrid .news-card .news-date {
+  color: rgba(255,255,255,0.45);
 }
-.news-card .news-date {
-  color: var(--gray-500);
-  transition: color 0.3s;
-}
-.news-card:hover .news-date {
-  color: rgba(255,255,255,0.50);
-}
-.news-card .news-cat {
-  background: var(--navy);
-  color: var(--white);
-  transition: background 0.3s, color 0.3s;
-}
-.news-card:hover .news-cat {
+.news-dark .news-card .news-cat,
+#newsGrid .news-card .news-cat {
   background: var(--accent);
-  color: var(--navy);
+  color: #0d1528;
 }
 .section-inner { max-width: 1100px; margin: 0 auto; }
 .section-header {
