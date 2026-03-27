@@ -1,6 +1,9 @@
 # カスタムエラーページ
 ErrorDocument 404 /404.php
 
+# WordPress探索ブロック
+RedirectMatch 301 ^/wp-login\.php$ /wp-admin/
+
 # HTTPS強制リダイレクト
 <IfModule mod_rewrite.c>
     RewriteEngine On
