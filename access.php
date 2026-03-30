@@ -40,7 +40,7 @@ include 'parts/head.php';
       </div>
     </div>
     <div class="access-block">
-      <img class="access-photo" src="/mobara.png" alt="茂原営業所 外観">
+      <img class="access-photo" src="/mobara.jpg" alt="茂原営業所 外観">
       <div class="access-card">
         <h3>茂原営業所</h3>
         <address>

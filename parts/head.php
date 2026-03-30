@@ -1050,19 +1050,23 @@ nav { display: flex; align-items: center; gap: 4px; }
 /* ─── ACCESS ─── */
 .access-block {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
   gap: 24px;
-  margin-bottom: 48px;
+  margin-bottom: 64px;
   align-items: start;
 }
 .access-photo {
-  grid-column: 1 / -1;
+  grid-column: 1;
+  grid-row: 1 / 3;
   width: 100%;
-  height: 280px;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 2px;
 }
 .access-card {
+  grid-column: 2;
+  grid-row: 1;
   padding: 28px;
   background: var(--gray-100);
   border-top: 3px solid var(--navy);
@@ -1081,8 +1085,11 @@ nav { display: flex; align-items: center; gap: 4px; }
 }
 .access-card address strong { color: var(--navy); }
 .map-container {
+  grid-column: 2;
+  grid-row: 2;
   width: 100%;
-  height: 300px;
+  height: 100%;
+  min-height: 260px;
   border-radius: 2px;
   overflow: hidden;
 }
@@ -2606,8 +2613,10 @@ body.inner-page .page.active .content-area {
   .parallax-nums { gap: 16px; flex-direction: column; align-items: center; }
   .officers-table td { padding: 14px 10px; font-size: 14px; }
   .officers-table td:first-child { width: 140px; }
-  .access-block { grid-template-columns: 1fr; }
-  .map-container { height: 250px; }
+  .access-block { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .access-photo  { grid-row: auto; aspect-ratio: 4 / 3; }
+  .access-card   { grid-column: 1; grid-row: auto; }
+  .map-container { grid-column: 1; grid-row: auto; min-height: 250px; }
 }
 
 /* ─── CONTACT FORM ─── */
