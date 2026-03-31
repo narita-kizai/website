@@ -3,7 +3,7 @@ session_start();
 require_once dirname(__DIR__).'/db.php';
 
 if (isset($_SESSION['admin'])) {
-    header('Location: /admin/news.php'); exit;
+    header('Location: /edit/news.php'); exit;
 }
 
 $error = '';
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (hash_equals(ADMIN_PASSWORD, $_POST['password'] ?? '')) {
         $_SESSION['admin'] = true;
         session_regenerate_id(true);
-        header('Location: /admin/news.php'); exit;
+        header('Location: /edit/news.php'); exit;
     }
     $error = 'パスワードが正しくありません';
 }

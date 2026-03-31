@@ -35,5 +35,18 @@ services:
       retries: 12
     restart: always
 
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: narita
+      PMA_PASSWORD: narita
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: always
+
 volumes:
   narita_db_data:

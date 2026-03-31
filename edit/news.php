@@ -4,7 +4,7 @@ require_once dirname(__DIR__).'/db.php';
 
 // 認証チェック
 if (!isset($_SESSION['admin'])) {
-    header('Location: /admin/'); exit;
+    header('Location: /edit/'); exit;
 }
 
 // CSRFトークン
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($postAction === 'delete') {
         $s = db()->prepare("DELETE FROM news WHERE id = ?");
         $s->execute([(int)$_POST['id']]);
-        header('Location: /admin/news.php?msg=deleted'); exit;
+        header('Location: /edit/news.php?msg=deleted'); exit;
     }
 
     // 保存（追加・更新）
@@ -69,14 +69,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             );
             $s->execute([$title, $excerpt, $image, $category, $link_url, $external, $pub_date]);
         }
-        header('Location: /admin/news.php?msg=saved'); exit;
+        header('Location: /edit/news.php?msg=saved'); exit;
     }
 
     // カテゴリ削除
     if ($postAction === 'cat_delete') {
         $s = db()->prepare("DELETE FROM news_categories WHERE name = ?");
         $s->execute([trim($_POST['cat_name'] ?? '')]);
-        header('Location: /admin/news.php?action=cats&msg=cat_deleted'); exit;
+        header('Location: /edit/news.php?action=cats&msg=cat_deleted'); exit;
     }
 }
 
@@ -86,7 +86,7 @@ if ($action === 'edit') {
     $s = db()->prepare("SELECT * FROM news WHERE id = ?");
     $s->execute([(int)($_GET['id'] ?? 0)]);
     $item = $s->fetch();
-    if (!$item) { header('Location: /admin/news.php'); exit; }
+    if (!$item) { header('Location: /edit/news.php'); exit; }
 }
 if ($action === 'list') {
     $items = db()->query("SELECT * FROM news ORDER BY published_at DESC, id DESC")->fetchAll();
@@ -177,10 +177,10 @@ a { color: #1a2744; text-decoration: none; }
 <div class="adm-header">
   <div class="adm-header-title">成田機材 / NEWS管理</div>
   <nav class="adm-header-nav">
-    <a href="/admin/news.php" class="<?= $action === 'list' || $action === 'add' || $action === 'edit' ? 'active' : '' ?>">ニュース</a>
-    <a href="/admin/news.php?action=cats" class="<?= $action === 'cats' ? 'active' : '' ?>">カテゴリ</a>
+    <a href="/edit/news.php" class="<?= $action === 'list' || $action === 'add' || $action === 'edit' ? 'active' : '' ?>">ニュース</a>
+    <a href="/edit/news.php?action=cats" class="<?= $action === 'cats' ? 'active' : '' ?>">カテゴリ</a>
     <a href="https://narita-kizai.com/news.php" target="_blank">サイトを確認</a>
-    <a href="/admin/logout.php">ログアウト</a>
+    <a href="/edit/logout.php">ログアウト</a>
   </nav>
 </div>
 
@@ -192,7 +192,7 @@ a { color: #1a2744; text-decoration: none; }
 
 <?php if ($action === 'list'): ?>
 <!-- ─── 一覧 ─── -->
-<a href="/admin/news.php?action=add" class="btn-add">＋ 新規追加</a>
+<a href="/edit/news.php?action=add" class="btn-add">＋ 新規追加</a>
 <div class="adm-card">
   <div class="adm-title">ニュース一覧</div>
   <table class="adm-table">
@@ -211,7 +211,7 @@ a { color: #1a2744; text-decoration: none; }
         <td><span class="cat-badge"><?= e($it['category']) ?></span></td>
         <td class="t-title"><?= e($it['title']) ?></td>
         <td style="white-space:nowrap">
-          <a href="/admin/news.php?action=edit&id=<?= $it['id'] ?>" class="btn-edit">編集</a>
+          <a href="/edit/news.php?action=edit&id=<?= $it['id'] ?>" class="btn-edit">編集</a>
           &nbsp;
           <form method="post" style="display:inline" onsubmit="return confirm('「<?= e(mb_substr($it['title'],0,20)) ?>」を削除しますか？')">
             <input type="hidden" name="csrf"   value="<?= e($_SESSION['csrf']) ?>">
@@ -234,7 +234,7 @@ a { color: #1a2744; text-decoration: none; }
 <div class="adm-card">
   <div class="adm-title">
     <?= $action === 'add' ? '新規追加' : '編集' ?>
-    <a href="/admin/news.php">← 一覧に戻る</a>
+    <a href="/edit/news.php">← 一覧に戻る</a>
   </div>
   <form method="post">
     <input type="hidden" name="csrf"   value="<?= e($_SESSION['csrf']) ?>">
@@ -299,7 +299,7 @@ a { color: #1a2744; text-decoration: none; }
 
     <div class="form-actions">
       <button type="submit" class="btn-save">保存する</button>
-      <a href="/admin/news.php" class="btn-cancel">キャンセル</a>
+      <a href="/edit/news.php" class="btn-cancel">キャンセル</a>
     </div>
   </form>
 </div>
@@ -309,7 +309,7 @@ a { color: #1a2744; text-decoration: none; }
 <div class="adm-card">
   <div class="adm-title">
     カテゴリ管理
-    <a href="/admin/news.php">← ニュース一覧</a>
+    <a href="/edit/news.php">← ニュース一覧</a>
   </div>
   <ul class="cats-list">
     <?php foreach ($cats as $c): ?>

@@ -8,7 +8,7 @@ define('DB_CHARSET', 'utf8mb4');
 
 // ─── 管理画面パスワード ──────────────────────────────────
 // ここを変更してください
-define('ADMIN_PASSWORD', 'narita2025');
+define('ADMIN_PASSWORD', 'GvJ2Nmtz');
 
 // ─── PDO接続（シングルトン） ─────────────────────────────
 function db(): ?PDO {
