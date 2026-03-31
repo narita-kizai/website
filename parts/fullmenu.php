@@ -34,26 +34,33 @@
             <a href="/products.php">
               <span class="fn-num">03</span>
               <span class="fn-en">PRODUCTS</span>
-              <span class="fn-ja">取扱商品</span>
+              <span class="fn-ja">商品カテゴリ</span>
+            </a>
+          </li>
+          <li>
+            <a href="/makers.php">
+              <span class="fn-num">04</span>
+              <span class="fn-en">MAKERS</span>
+              <span class="fn-ja">取り扱いメーカー</span>
             </a>
           </li>
           <li>
             <a href="/news.php">
-              <span class="fn-num">04</span>
+              <span class="fn-num">05</span>
               <span class="fn-en">NEWS</span>
               <span class="fn-ja">NEWS</span>
             </a>
           </li>
           <li>
             <a href="/recruit.php">
-              <span class="fn-num">05</span>
+              <span class="fn-num">06</span>
               <span class="fn-en">RECRUIT</span>
               <span class="fn-ja">採用情報</span>
             </a>
           </li>
           <li>
             <a href="/contact.php">
-              <span class="fn-num">06</span>
+              <span class="fn-num">07</span>
               <span class="fn-en">CONTACT</span>
               <span class="fn-ja">お問い合わせ</span>
             </a>

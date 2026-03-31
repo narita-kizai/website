@@ -40,7 +40,11 @@ function _nav_active($pages, $current) {
         </div>
       </div>
       <div class="nav-item">
-        <a class="nav-link<?= _nav_active('products', $_cp) ?>" href="/products.php">取扱商品</a>
+        <span class="nav-link has-dropdown<?= _nav_active(['products','makers'], $_cp) ?>">取扱商品</span>
+        <div class="dropdown">
+          <a href="/products.php">商品カテゴリ</a>
+          <a href="/makers.php">取り扱いメーカー</a>
+        </div>
       </div>
       <div class="nav-item">
         <a class="nav-link<?= _nav_active('news', $_cp) ?>" href="/news.php">NEWS</a>

@@ -1,5 +1,5 @@
 <?php
-$pageTitle = '取扱い商品';
+$pageTitle = '商品カテゴリ';
 $currentPage = 'products';
 include 'parts/head.php';
 ?>
@@ -13,9 +13,9 @@ include 'parts/head.php';
       <div class="breadcrumb">
         <a href="/">HOME</a>
         <span>›</span>
-        <span>取扱い商品</span>
+        <span>商品カテゴリ</span>
       </div>
-      <div class="page-title">取扱い商品</div>
+      <div class="page-title">商品カテゴリ</div>
       <div class="page-title-en">PRODUCTS</div>
     </div>
   </div>
