@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- 垂れ耳（左） -->
+  <ellipse cx="5.5" cy="19" rx="5.5" ry="9" fill="#8b5e30" transform="rotate(-8 5.5 19)"/>
+  <ellipse cx="5.5" cy="19" rx="3.5" ry="7" fill="#a87848" transform="rotate(-8 5.5 19)"/>
+  <!-- 垂れ耳（右） -->
+  <ellipse cx="26.5" cy="19" rx="5.5" ry="9" fill="#8b5e30" transform="rotate(8 26.5 19)"/>
+  <ellipse cx="26.5" cy="19" rx="3.5" ry="7" fill="#a87848" transform="rotate(8 26.5 19)"/>
+  <!-- 頭 -->
+  <circle cx="16" cy="17" r="13" fill="#c88848"/>
+  <circle cx="16" cy="17" r="13" fill="none" stroke="#a07030" stroke-width="0.5"/>
+  <!-- 目（左） -->
+  <circle cx="11.5" cy="15"   r="2.5" fill="#1a1008"/>
+  <circle cx="12.4" cy="13.8" r="0.8" fill="#fff"/>
+  <!-- 目（右） -->
+  <circle cx="20.5" cy="15"   r="2.5" fill="#1a1008"/>
+  <circle cx="21.4" cy="13.8" r="0.8" fill="#fff"/>
+  <!-- 鼻面 -->
+  <ellipse cx="16" cy="22" rx="6"   ry="4"   fill="#e0a868" stroke="#b07838" stroke-width="0.4"/>
+  <!-- 鼻 -->
+  <ellipse cx="16" cy="20.5" rx="2.5" ry="1.8" fill="#1a1008"/>
+  <circle  cx="16.8" cy="19.8" r="0.6" fill="#444" opacity="0.5"/>
+  <!-- 口（楽しそうに開いている） -->
+  <path d="M13.5,23.5 Q16,26 18.5,23.5" fill="none" stroke="#a07030" stroke-width="0.9" stroke-linecap="round"/>
+  <!-- 舌 -->
+  <ellipse cx="16" cy="25" rx="2" ry="1.5" fill="#e05060" opacity="0.85"/>
+</svg>

@@ -24,7 +24,8 @@ body {
   background: var(--white);
   line-height: 1.8;
   font-size: 15px;
-  cursor: url('/mouse-follower.svg') 16 21, auto;
+  /* 【牛＆犬】 */ cursor: url('/cow-cursor.svg') 16 21, auto;
+  /* 【ネズミ＆ネコに戻す場合】 cursor: url('/mouse-follower.svg') 16 21, auto; */
 }
 
 /* ─── TOPBAR ─── */
@@ -2405,12 +2406,20 @@ footer {
   line-height: 1.7;
 }
 
-/* ─── CUSTOM CURSOR (Tom & Jerry) ─── */
-/* 猫トム（追跡者）*/
+/* ─── CUSTOM CURSOR ─── */
+/* ┌─ 切替メモ ──────────────────────────────────────────┐
+   │ 【牛＆犬】 現在有効                                   │
+   │ 【ネコ＆ネズミに戻す場合】                             │
+   │   追跡者 → cat-cursor.svg                            │
+   │   捕まれ → mouse-defeated.svg                        │
+   │   蹴り   → mouse-punch-xl.svg 26 36                  │
+   │   bodyカーソル → mouse-follower.svg 16 21             │
+   └────────────────────────────────────────────────────┘ */
+/* 犬（追跡者） */
 .cursor-ring {
   position: fixed;
   width: 32px; height: 32px;
-  background: url('/cat-cursor.svg') no-repeat center/contain;
+  background: url('/dog-cursor.svg') no-repeat center/contain;
   pointer-events: none;
   z-index: 99999;
   top: -100px; left: -100px;
@@ -2419,14 +2428,14 @@ footer {
 }
 .cursor-ring-text { display: none; }
 .cursor-dot { display: none; }
-/* トムが追いついたとき：トム大きく、ジェリーやられ顔 */
+/* 犬が追いついたとき：犬大きく、牛やられ顔 */
 body.cat-caught {
-  cursor: url('/mouse-defeated.svg') 16 21, auto;
+  cursor: url('/cow-caught.svg') 16 21, auto;
 }
 body.cat-caught .cursor-ring { transform: scale(1.4); }
-/* 蹴っ飛ばし時：ネズミが蹴り顔に */
+/* 蹴っ飛ばし時：牛が蹄パンチ */
 body.cat-kick {
-  cursor: url('/mouse-punch-xl.svg') 26 36, auto;
+  cursor: url('/cow-kick-xl.svg') 24 36, auto;
 }
 /* ネコが蹴り飛ばされるアニメーション */
 @keyframes catFlyOff {

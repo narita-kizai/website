@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64">
+  <!-- 牛の耳・頭（蹄より先に描画して後ろに来る） -->
+  <!-- 左耳 -->
+  <circle cx="6"  cy="19" r="5.5" fill="#c8a060"/>
+  <circle cx="6"  cy="19" r="3.5" fill="#f0b090"/>
+  <!-- 右耳（蹄で隠れる＝牛の左耳） -->
+  <circle cx="19" cy="19" r="5.5" fill="#c8a060"/>
+  <circle cx="19" cy="19" r="3.5" fill="#f0b090"/>
+  <!-- 頭 -->
+  <ellipse cx="12.5" cy="27" rx="10" ry="7.5" fill="#f5f0e8" stroke="#d0c8b8" stroke-width="0.3"/>
+  <!-- ホルスタイン模様 -->
+  <ellipse cx="7"  cy="23"  rx="2.5" ry="2"   fill="#2a2a2a" opacity="0.8"/>
+
+  <!-- 蹄（右から左へパンチ、牛の左前足） -->
+  <!-- 脚部分（肌色・毛） -->
+  <rect x="12" y="11" width="18" height="6" rx="2.5" fill="#d4b07a" stroke="#a88050" stroke-width="0.5"/>
+  <!-- 蹄本体（黒） -->
+  <rect x="11" y="15" width="18" height="9" rx="2.5" fill="#252020" stroke="#1a1010" stroke-width="0.5"/>
+  <!-- 蹄の割れ目（2つの爪先） -->
+  <line x1="20" y1="15.5" x2="20" y2="23.5" stroke="#1a1010" stroke-width="1.3" stroke-linecap="round"/>
+  <!-- 蹄の下端（丸み2つ） -->
+  <ellipse cx="16" cy="23.5" rx="3.5" ry="1.2" fill="#352020"/>
+  <ellipse cx="24" cy="23.5" rx="3.5" ry="1.2" fill="#352020"/>
+  <!-- 打撃面（左端）の丸み -->
+  <circle cx="12.5" cy="17.5" r="1.2" fill="#352020"/>
+  <circle cx="12.5" cy="20.5" r="1.2" fill="#352020"/>
+
+  <!-- 顔のパーツ（蹄の上に描画） -->
+  <!-- 角（左のみ見える） -->
+  <path d="M7,18 Q5,13 3,14 Q5,16 7,19" fill="#c8a060" stroke="#a08040" stroke-width="0.35"/>
+  <!-- 怒り眉 左 -->
+  <line x1="5.5" y1="22.5" x2="10"  y2="23.5" stroke="#3a1a04" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- 怒り眉 右 -->
+  <line x1="19"  y1="22.5" x2="15"  y2="23.5" stroke="#3a1a04" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- 目 左 -->
+  <circle cx="8.5"  cy="25"   r="1.9" fill="#1a1008"/>
+  <circle cx="9"    cy="24.2" r="0.6" fill="#fff"/>
+  <!-- 目 右 -->
+  <circle cx="16.5" cy="25"   r="1.9" fill="#1a1008"/>
+  <circle cx="17"   cy="24.2" r="0.6" fill="#fff"/>
+  <!-- 鼻面 -->
+  <ellipse cx="12.5" cy="28.5" rx="5"  ry="3"   fill="#f0c0a8" stroke="#d09080" stroke-width="0.3"/>
+  <!-- 鼻孔 -->
+  <ellipse cx="10.5" cy="29"   rx="1"  ry="0.8" fill="#c07060"/>
+  <ellipse cx="14.5" cy="29"   rx="1"  ry="0.8" fill="#c07060"/>
+</svg>
