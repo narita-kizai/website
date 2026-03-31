@@ -1,6 +1,11 @@
 <?php
-$pageTitle = 'ニュース';
+$pageTitle   = 'ニュース';
 $currentPage = 'news';
+require_once __DIR__.'/db.php';
+try {
+    $allNews = db() ? db()->query("SELECT * FROM news ORDER BY published_at DESC, id DESC")->fetchAll() : [];
+    $cats    = db() ? db()->query("SELECT DISTINCT category FROM news ORDER BY category")->fetchAll(PDO::FETCH_COLUMN) : [];
+} catch (Exception $e) { $allNews = []; $cats = []; }
 include 'parts/head.php';
 ?>
 <body class="inner-page">
@@ -23,43 +28,33 @@ include 'parts/head.php';
   <div class="content-area">
     <div class="news-filter">
       <button class="news-filter-btn active" data-filter="all">すべて</button>
-      <button class="news-filter-btn" data-filter="採用情報">採用情報</button>
-      <button class="news-filter-btn" data-filter="ご案内">ご案内</button>
+      <?php foreach ($cats as $cat): ?>
+        <button class="news-filter-btn" data-filter="<?= e($cat) ?>"><?= e($cat) ?></button>
+      <?php endforeach; ?>
     </div>
     <div class="news-grid" id="newsGrid">
-      <a class="news-card" data-cat="採用情報" href="https://www.baitoru.com/cjlist500896/" target="_blank" rel="noopener">
-        <img class="news-card-img" src="/bitle2.jpg" alt="バイトル">
-        <div class="news-card-body">
-          <div class="news-meta">
-            <span class="news-date">2026年3月25日</span>
-            <span class="news-cat">採用情報</span>
+      <?php foreach ($allNews as $n): ?>
+        <a class="news-card" data-cat="<?= e($n['category']) ?>"
+           href="<?= e($n['link_url'] ?: '#') ?>"
+           <?= $n['link_external'] ? 'target="_blank" rel="noopener"' : '' ?>>
+          <?php if ($n['image']): ?>
+            <img class="news-card-img" src="<?= e($n['image']) ?>" alt="">
+          <?php endif; ?>
+          <div class="news-card-body">
+            <div class="news-meta">
+              <span class="news-date"><?= e(formatDate($n['published_at'])) ?></span>
+              <span class="news-cat"><?= e($n['category']) ?></span>
+            </div>
+            <div class="news-title"><?= e($n['title']) ?></div>
+            <?php if ($n['excerpt']): ?>
+              <div class="news-excerpt"><?= e($n['excerpt']) ?></div>
+            <?php endif; ?>
           </div>
-          <div class="news-title">バイトルにて正社員を募集しています</div>
-          <div class="news-excerpt">本店・富里営業部で正社員を募集中です。バイトルからご応募ください。</div>
-        </div>
-      </a>
-      <a class="news-card" data-cat="採用情報" href="/recruit.php">
-        <img class="news-card-img" src="/mens.jpg" alt="">
-        <div class="news-card-body">
-          <div class="news-meta">
-            <span class="news-date">2026年2月19日</span>
-            <span class="news-cat">採用情報</span>
-          </div>
-          <div class="news-title">現在、正社員を募集中です</div>
-          <div class="news-excerpt">ただいま本店・富里営業部で正社員（営業職・配送職）を募集しております。</div>
-        </div>
-      </a>
-      <a class="news-card" data-cat="ご案内" href="https://www.benkan.co.jp/voice/10451.html" target="_blank" rel="noopener">
-        <img class="news-card-img" src="/boss_benkan.jpg" alt="">
-        <div class="news-card-body">
-          <div class="news-meta">
-            <span class="news-date">2018年5月10日</span>
-            <span class="news-cat">ご案内</span>
-          </div>
-          <div class="news-title">ステンレス配管のベンカン様に紹介していただきました</div>
-          <div class="news-excerpt">ベンカン様のホームページの「皆様の声」で当社を紹介していただきました。</div>
-        </div>
-      </a>
+        </a>
+      <?php endforeach; ?>
+      <?php if (empty($allNews)): ?>
+        <p style="color:#888;padding:40px 0">現在、お知らせはありません。</p>
+      <?php endif; ?>
     </div>
   </div>
 </main>

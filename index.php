@@ -1,5 +1,7 @@
 <?php
 $currentPage = 'home';
+require_once __DIR__.'/db.php';
+try { $indexNews = db() ? db()->query("SELECT * FROM news ORDER BY published_at DESC, id DESC LIMIT 5")->fetchAll() : []; } catch (Exception $e) { $indexNews = []; }
 include 'parts/head.php';
 ?>
 <body>
@@ -43,8 +45,12 @@ include 'parts/head.php';
       <div class="hero-news-bar-inner">
         <span class="hero-news-label">NEWS</span>
         <div class="hero-news-ticker">
-          <span class="hero-news-date">2026.03.25</span>
-          <a class="hero-news-text" href="https://www.baitoru.com/cjlist500896/" target="_blank" rel="noopener">バイトルにて正社員を募集しています</a>
+          <?php $first = $indexNews[0] ?? null; ?>
+          <span class="hero-news-date"><?= $first ? date('Y.m.d', strtotime($first['published_at'])) : '' ?></span>
+          <a class="hero-news-text"
+             href="<?= e($first ? $first['link_url'] : '#') ?>"
+             <?= ($first && $first['link_external']) ? 'target="_blank" rel="noopener"' : '' ?>
+          ><?= e($first ? $first['title'] : '') ?></a>
         </div>
         <a class="hero-news-more" href="/news.php">MORE</a>
       </div>
@@ -148,28 +154,25 @@ include 'parts/head.php';
         <span class="section-title-ja">新着情報</span>
       </div>
       <div class="news-grid">
-        <a class="news-card" href="https://www.baitoru.com/cjlist500896/" target="_blank" rel="noopener">
-          <img class="news-card-img" src="/bitle2.jpg" alt="バイトル">
-          <div class="news-card-body">
-            <div class="news-meta">
-              <span class="news-date">2026年3月25日</span>
-              <span class="news-cat">採用情報</span>
+        <?php foreach (array_slice($indexNews, 0, 2) as $n): ?>
+          <a class="news-card"
+             href="<?= e($n['link_url'] ?: '#') ?>"
+             <?= $n['link_external'] ? 'target="_blank" rel="noopener"' : '' ?>>
+            <?php if ($n['image']): ?>
+              <img class="news-card-img" src="<?= e($n['image']) ?>" alt="">
+            <?php endif; ?>
+            <div class="news-card-body">
+              <div class="news-meta">
+                <span class="news-date"><?= e(formatDate($n['published_at'])) ?></span>
+                <span class="news-cat"><?= e($n['category']) ?></span>
+              </div>
+              <div class="news-title"><?= e($n['title']) ?></div>
+              <?php if ($n['excerpt']): ?>
+                <div class="news-excerpt"><?= e($n['excerpt']) ?></div>
+              <?php endif; ?>
             </div>
-            <div class="news-title">バイトルにて正社員を募集しています</div>
-            <div class="news-excerpt">本店・富里営業部で正社員を募集中です。バイトルからご応募ください。</div>
-          </div>
-        </a>
-        <a class="news-card" href="/recruit.php">
-          <img class="news-card-img" src="/mens.jpg" alt="">
-          <div class="news-card-body">
-            <div class="news-meta">
-              <span class="news-date">2026年2月19日</span>
-              <span class="news-cat">採用情報</span>
-            </div>
-            <div class="news-title">現在、正社員を募集中です</div>
-            <div class="news-excerpt">ただいま本店・富里営業部で正社員（営業職・配送職）を募集しております。</div>
-          </div>
-        </a>
+          </a>
+        <?php endforeach; ?>
       </div>
       <div class="news-more-wrap">
         <a href="/news.php" class="btn-news-more">ニュース一覧を見る</a>
@@ -257,11 +260,14 @@ include 'parts/head.php';
 <?php include 'parts/scripts.php'; ?>
 <script>
 (function() {
-  var items = [
-    { date: '2026.03.25', text: 'バイトルにて正社員を募集しています',          url: 'https://www.baitoru.com/cjlist500896/', external: true },
-    { date: '2026.02.19', text: '現在、正社員を募集中です',                         url: '/recruit.php',                           external: false },
-    { date: '2018.05.10', text: 'ステンレス配管のベンカン様に紹介していただきました', url: 'https://www.benkan.co.jp/voice/10451.html', external: true }
-  ];
+  var items = <?= json_encode(array_map(function($n) {
+    return [
+      'date'     => date('Y.m.d', strtotime($n['published_at'])),
+      'text'     => $n['title'],
+      'url'      => $n['link_url'],
+      'external' => (bool)$n['link_external'],
+    ];
+  }, $indexNews), JSON_UNESCAPED_UNICODE) ?>;
   var idx = 0;
   var ticker = document.querySelector('.hero-news-ticker');
   var dateEl = document.querySelector('.hero-news-date');
