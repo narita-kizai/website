@@ -1739,11 +1739,25 @@ footer {
   transition: color 0.2s;
 }
 .footer-nav a:hover { color: var(--accent-light); }
+.footer-sns-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-sns-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.footer-sns-link:hover .footer-sns-icon { opacity: 1; }
 .footer-copy {
   text-align: center;
   font-size: 12px;
   color: rgba(255,255,255,0.3);
 }
+
 
 /* ─── PARALLAX ─── */
 .parallax-section {
