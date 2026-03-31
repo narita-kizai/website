@@ -1,9 +1,9 @@
 <?php
 // ─── DB接続設定 ───────────────────────────────────────────
-define('DB_HOST',    'mysql80.narita-kizai.sakura.ne.jp');
-define('DB_NAME',    'narita-kizai_db');
-define('DB_USER',    'narita-kizai_db');
-define('DB_PASS',    '6nMt6qmChtTk');
+define('DB_HOST',    getenv('DB_HOST') ?: 'mysql80.narita-kizai.sakura.ne.jp');
+define('DB_NAME',    getenv('DB_NAME') ?: 'narita-kizai_db');
+define('DB_USER',    getenv('DB_USER') ?: 'narita-kizai_db');
+define('DB_PASS',    getenv('DB_PASS') ?: '6nMt6qmChtTk');
 define('DB_CHARSET', 'utf8mb4');
 
 // ─── 管理画面パスワード ──────────────────────────────────

@@ -22,7 +22,7 @@ function makerImgSrc(int $id, string $url): string {
 // ─── データ取得 ───────────────────────────────────
 try {
     $all = db() ? db()->query(
-        "SELECT * FROM makers ORDER BY sort_order, id"
+        "SELECT * FROM makers ORDER BY row_group, kana_group, name"
     )->fetchAll() : [];
 } catch (Exception $e) { $all = []; }
 
