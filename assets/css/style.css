@@ -2690,9 +2690,13 @@ body.inner-page .page.active .content-area {
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 48px;
-  padding: 20px 24px;
+  padding: 16px 24px;
   background: var(--gray-100);
   border-top: 2px solid var(--accent);
+  position: sticky;
+  top: 88px;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 .makers-index-btn {
   display: inline-block;
@@ -2726,7 +2730,7 @@ body.inner-page .page.active .content-area {
 
 .makers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 .maker-card {
@@ -2747,7 +2751,7 @@ a.maker-card:hover {
 }
 .maker-logo {
   width: 100%;
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2767,10 +2771,10 @@ a.maker-card:hover {
   word-break: break-all;
 }
 
+@media (max-width: 900px) {
+  .makers-grid { grid-template-columns: repeat(3, 1fr); }
+}
 @media (max-width: 640px) {
-  .makers-grid {
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 12px;
-  }
-  .makers-index { padding: 14px 16px; }
+  .makers-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .makers-index { padding: 12px 16px; top: 72px; }
 }
