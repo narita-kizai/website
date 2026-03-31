@@ -336,7 +336,7 @@ include 'parts/head.php';
       <div class="rec-hw-box">
         <div class="rec-hw-title">ハローワークをご利用の方</div>
         <div class="rec-hw-table">
-          <p class="rec-hw-note">ハローワークインターネットサービスのページ下部にある<br>「求人番号・事業所番号を指定して検索」に下記番号をご入力ください。</p>
+          <p class="rec-hw-note">ハローワークは直接リンクを貼れません。<br>お手数ですがハローワークインターネットサービスのページ下部にある<br>「求人番号・事業所番号を指定して検索」に下記番号をご入力ください。</p>
           <div class="rec-hw-row">
             <span class="rec-hw-key">事業者番号</span>
             <span class="rec-hw-val">1210-103602-3</span>
@@ -349,6 +349,7 @@ include 'parts/head.php';
       </div>
 
       <div class="rec-cta-contact">
+        <div class="rec-hw-title">お問い合わせはこちら</div>
         <a class="rec-cta-btn-secondary" href="/contact.php">お問い合わせ</a>
       </div>
     </div>

@@ -193,7 +193,7 @@ include 'parts/head.php';
           @narita_kizai をフォロー
         </a>
       </div>
-      <div class="followus-timeline">
+      <div class="followus-timeline" id="tw-timeline-wrap">
         <a class="twitter-timeline"
            data-height="480"
            data-theme="light"
@@ -201,7 +201,39 @@ include 'parts/head.php';
            href="https://twitter.com/narita_kizai">
           Tweets by narita_kizai
         </a>
+        <!-- フォールバック: widgets.js が読み込めなかった場合に表示 -->
+        <div id="tw-fallback" style="display:none; height:480px; display:none; flex-direction:column; align-items:center; justify-content:center; gap:16px; background:#f7f7f7; border-radius:4px; color:#555; font-size:14px; text-align:center; padding:24px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#1a1a1a"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.734-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span>タイムラインを読み込めませんでした</span>
+          <a href="https://x.com/narita_kizai" target="_blank" rel="noopener"
+             style="padding:10px 24px; background:#1a1a1a; color:#fff; border-radius:4px; text-decoration:none; font-size:13px; font-weight:700;">
+            X でプロフィールを見る
+          </a>
+        </div>
       </div>
+      <script>
+      (function() {
+        var wrap = document.getElementById('tw-timeline-wrap');
+        var fallback = document.getElementById('tw-fallback');
+        // widgets.js 読み込み後に確実に初期化
+        window.twttr = window.twttr || {};
+        var _ready = window.twttr.ready;
+        window.twttr.ready = function(cb) {
+          if (_ready) _ready.call(window.twttr, cb); else cb(window.twttr);
+        };
+        // 4秒後にiframeが生成されていなければフォールバック表示
+        setTimeout(function() {
+          if (!wrap.querySelector('iframe')) {
+            wrap.querySelector('a.twitter-timeline').style.display = 'none';
+            fallback.style.display = 'flex';
+          }
+        }, 4000);
+        // widgets.js 読み込み完了後に再初期化
+        if (window.twttr && window.twttr.widgets) {
+          window.twttr.widgets.load(wrap);
+        }
+      })();
+      </script>
     </div>
   </div>
 

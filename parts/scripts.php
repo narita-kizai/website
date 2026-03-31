@@ -236,4 +236,21 @@ _applyAnim(document);
 <div class="cursor-ring" id="cursorRing"><span class="cursor-ring-text" id="cursorRingText">VIEW</span></div>
 <div class="cursor-dot" id="cursorDot"></div>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script>
+// Twitter/X widgets.js: 読み込み完了後にタイムラインを再初期化
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = 'https://platform.twitter.com/widgets.js';
+  js.charset = 'utf-8';
+  fjs.parentNode.insertBefore(js, fjs);
+  t._e = [];
+  t.ready = function(f) { t._e.push(f); };
+  return t;
+}(document, 'script', 'twitter-wjs'));
+window.twttr.ready(function(twttr) {
+  var wrap = document.getElementById('tw-timeline-wrap');
+  if (wrap) twttr.widgets.load(wrap);
+});
+</script>
