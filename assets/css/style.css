@@ -2433,9 +2433,9 @@ body.cat-caught {
   cursor: url('/cow-caught.svg') 16 21, auto;
 }
 body.cat-caught .cursor-ring { transform: scale(1.4); }
-/* 蹴っ飛ばし時：牛が蹄パンチ */
+/* 蹴っ飛ばし時：牛が後ろ蹴り */
 body.cat-kick {
-  cursor: url('/cow-kick-xl.svg') 24 36, auto;
+  cursor: url('/cow-kick2-xl.svg') 11 27, auto;
 }
 /* ネコが蹴り飛ばされるアニメーション */
 @keyframes catFlyOff {

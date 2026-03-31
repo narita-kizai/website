@@ -1,30 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
   <!-- 角（左） -->
-  <path d="M10,7 Q8,2 5,3 Q7,5 9,8" fill="#c8a060" stroke="#a08040" stroke-width="0.4"/>
+  <path d="M9,6 Q6,1 3,2 Q5,4 8,7" fill="#c8a060" stroke="#a08040" stroke-width="0.4"/>
   <!-- 角（右） -->
-  <path d="M22,7 Q24,2 27,3 Q25,5 23,8" fill="#c8a060" stroke="#a08040" stroke-width="0.4"/>
-  <!-- 耳（左） -->
-  <circle cx="5.5"  cy="13" r="5.5" fill="#c8a060"/>
-  <circle cx="5.5"  cy="13" r="3.5" fill="#f0b090"/>
-  <!-- 耳（右） -->
-  <circle cx="26.5" cy="13" r="5.5" fill="#c8a060"/>
-  <circle cx="26.5" cy="13" r="3.5" fill="#f0b090"/>
-  <!-- 頭（ホルスタイン白ベース） -->
-  <ellipse cx="16" cy="21" rx="12.5" ry="10.5" fill="#f5f0e8" stroke="#d0c8b8" stroke-width="0.4"/>
-  <!-- ホルスタイン模様 -->
-  <ellipse cx="10"  cy="16"  rx="4"   ry="3.5" fill="#2a2a2a" opacity="0.85"/>
-  <ellipse cx="22"  cy="14"  rx="2.5" ry="2"   fill="#2a2a2a" opacity="0.85"/>
+  <path d="M23,6 Q26,1 29,2 Q27,4 24,7" fill="#c8a060" stroke="#a08040" stroke-width="0.4"/>
+  <!-- 耳（横向き・牛らしく水平） -->
+  <ellipse cx="4"  cy="13" rx="4.5" ry="3"   fill="#c8a060"/>
+  <ellipse cx="4"  cy="13" rx="2.8" ry="1.8" fill="#f0b090"/>
+  <ellipse cx="28" cy="13" rx="4.5" ry="3"   fill="#c8a060"/>
+  <ellipse cx="28" cy="13" rx="2.8" ry="1.8" fill="#f0b090"/>
+  <!-- 頭（縦長楕円・牛らしく縦に長い） -->
+  <ellipse cx="16" cy="17" rx="10.5" ry="14" fill="#f5f0e8" stroke="#d0c8b8" stroke-width="0.4"/>
+  <!-- ホルスタイン黒模様 -->
+  <ellipse cx="10" cy="10" rx="3.5" ry="3"   fill="#2a2a2a" opacity="0.85"/>
+  <ellipse cx="22" cy="8"  rx="2.5" ry="2"   fill="#2a2a2a" opacity="0.85"/>
   <!-- 目（左） -->
-  <circle cx="11.5" cy="19"   r="2.5" fill="#1a1008"/>
-  <circle cx="12.4" cy="17.8" r="0.8" fill="#fff"/>
+  <circle cx="11"   cy="14"   r="2.3" fill="#1a1008"/>
+  <circle cx="11.8" cy="12.9" r="0.7" fill="#fff"/>
   <!-- 目（右） -->
-  <circle cx="20.5" cy="19"   r="2.5" fill="#1a1008"/>
-  <circle cx="21.4" cy="17.8" r="0.8" fill="#fff"/>
-  <!-- 鼻面（大きなピンク） -->
-  <ellipse cx="16" cy="25" rx="6"   ry="4"   fill="#f0c0a8" stroke="#d09080" stroke-width="0.4"/>
-  <!-- 鼻孔 -->
-  <ellipse cx="13.5" cy="25.5" rx="1.2" ry="0.9" fill="#c07060"/>
-  <ellipse cx="18.5" cy="25.5" rx="1.2" ry="0.9" fill="#c07060"/>
+  <circle cx="21"   cy="14"   r="2.3" fill="#1a1008"/>
+  <circle cx="21.8" cy="12.9" r="0.7" fill="#fff"/>
+  <!-- 鼻面（大きく目立つ・牛の特徴） -->
+  <ellipse cx="16" cy="25.5" rx="7.5" ry="5.5" fill="#f0c0a8" stroke="#d09080" stroke-width="0.4"/>
+  <!-- 鼻孔（大きめ） -->
+  <ellipse cx="12.5" cy="26"  rx="1.5" ry="1.2" fill="#c07060"/>
+  <ellipse cx="19.5" cy="26"  rx="1.5" ry="1.2" fill="#c07060"/>
   <!-- 口 -->
-  <path d="M13,27.2 Q16,29 19,27.2" fill="none" stroke="#a06050" stroke-width="0.8" stroke-linecap="round"/>
+  <path d="M13,29 Q16,31 19,29" fill="none" stroke="#a06050" stroke-width="0.8" stroke-linecap="round"/>
 </svg>
