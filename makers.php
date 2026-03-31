@@ -3,11 +3,17 @@ $pageTitle   = '取り扱いメーカー';
 $currentPage = 'makers';
 require_once __DIR__.'/db.php';
 
-// ─── ロゴファイル検索ヘルパー ─────────────────────
-function makerLogoSrc(int $id): string {
+// ─── 画像ソース（カスタムロゴ優先 → Googleファビコン） ──
+function makerImgSrc(int $id, string $url): string {
     foreach (['png','jpg','jpeg','webp','gif'] as $ext) {
         if (file_exists(__DIR__."/assets/img/makers/{$id}.{$ext}")) {
             return "/assets/img/makers/{$id}.{$ext}";
+        }
+    }
+    if ($url) {
+        $domain = parse_url($url, PHP_URL_HOST);
+        if ($domain) {
+            return 'https://www.google.com/s2/favicons?domain=' . urlencode($domain) . '&sz=32';
         }
     }
     return '/assets/img/makers/noimage.svg';
@@ -20,21 +26,16 @@ try {
     )->fetchAll() : [];
 } catch (Exception $e) { $all = []; }
 
-// row_group でグルーピング（CSV順を維持）
-$grouped   = [];
-$rowOrder  = [];
+$grouped  = [];
+$rowOrder = [];
 foreach ($all as $m) {
     $g = $m['row_group'];
-    if (!isset($grouped[$g])) {
-        $grouped[$g] = [];
-        $rowOrder[]  = $g;
-    }
+    if (!isset($grouped[$g])) { $grouped[$g] = []; $rowOrder[] = $g; }
     $grouped[$g][] = $m;
 }
 
-// ─── セクションID マッピング ──────────────────────
 $rowKeys = [
-    'あ行' => 'row-a', 'か行' => 'row-ka', 'さ行' => 'row-sa',
+    'あ行' => 'row-a',  'か行' => 'row-ka', 'さ行' => 'row-sa',
     'た行' => 'row-ta', 'な行' => 'row-na', 'は行' => 'row-ha',
     'ま行' => 'row-ma', 'や行' => 'row-ya', 'ら行' => 'row-ra',
     'わ行' => 'row-wa', 'アルファベット' => 'row-alpha',
@@ -81,18 +82,21 @@ include 'parts/head.php';
     <?php foreach ($rowOrder as $g): ?>
       <section class="makers-section" id="<?= rowId($g, $rowKeys) ?>">
         <h2 class="makers-section-title"><?= e($g) ?></h2>
-        <div class="makers-grid">
+        <div class="makers-list">
           <?php foreach ($grouped[$g] as $m): ?>
-            <?php $logo = makerLogoSrc((int)$m['id']); ?>
+            <?php $img = makerImgSrc((int)$m['id'], (string)($m['url'] ?? '')); ?>
             <?php if ($m['url']): ?>
-            <a class="maker-card" href="<?= e($m['url']) ?>" target="_blank" rel="noopener noreferrer">
+            <a class="maker-row" href="<?= e($m['url']) ?>" target="_blank" rel="noopener noreferrer">
             <?php else: ?>
-            <div class="maker-card">
+            <div class="maker-row maker-row--nolink">
             <?php endif; ?>
-              <div class="maker-logo">
-                <img src="<?= e($logo) ?>" alt="<?= e($m['name']) ?>" loading="lazy">
-              </div>
-              <div class="maker-name"><?= e($m['name']) ?></div>
+              <img class="maker-favicon" src="<?= e($img) ?>" alt="" loading="lazy" width="20" height="20">
+              <span class="maker-row-name"><?= e($m['name']) ?></span>
+              <?php if ($m['url']): ?>
+              <svg class="maker-row-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M1 11L11 1M11 1H5M11 1V7"/>
+              </svg>
+              <?php endif; ?>
             <?php echo $m['url'] ? '</a>' : '</div>'; ?>
           <?php endforeach; ?>
         </div>
