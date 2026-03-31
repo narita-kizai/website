@@ -24,7 +24,7 @@ include 'parts/head.php';
     <?php if (isset($_GET['sent'])): ?>
     <div class="contact-thanks">
       <p>お問い合わせありがとうございました。<br>内容を確認の上、担当者よりご連絡いたします。</p>
-      <a href="/" class="btn-primary" style="display:inline-block;margin-top:24px;">トップページへ戻る</a>
+      <a href="/" class="btn-primary">トップページへ戻る</a>
     </div>
     <?php elseif (isset($_GET['error'])): ?>
     <div class="contact-error">

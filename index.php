@@ -125,15 +125,15 @@ include 'parts/head.php';
       </h2>
       <div class="parallax-nums">
         <div class="parallax-num">
-          <div class="parallax-num-value" data-count="48" data-suffix="年"><span class="count-num">0</span><span style="font-size:0.5em">年</span></div>
+          <div class="parallax-num-value" data-count="48" data-suffix="年"><span class="count-num">0</span><span class="parallax-num-suffix">年</span></div>
           <div class="parallax-num-label">創業からの歴史</div>
         </div>
         <div class="parallax-num">
-          <div class="parallax-num-value" data-count="2" data-suffix="拠点"><span class="count-num">0</span><span style="font-size:0.5em">拠点</span></div>
+          <div class="parallax-num-value" data-count="2" data-suffix="拠点"><span class="count-num">0</span><span class="parallax-num-suffix">拠点</span></div>
           <div class="parallax-num-label">富里・茂原</div>
         </div>
         <div class="parallax-num">
-          <div class="parallax-num-value" data-count="24" data-suffix="名"><span class="count-num">0</span><span style="font-size:0.5em">名</span></div>
+          <div class="parallax-num-value" data-count="24" data-suffix="名"><span class="count-num">0</span><span class="parallax-num-suffix">名</span></div>
           <div class="parallax-num-label">従業員数</div>
         </div>
       </div>
@@ -171,8 +171,8 @@ include 'parts/head.php';
           </div>
         </a>
       </div>
-      <div style="text-align:center; margin-top:40px;">
-        <a href="/news.php" style="display:inline-block; padding:14px 48px; border:1px solid var(--accent); color:var(--accent); font-family:var(--display); font-size:13px; letter-spacing:0.2em; text-decoration:none; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--accent)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--accent)'">ニュース一覧を見る</a>
+      <div class="news-more-wrap">
+        <a href="/news.php" class="btn-news-more">ニュース一覧を見る</a>
       </div>
     </div>
   </div>
@@ -237,17 +237,17 @@ include 'parts/head.php';
       <h2 class="parallax-title">
         お気軽にご相談ください。
       </h2>
-      <p style="font-size:15px; color:rgba(255,255,255,0.8); margin-bottom:32px; line-height:1.9;">
+      <p class="cta-lead">
         配管機材・住宅資材のことなら、<br>お電話・メールにてお問い合わせください。
       </p>
-      <div class="parallax-nums" style="gap:32px;">
-        <a href="tel:0476930635" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; background:rgba(200,169,90,0.2); border:1px solid var(--accent); padding:20px 36px; border-radius:3px; transition:background 0.2s;" onmouseover="this.style.background='rgba(200,169,90,0.4)'" onmouseout="this.style.background='rgba(200,169,90,0.2)'">
-          <span style="font-family:var(--display); font-size:11px; letter-spacing:0.3em; color:var(--accent); margin-bottom:8px;">本店・富里営業部</span>
-          <span style="font-family:var(--display); font-size:clamp(24px,3vw,36px); color:var(--white); letter-spacing:0.08em;">0476-93-0635</span>
+      <div class="parallax-nums parallax-nums-contact">
+        <a href="tel:0476930635" class="cta-tel-link">
+          <span class="cta-tel-label">本店・富里営業部</span>
+          <span class="cta-tel-num">0476-93-0635</span>
         </a>
-        <a href="tel:0475250812" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; background:rgba(200,169,90,0.2); border:1px solid var(--accent); padding:20px 36px; border-radius:3px; transition:background 0.2s;" onmouseover="this.style.background='rgba(200,169,90,0.4)'" onmouseout="this.style.background='rgba(200,169,90,0.2)'">
-          <span style="font-family:var(--display); font-size:11px; letter-spacing:0.3em; color:var(--accent); margin-bottom:8px;">茂原営業所</span>
-          <span style="font-family:var(--display); font-size:clamp(24px,3vw,36px); color:var(--white); letter-spacing:0.08em;">0475-25-0812</span>
+        <a href="tel:0475250812" class="cta-tel-link">
+          <span class="cta-tel-label">茂原営業所</span>
+          <span class="cta-tel-num">0475-25-0812</span>
         </a>
       </div>
     </div>

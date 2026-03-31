@@ -20,7 +20,7 @@ include 'parts/head.php';
     </div>
   </div>
   <div class="content-area">
-    <p style="margin-bottom:40px; font-size:15px; color:var(--gray-500); line-height:2;">
+    <p class="products-lead">
       配管機材・住宅資材はなんでも取り扱っております。在庫が無いものもお気軽にお問い合わせください。
     </p>
     <div class="items-grid">
