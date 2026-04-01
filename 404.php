@@ -165,18 +165,46 @@ include 'parts/head.php';
   box-shadow: 12px 12px 32px rgba(0,0,0,0.6);
 }
 
+/* ライトボックスナビゲーション */
+.lb-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: #fff;
+  width: 52px;
+  height: 52px;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 10001;
+  flex-shrink: 0;
+}
+.lb-nav-btn:hover { background: rgba(255,255,255,0.28); }
+#lb-prev { left: 24px; }
+#lb-next { right: 24px; }
 @media (max-width: 768px) {
   .e404-inner {
     grid-template-columns: 1fr;
     gap: 48px;
   }
   .e404-album {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    aspect-ratio: 1;
-    max-width: 400px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    aspect-ratio: auto;
+    max-width: 360px;
     margin: 0 auto;
   }
+  .e404-photo {
+    aspect-ratio: 1;
+  }
+  .lb-nav-btn { display: none; }
+  #lb-img { max-width: 92vw !important; max-height: 82vh !important; }
 }
 </style>
 <body class="inner-page">
@@ -220,30 +248,84 @@ include 'parts/head.php';
 
 <!-- ライトボックス -->
 <div id="lb-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; cursor:zoom-out;">
+  <button id="lb-prev" class="lb-nav-btn">&#8592;</button>
   <img id="lb-img" src="" alt="" style="max-width:60vw; max-height:60vh; object-fit:contain; box-shadow:0 8px 48px rgba(0,0,0,0.8); border:4px solid rgba(255,255,255,0.9); border-radius:2px; transition:opacity 0.2s; opacity:0;">
+  <button id="lb-next" class="lb-nav-btn">&#8594;</button>
 </div>
 <script>
 (function(){
-  var overlay = document.getElementById('lb-overlay');
-  var lbImg   = document.getElementById('lb-img');
+  var overlay  = document.getElementById('lb-overlay');
+  var lbImg    = document.getElementById('lb-img');
+  var btnPrev  = document.getElementById('lb-prev');
+  var btnNext  = document.getElementById('lb-next');
+  var photos   = Array.from(document.querySelectorAll('.e404-photo'));
+  var current  = 0;
 
-  document.querySelectorAll('.e404-photo').forEach(function(img){
-    img.addEventListener('click', function(){
-      lbImg.src = this.src;
-      lbImg.style.opacity = '0';
-      overlay.style.display = 'flex';
-      setTimeout(function(){ lbImg.style.opacity = '1'; }, 10);
-    });
-  });
+  function showPhoto(idx) {
+    current = (idx + photos.length) % photos.length;
+    lbImg.style.opacity = '0';
+    setTimeout(function(){
+      lbImg.src = photos[current].src;
+      lbImg.style.opacity = '1';
+    }, 150);
+  }
 
-  overlay.addEventListener('click', function(){
+  function openLightbox(idx) {
+    current = idx;
+    lbImg.src = photos[current].src;
+    lbImg.style.opacity = '0';
+    overlay.style.display = 'flex';
+    setTimeout(function(){ lbImg.style.opacity = '1'; }, 10);
+  }
+
+  function closeLightbox() {
     lbImg.style.opacity = '0';
     setTimeout(function(){ overlay.style.display = 'none'; }, 200);
+  }
+
+  photos.forEach(function(img, i){
+    img.addEventListener('click', function(){ openLightbox(i); });
   });
 
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape') overlay.click();
+  // PC: 左右ボタン
+  btnPrev.addEventListener('click', function(e){
+    e.stopPropagation();
+    showPhoto(current - 1);
   });
+  btnNext.addEventListener('click', function(e){
+    e.stopPropagation();
+    showPhoto(current + 1);
+  });
+
+  // オーバーレイクリックで閉じる
+  var touchMoved = false;
+  overlay.addEventListener('click', function(e){
+    if (touchMoved) { touchMoved = false; return; }
+    if (e.target === overlay || e.target === lbImg) closeLightbox();
+  });
+
+  // キーボード操作
+  document.addEventListener('keydown', function(e){
+    if (overlay.style.display === 'none') return;
+    if (e.key === 'Escape')      closeLightbox();
+    if (e.key === 'ArrowLeft')   showPhoto(current - 1);
+    if (e.key === 'ArrowRight')  showPhoto(current + 1);
+  });
+
+  // スマホ: スワイプ
+  var touchStartX = 0;
+  overlay.addEventListener('touchstart', function(e){
+    touchStartX = e.touches[0].clientX;
+    touchMoved = false;
+  }, { passive: true });
+  overlay.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      touchMoved = true;
+      if (dx < 0) showPhoto(current + 1);
+      else         showPhoto(current - 1);
+    }
+  }, { passive: true });
 })();
 </script>
 </body>
