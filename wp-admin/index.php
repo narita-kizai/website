@@ -118,7 +118,7 @@ body {
 <div class="noise"></div>
 <div class="wrap">
   <div class="img-side">
-    <img src="/wp.jpg" alt="">
+    <img src="/wp-admin/wp.jpg" alt="">
   </div>
   <div class="msg-side">
     <div class="label">403 FORBIDDEN</div>

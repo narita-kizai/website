@@ -18,7 +18,7 @@ function _nav_active($pages, $current) {
 <header>
   <div class="header-inner">
     <a class="logo" href="/">
-      <img class="logo-img" src="/narita_logo_512x512_2.png" alt="成田機材株式会社">
+      <img class="logo-img" src="/assets/img/logo/narita_logo_512x512_2.png" alt="成田機材株式会社">
       <div class="logo-text">
         <span class="logo-main">成田機材株式会社</span>
         <span class="logo-sub">Piping &amp; Housing</span>

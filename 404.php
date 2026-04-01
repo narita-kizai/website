@@ -240,7 +240,7 @@ include 'parts/head.php';
     <!-- フォトアルバム -->
     <div class="e404-album">
       <?php for ($i = 1; $i <= 16; $i++): ?>
-      <img class="e404-photo" src="/image404/image404_ (<?= $i ?>).jpg" alt="成田機材の仲間たち">
+      <img class="e404-photo" src="/assets/img/404/image404_ (<?= $i ?>).jpg" alt="成田機材の仲間たち">
       <?php endfor; ?>
     </div>
   </div>

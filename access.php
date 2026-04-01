@@ -21,7 +21,7 @@ include 'parts/head.php';
   </div>
   <div class="content-area">
     <div class="access-block">
-      <img class="access-photo" src="/honten.jpg" alt="本店・富里営業部 外観">
+      <img class="access-photo" src="/assets/img/company/honten.jpg" alt="本店・富里営業部 外観">
       <div class="access-card">
         <h3>本店・富里営業部</h3>
         <address>
@@ -40,7 +40,7 @@ include 'parts/head.php';
       </div>
     </div>
     <div class="access-block">
-      <img class="access-photo" src="/mobara.jpg" alt="茂原営業所 外観">
+      <img class="access-photo" src="/assets/img/company/mobara.jpg" alt="茂原営業所 外観">
       <div class="access-card">
         <h3>茂原営業所</h3>
         <address>

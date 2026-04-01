@@ -24,7 +24,7 @@ body {
   background: var(--white);
   line-height: 1.8;
   font-size: 15px;
-  /* 【牛＆犬】 */ cursor: url('/cow-cursor.svg') 16 21, auto;
+  /* 【牛＆犬】 */ cursor: url('/assets/img/svg/cow-cursor.svg') 16 21, auto;
   /* 【ネズミ＆ネコに戻す場合】 cursor: url('/mouse-follower.svg') 16 21, auto; */
 }
 
@@ -2419,7 +2419,7 @@ footer {
 .cursor-ring {
   position: fixed;
   width: 32px; height: 32px;
-  background: url('/dog-cursor.svg') no-repeat center/contain;
+  background: url('/assets/img/svg/dog-cursor.svg') no-repeat center/contain;
   pointer-events: none;
   z-index: 99999;
   top: -100px; left: -100px;
@@ -2430,12 +2430,12 @@ footer {
 .cursor-dot { display: none; }
 /* 犬が追いついたとき：犬大きく、牛やられ顔 */
 body.cat-caught {
-  cursor: url('/cow-caught.svg') 16 21, auto;
+  cursor: url('/assets/img/svg/cow-caught.svg') 16 21, auto;
 }
 body.cat-caught .cursor-ring { transform: scale(1.4); }
 /* 蹴っ飛ばし時：牛が後ろ蹴り */
 body.cat-kick {
-  cursor: url('/cow-kick2-xl.svg') 11 27, auto;
+  cursor: url('/assets/img/svg/cow-kick2-xl.svg') 11 27, auto;
 }
 /* ネコが蹴り飛ばされるアニメーション */
 @keyframes catFlyOff {

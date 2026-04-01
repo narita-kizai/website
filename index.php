@@ -8,7 +8,7 @@ include 'parts/head.php';
 
 <!-- ローディング画面 -->
 <div id="page-loader">
-  <img class="loader-logo" src="narita_logo_512x512_2.png" alt="成田機材">
+  <img class="loader-logo" src="/assets/img/logo/narita_logo_512x512_2.png" alt="成田機材">
   <div class="loader-name">NARITA KIZAI</div>
   <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
 </div>
@@ -21,7 +21,7 @@ include 'parts/head.php';
   <div class="hero-video">
     <!-- サンプル動画: Pexels フリー素材（配管・工事イメージ） -->
     <video autoplay muted loop playsinline>
-      <source src="output.mp4" type="video/mp4">
+      <source src="/assets/img/video/output.mp4" type="video/mp4">
       <!-- <source src="4237250-uhd_3840_2160_30fps.mp4" type="video/mp4"> -->
       <!-- <source src="v2_1773814298768-799095223.mp4" type="video/mp4"> -->
       <!-- <source src="watermarked.mp4" type="video/mp4"> -->
@@ -97,25 +97,25 @@ include 'parts/head.php';
       </div>
       <div class="feature-card">
         <span class="feature-num">01</span>
-        <img src="/truck_tomisato2_new.jpg" alt="配送体制">
+        <img src="/assets/img/company/truck_tomisato2_new.jpg" alt="配送体制">
         <h3>充実した配送体制</h3>
         <p>トラック12台、乗用車2台、ライトバン2台、フォークリフト3台。準備万全でお届けいたします。</p>
       </div>
       <div class="feature-card">
         <span class="feature-num">02</span>
-        <img src="/mop2.jpg" alt="店頭お引取り">
+        <img src="/assets/img/company/mop2.jpg" alt="店頭お引取り">
         <h3>早朝からの店頭お引取り</h3>
         <p>早朝より準備いたしております。現場の前にぜひお立ち寄りください。</p>
       </div>
       <div class="feature-card">
         <span class="feature-num">03</span>
-        <img src="/houfu.png" alt="豊富な在庫">
+        <img src="/assets/img/company/houfu.png" alt="豊富な在庫">
         <h3>豊富な在庫と即日対応</h3>
         <p>管・継手・弁・住宅設備など多品種の商品を常時在庫。在庫品は当日対応を基本に、迅速に手配</p>
       </div>
       <div class="feature-card">
         <span class="feature-num">04</span>
-        <img src="/senmon.png" alt="技術サポート">
+        <img src="/assets/img/company/senmon.png" alt="技術サポート">
         <h3>専門スタッフのサポート</h3>
         <p>経験豊富なスタッフが商品選定から技術的なご相談まで、現場目線で丁寧にサポートいたします。</p>
       </div>
