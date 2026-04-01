@@ -13,7 +13,6 @@ body {
   align-items: center;
   justify-content: center;
   font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
-  overflow: hidden;
 }
 .wrap {
   display: grid;
@@ -107,6 +106,7 @@ body {
   opacity: 0.4;
 }
 @media (max-width: 640px) {
+  body { min-height: auto; align-items: flex-start; padding: 40px 0; }
   .wrap { grid-template-columns: 1fr; gap: 40px; text-align: center; }
   .img-side img { max-width: 260px; margin: 0 auto; }
   .label { justify-content: center; }
