@@ -205,6 +205,8 @@ include 'parts/head.php';
   }
   .lb-nav-btn { display: none; }
   #lb-img { max-width: 92vw !important; max-height: 82vh !important; }
+  .e404-btn-primary,
+  .e404-btn-secondary { padding: 12px 22px; font-size: 12px; }
 }
 </style>
 <body class="inner-page">
@@ -231,6 +233,7 @@ include 'parts/head.php';
       </p>
       <div class="e404-btns">
         <a href="/" class="e404-btn-primary">トップへ戻る</a>
+        <a href="/recruit" class="e404-btn-secondary">採用情報へ</a>
       </div>
     </div>
 
