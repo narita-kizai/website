@@ -2580,7 +2580,8 @@ body.inner-page .page.active .content-area {
   .hero { height: 320px; }
   .president-block { grid-template-columns: 1fr; }
   .president-img { max-width: 220px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
+  .footer-brand { grid-column: 1 / -1; }
   .news-item { grid-template-columns: 1fr; }
   .news-img { height: 180px; }
   .timeline { padding-left: 80px; }
