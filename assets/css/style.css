@@ -565,7 +565,7 @@ nav { display: flex; align-items: center; gap: 4px; }
   background: var(--accent);
 }
 .news-section .section-bg-text {
-  color: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.12);
 }
 /* ネイビーカード（トップページNEWSセクション・ニュース一覧ページ共通） */
 .news-dark .news-card,
@@ -2310,7 +2310,7 @@ footer {
   overflow: hidden;
 }
 .features-header .section-bg-text {
-  color: rgba(255,255,255,0.025);
+  color: rgba(255,255,255,0.10);
 }
 .features-header .section-title-en {
   color: var(--accent);
