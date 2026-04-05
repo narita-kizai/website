@@ -29,17 +29,6 @@ function _nav_active($pages, $current) {
         <a class="nav-link<?= _nav_active('home', $_cp) ?>" href="/">ホーム</a>
       </div>
       <div class="nav-item">
-        <span class="nav-link has-dropdown<?= _nav_active($_company_pages, $_cp) ?>">会社情報</span>
-        <div class="dropdown">
-          <a href="/company.php">会社概要</a>
-          <a href="/president.php">代表ご挨拶</a>
-          <a href="/history.php">会社沿革</a>
-          <a href="/executive.php">役員のご紹介</a>
-          <a href="/associate.php">関連会社</a>
-          <a href="/access.php">アクセス</a>
-        </div>
-      </div>
-      <div class="nav-item">
         <span class="nav-link has-dropdown<?= _nav_active(['products','makers'], $_cp) ?>">取扱商品</span>
         <div class="dropdown">
           <a href="/products.php">商品カテゴリ</a>
@@ -54,6 +43,17 @@ function _nav_active($pages, $current) {
       </div>
       <div class="nav-item">
         <a class="nav-link<?= _nav_active('contact', $_cp) ?>" href="/contact.php">お問い合わせ</a>
+      </div>
+      <div class="nav-item">
+        <span class="nav-link has-dropdown<?= _nav_active($_company_pages, $_cp) ?>">会社情報</span>
+        <div class="dropdown">
+          <a href="/company.php">会社概要</a>
+          <a href="/president.php">代表ご挨拶</a>
+          <a href="/history.php">会社沿革</a>
+          <a href="/executive.php">役員のご紹介</a>
+          <a href="/associate.php">関連会社</a>
+          <a href="/access.php">アクセス</a>
+        </div>
       </div>
     </nav>
     <div class="hamburger" id="hamburger" onclick="toggleFullMenu()">
