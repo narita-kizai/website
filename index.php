@@ -21,7 +21,7 @@ include 'parts/head.php';
   <div class="hero-video">
     <!-- サンプル動画: Pexels フリー素材（配管・工事イメージ） -->
     <video autoplay muted loop playsinline>
-      <source src="/assets/img/video/output.mp4" type="video/mp4">
+      <source src="/assets/img/video/output_opt.mp4" type="video/mp4">
       <!-- <source src="4237250-uhd_3840_2160_30fps.mp4" type="video/mp4"> -->
       <!-- <source src="v2_1773814298768-799095223.mp4" type="video/mp4"> -->
       <!-- <source src="watermarked.mp4" type="video/mp4"> -->
