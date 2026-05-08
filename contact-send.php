@@ -23,7 +23,43 @@ if (!empty($_POST['website'])) {
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// スパム対策 2: 送信時間チェック
+// スパム対策 2: IPレートリミット
+// 同一IPから1時間に3件超の送信を拒否する
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function checkRateLimit() {
+    $ip     = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    $file   = sys_get_temp_dir() . '/narita_contact_' . md5($ip) . '.json';
+    $now    = time();
+    $window = 3600; // 1時間
+    $max    = 3;    // 最大3件/時間
+
+    $times = [];
+    if (file_exists($file)) {
+        $times = json_decode(file_get_contents($file), true) ?: [];
+    }
+
+    // ウィンドウ外のものを除去
+    $times = array_values(array_filter($times, function($t) use ($now, $window) {
+        return ($now - $t) < $window;
+    }));
+
+    if (count($times) >= $max) {
+        return false;
+    }
+
+    $times[] = $now;
+    file_put_contents($file, json_encode($times), LOCK_EX);
+    return true;
+}
+
+if (!checkRateLimit()) {
+    // ボットには成功に見せて静かに破棄する
+    header('Location: /contact.php?sent=1');
+    exit;
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// スパム対策 3: 送信時間チェック
 // フォーム表示から3秒未満はボット判定、1時間超は期限切れ
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 $form_time = isset($_SESSION['form_time']) ? (int)$_SESSION['form_time'] : 0;
