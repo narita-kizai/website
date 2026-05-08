@@ -1,4 +1,6 @@
 <?php
+session_start();
+$_SESSION['form_time'] = time();
 $pageTitle = 'お問い合わせ';
 $currentPage = 'contact';
 include 'parts/head.php';
@@ -48,6 +50,10 @@ include 'parts/head.php';
     </div>
 
     <form class="contact-form" action="/contact-send.php" method="post">
+      <!-- ハニーポット: ボット対策（人間には見えない） -->
+      <div style="position:absolute;left:-9999px;top:-9999px;opacity:0;pointer-events:none;" aria-hidden="true">
+        <input type="text" name="website" tabindex="-1" autocomplete="off">
+      </div>
       <div class="form-group">
         <label class="form-label" for="name">お名前 <span class="form-required">必須</span></label>
         <input class="form-input" type="text" id="name" name="name" required placeholder="例）山田 太郎">

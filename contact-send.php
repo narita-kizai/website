@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // 送信先メールアドレス（テスト用）
 define('MAIL_TO', 'nakajima@narita-kizai.com');
 define('MAIL_FROM', 'noreply@narita-kizai.com');
@@ -6,6 +8,29 @@ define('MAIL_FROM', 'noreply@narita-kizai.com');
 // POSTメソッド以外はリダイレクト
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: /contact.php');
+    exit;
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// スパム対策 1: ハニーポットチェック
+// ボットはhidden扱いのフィールドにも入力するため、
+// website フィールドが空でなければボットと判定する
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+if (!empty($_POST['website'])) {
+    // ボットには成功に見せて静かに破棄する
+    header('Location: /contact.php?sent=1');
+    exit;
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// スパム対策 2: 送信時間チェック
+// フォーム表示から3秒未満はボット判定、1時間超は期限切れ
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$form_time = isset($_SESSION['form_time']) ? (int)$_SESSION['form_time'] : 0;
+$elapsed   = time() - $form_time;
+unset($_SESSION['form_time']);
+if ($form_time === 0 || $elapsed < 3 || $elapsed > 3600) {
+    header('Location: /contact.php?error=1');
     exit;
 }
 
@@ -23,6 +48,16 @@ if ($name === '' || $email === '' || $category === '' || $message === '') {
     exit;
 }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header('Location: /contact.php?error=1');
+    exit;
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// スパム対策 3: URLスパムパターン検出
+// 名前・会社名・本文を合わせてURLが2件以上あれば広告スパムと判定
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$url_count = preg_match_all('/https?:\/\//i', $name . ' ' . $company . ' ' . $message);
+if ($url_count >= 2) {
     header('Location: /contact.php?error=1');
     exit;
 }
