@@ -86,6 +86,7 @@ include 'parts/head.php';
         <label class="form-label" for="message">お問い合わせ内容 <span class="form-required">必須</span></label>
         <textarea class="form-textarea" id="message" name="message" required rows="6" placeholder="お問い合わせ内容をご記入ください"></textarea>
       </div>
+      <input type="hidden" name="recaptcha_token" id="recaptcha_token">
       <div class="form-submit">
         <button class="btn-primary" type="submit">送信する</button>
       </div>
@@ -95,5 +96,18 @@ include 'parts/head.php';
 
 <?php include 'parts/footer.php'; ?>
 <?php include 'parts/scripts.php'; ?>
+<script src="https://www.google.com/recaptcha/api.js?render=6LcMUeQsAAAAADZ21JrPJ3k2IBjZq8r2A6J9opHR"></script>
+<script>
+  document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6LcMUeQsAAAAADZ21JrPJ3k2IBjZq8r2A6J9opHR', {action: 'contact'}).then(function(token) {
+        document.getElementById('recaptcha_token').value = token;
+        form.submit();
+      });
+    });
+  });
+</script>
 </body>
 </html>

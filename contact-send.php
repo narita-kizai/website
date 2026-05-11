@@ -12,7 +12,37 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// スパム対策 1: ハニーポットチェック
+// スパム対策 1: Google reCAPTCHA v3 検証
+// スコアが 0.5 未満はボット判定
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function verifyRecaptcha($token) {
+    if (empty($token)) {
+        return false;
+    }
+    $secret  = '6LcMUeQsAAAAAP6CERXRsGp_GUPpX95gZYANMrsc';
+    $url     = 'https://www.google.com/recaptcha/api/siteverify';
+    $data    = http_build_query(['secret' => $secret, 'response' => $token]);
+    $options = ['http' => [
+        'method'  => 'POST',
+        'header'  => 'Content-Type: application/x-www-form-urlencoded',
+        'content' => $data,
+    ]];
+    $result  = file_get_contents($url, false, stream_context_create($options));
+    if ($result === false) {
+        return true; // Google API 障害時はUX優先で通す
+    }
+    $json = json_decode($result, true);
+    return !empty($json['success']) && isset($json['score']) && $json['score'] >= 0.5;
+}
+
+$recaptcha_token = $_POST['recaptcha_token'] ?? '';
+if (!verifyRecaptcha($recaptcha_token)) {
+    header('Location: /contact.php?error=1');
+    exit;
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// スパム対策 2: ハニーポットチェック
 // ボットはhidden扱いのフィールドにも入力するため、
 // website フィールドが空でなければボットと判定する
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
