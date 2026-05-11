@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once __DIR__ . '/config.secret.php';
 
 // 送信先メールアドレス（テスト用）
 define('MAIL_TO', 'nakajima@narita-kizai.com');
@@ -19,7 +20,7 @@ function verifyRecaptcha($token) {
     if (empty($token)) {
         return false;
     }
-    $secret  = '6LcMUeQsAAAAAP6CERXRsGp_GUPpX95gZYANMrsc';
+    $secret  = RECAPTCHA_SECRET;
     $url     = 'https://www.google.com/recaptcha/api/siteverify';
     $data    = http_build_query(['secret' => $secret, 'response' => $token]);
     $options = ['http' => [

@@ -96,13 +96,13 @@ include 'parts/head.php';
 
 <?php include 'parts/footer.php'; ?>
 <?php include 'parts/scripts.php'; ?>
-<script src="https://www.google.com/recaptcha/api.js?render=6LcMUeQsAAAAADZ21JrPJ3k2IBjZq8r2A6J9opHR"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LeXWOQsAAAAADb0VEBzK4z3ICkPCsNTGtrRZ_YX"></script>
 <script>
   document.querySelector('.contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     var form = this;
     grecaptcha.ready(function() {
-      grecaptcha.execute('6LcMUeQsAAAAADZ21JrPJ3k2IBjZq8r2A6J9opHR', {action: 'contact'}).then(function(token) {
+      grecaptcha.execute('6LeXWOQsAAAAADb0VEBzK4z3ICkPCsNTGtrRZ_YX', {action: 'contact'}).then(function(token) {
         document.getElementById('recaptcha_token').value = token;
         form.submit();
       });
