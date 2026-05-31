@@ -21,8 +21,7 @@ include 'parts/head.php';
   </div>
   <div class="content-area">
     <table class="officers-table">
-      <tr><td>代表取締役社長</td><td>中嶋　哲寛</td></tr>
-      <tr><td>取　締　役</td><td>早坂　克浩</td></tr>
+      <tr><td>代表取締役社長</td><td>早坂　克浩</td></tr>
       <tr><td>取　締　役</td><td>桃井　理</td></tr>
       <tr><td>取　締　役</td><td>奥山　研一</td></tr>
       <tr><td>監　査　役</td><td>春日　秀文</td></tr>

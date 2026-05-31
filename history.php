@@ -52,7 +52,11 @@ include 'parts/head.php';
       </div>
       <div class="timeline-item">
         <div class="timeline-year">平成28年<br>10月</div>
-        <div class="timeline-content">代表取締役 緒方昭夫氏が退任し、中嶋哲寛が就任。</div>
+        <div class="timeline-content">代表取締役 緒方昭夫氏が退任し、中嶋哲寛氏が就任。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">令和8年<br>6月</div>
+        <div class="timeline-content">代表取締役 中嶋哲寛氏が退任し、早坂克浩が就任。</div>
       </div>
     </div>
   </div>

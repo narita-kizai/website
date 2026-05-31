@@ -24,16 +24,7 @@ include 'parts/head.php';
       <!-- 左: 既存コンテンツ -->
       <div>
         <div class="president-block">
-          <div class="president-flip">
-            <div class="president-flip-inner">
-              <div class="president-flip-front">
-                <img class="president-img" src="/assets/img/company/boss3.png" alt="代表取締役社長 中嶋哲寛">
-              </div>
-              <div class="president-flip-back">
-                <img class="president-img" src="/assets/img/company/boss2.png" alt="代表取締役社長 中嶋哲寛">
-              </div>
-            </div>
-          </div>
+          <img class="president-img" src="/assets/img/company/hayasaka.jpg" alt="代表取締役社長 早坂克浩">
           <div>
             <p class="president-text">
               このたびは成田機材株式会社ホームページをご覧いただき、誠にありがとうございます。<br><br>
@@ -43,7 +34,7 @@ include 'parts/head.php';
             </p>
             <div class="president-name">
               <span>代表取締役社長</span>
-              中嶋　哲寛
+              早坂　克浩
             </div>
           </div>
         </div>
@@ -65,23 +56,5 @@ include 'parts/head.php';
 
 <?php include 'parts/footer.php'; ?>
 <?php include 'parts/scripts.php'; ?>
-<script>
-(function() {
-  var flip = document.querySelector('.president-flip');
-  if (!flip) return;
-  var startX, startY;
-  flip.addEventListener('touchstart', function(e) {
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-  }, { passive: true });
-  flip.addEventListener('touchend', function(e) {
-    var dx = Math.abs(e.changedTouches[0].clientX - startX);
-    var dy = Math.abs(e.changedTouches[0].clientY - startY);
-    if (dx < 10 && dy < 10) {
-      flip.classList.toggle('flipped');
-    }
-  });
-})();
-</script>
 </body>
 </html>

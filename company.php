@@ -24,7 +24,7 @@ include 'parts/head.php';
       <div class="content-block-title">基本情報</div>
       <table class="data-table">
         <tr><th>商号</th><td>成田機材株式会社</td></tr>
-        <tr><th>代表取締役社長</th><td>中嶋　哲寛</td></tr>
+        <tr><th>代表取締役社長</th><td>早坂　克浩</td></tr>
         <tr><th>本店・富里営業部</th><td>〒286-0221<br>千葉県富里市七栄１９９番地<br>TEL 0476-93-0635<br>FAX 0476-93-7460</td></tr>
         <tr><th>茂原営業所</th><td>〒297-0017<br>千葉県茂原市東郷１０１１－１<br>TEL 0475-25-0812<br>FAX 0475-24-1315</td></tr>
         <tr><th>設立</th><td>昭和５３年６月６日</td></tr>
