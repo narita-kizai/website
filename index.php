@@ -131,7 +131,7 @@ include 'parts/head.php';
       </h2>
       <div class="parallax-nums">
         <div class="parallax-num">
-          <div class="parallax-num-value" data-count="48" data-suffix="年"><span class="count-num">0</span><span class="parallax-num-suffix">年</span></div>
+          <div class="parallax-num-value" data-count="<?= date('Y') - 1978 - (date('n') < 6 || (date('n') == 6 && date('j') < 6) ? 1 : 0) ?>" data-suffix="年"><span class="count-num">0</span><span class="parallax-num-suffix">年</span></div>
           <div class="parallax-num-label">創業からの歴史</div>
         </div>
         <div class="parallax-num">
